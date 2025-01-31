@@ -1,6 +1,10 @@
 import { Routes } from '@angular/router';
 import { AppLayout } from './layout/component/app.layout';
 import { SimpleComponent } from './components/resource/material/simple/simple.component';
+import { LandingComponent } from './landing/landing.component';
+
+
+
 
 export const routes: Routes = [
     {
@@ -10,7 +14,13 @@ export const routes: Routes = [
             {
                 path: 'listado',
                 component: SimpleComponent
-            }
+            },
+     
         ]
-    }
+    },
+    {
+        path: 'landing',
+        component: LandingComponent
+    },
+
 ];
