@@ -1,10 +1,14 @@
-        <p-toolbar styleClass="mb-6">
-            <h1>Listado</h1>
+<app-topbar class="mb-6"></app-topbar>
+
+<a href="/public/TUBERIA_GALV_00000376.pdf">ver</a>
+
+         <p-toolbar styleClass="mb-6 mt-9">
+            <!-- <h1>Listado</h1>
             <ng-template #start>
                 <div class="container mx-auto px-4 mt-4 sm:mt-0">
                   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 gap-4">
-
+                      <a href="/public/favicon.ico" target="_blank">ver</a>
                    </div>
                   </div>
                 </div>
@@ -13,16 +17,18 @@
             <ng-template #end>
                  <a href="/"><p-button icon="pi pi-times" severity="danger" [rounded]="true" [outlined]="true"/></a>
 
-            </ng-template>
+            </ng-template> -->
         </p-toolbar>
 
-        <p-table
+        <div class="flex justify-center mb-6">
+          <div class="w-full lg:w-4/5">
+            <p-table
             #dt
             [value]="products()"
             [rows]="10"
             [paginator]="true"
             [globalFilterFields]="['proceso_contratacion', 'country.proceso_contratacion', 'representative.proceso_contratacion', 'status']"
-            [tableStyle]="{ 'min-width': '75rem' }"
+            [tableStyle]="{ 'min-width': '555rem' }"
             [(selection)]="selectedProducts"
             [rowHover]="true"
             dataKey="id"
@@ -33,7 +39,7 @@
             [columns]="selectedColumns"
             [reorderableColumns]="true"
             [scrollable]="true"
-            scrollHeight="800px"
+            scrollHeight="500px"
         >
             <ng-template #caption>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
@@ -44,6 +50,7 @@
                         <p-inputicon styleClass="pi pi-search" />
                         <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Referencia" class="border rounded-md p-2 w-full" />
                         </p-iconfield>
+                        <a href="flags_responsive.png">ver</a>
                       </div>
                     </div>
             </ng-template>
@@ -53,7 +60,7 @@
                         {{ col.header }}
                           <p-sortIcon field="{{ col.field }}" />
                     </th>
-                    <th style="min-width: 8rem">Acciones</th>
+                    <!-- <th style="min-width: 8rem">Acciones</th> -->
                 </tr>
             </ng-template>
             <ng-template #body let-product>
@@ -62,15 +69,17 @@
                           <ng-container *ngIf="col.field === 'image'; else textContent">
                             <img [src]="product[col.field]" alt="Imagen del producto" style="width: 50px; height: 40px;">
                           </ng-container>
-                          <ng-template #textContent>{{ product[col.field] || '-Sin información-'}}</ng-template>
+                          <ng-template #textContent>{{ product[col.field] || '- Sin información -'}}</ng-template>
                         </td>
-                        <td >
+                        <!-- <td >
                             <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" (click)="editProduct(product)" />
                             <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProduct(product)" />
-                        </td>
+                        </td> -->
                       </tr>
             </ng-template>
-        </p-table>
+            </p-table>
+          </div>
+        </div>
 
         <!-- <p-dialog [(visible)]="productDialog" [style]="{ width: '1250px', height: '1250px' }" header="Materialess" [modal]="true">
             <ng-template #content>
@@ -194,6 +203,8 @@
         </p-dialog> -->
 
         <p-confirmdialog [style]="{ width: '450px' }" />
+
+        <app-footer></app-footer>
 
 
 

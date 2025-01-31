@@ -6,12 +6,15 @@ import { Component } from '@angular/core';
   template: `<div class="layout-footer">
     Listado Realizado por
     <a
-      href="https://primeng.org"
+      href="https://datalaing.com/site/"
       target="_blank"
       rel="noopener noreferrer"
       class="text-primary font-bold hover:underline"
-      >DataLaing</a
-    >
+      ><img
+        width="95"
+        src="https://i0.wp.com/datalaingservicios.net/wp-content/uploads/2024/10/DATALAING-1.png?fit=2560%2C582&ssl=1"
+        alt=""
+    /></a>
   </div>`,
 })
 export class AppFooter {}

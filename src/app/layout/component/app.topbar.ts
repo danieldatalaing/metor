@@ -11,17 +11,19 @@ import { LayoutService } from '../service/layout.service';
   standalone: true,
   imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator],
   template: ` <div class="layout-topbar">
-    <div class="layout-topbar-logo-container">
-      <button
+    <div class="layout-topbar-logo-container flex justify-center items-center">
+      <!-- <button
         class="layout-menu-button layout-topbar-action"
         (click)="layoutService.onMenuToggle()"
       >
         <i class="pi pi-bars"></i>
-      </button>
+      </button> -->
       <a class="layout-topbar-logo" routerLink="/">
         <img src="https://energytech.com.ve/img/Metor.webp" width="50" />
         <span></span>
       </a>
+      <a routerLink="/" class="mr-4">Inicio</a>
+      <a routerLink="listado">Listado</a>
     </div>
 
     <div class="layout-topbar-actions">
@@ -55,7 +57,7 @@ import { LayoutService } from '../service/layout.service';
         </div>
       </div>
 
-      <button
+       <button
         class="layout-topbar-menu-button layout-topbar-action"
         pStyleClass="@next"
         enterFromClass="hidden"
@@ -69,7 +71,7 @@ import { LayoutService } from '../service/layout.service';
 
       <div class="layout-topbar-menu hidden lg:block">
         <div class="layout-topbar-menu-content">
-          <button type="button" class="layout-topbar-action">
+          <!-- <button type="button" class="layout-topbar-action">
             <i class="pi pi-calendar"></i>
             <span>Calendar</span>
           </button>
@@ -80,7 +82,7 @@ import { LayoutService } from '../service/layout.service';
           <button type="button" class="layout-topbar-action">
             <i class="pi pi-user"></i>
             <span>Profile</span>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>

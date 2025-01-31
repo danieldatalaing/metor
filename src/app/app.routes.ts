@@ -6,11 +6,9 @@ export const routes: Routes = [
     {
         path: '',
         component: AppLayout,
-        children: [
-            {
-                path: 'listado',
-                component: SimpleComponent
-            }
-        ]
+    },
+    {
+      path: 'listado',
+      component: SimpleComponent
     }
 ];
