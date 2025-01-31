@@ -8,19 +8,13 @@ import { LandingComponent } from './landing/landing.component';
 
 export const routes: Routes = [
     {
-        path: 'layout',
-        component: AppLayout,
-        children: [
-            {
-                path: 'listado',
-                component: SimpleComponent
-            },
-     
-        ]
+        path: '',
+        component: LandingComponent,
     },
     {
-        path: '',
-        component: LandingComponent
+        path: 'listado',
+        component: SimpleComponent
     },
+    
    
 ];
