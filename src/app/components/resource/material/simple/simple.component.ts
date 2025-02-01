@@ -175,17 +175,19 @@ export class SimpleComponent implements OnInit {
       { field: 'email', header: 'Email' },
     ];
 
-    this.selectedColumns = [
-      { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
-      {
-        field: 'descripcion_corta_nombre_contrato',
-        header: 'Descripcion del Nombre Contrato',
-      },
-      { field: 'no_partida', header: 'No. de la Partida' },
-      { field: 'descripcion_partida', header: 'Descripción de la Partida' },
-    ];
+    // this.selectedColumns = [
+    //   { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
+    //   {
+    //     field: 'descripcion_corta_nombre_contrato',
+    //     header: 'Descripcion del Nombre Contrato',
+    //   },
+    //   { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
+    //   { field: 'fecha_contratacion', header: 'Fecha Contratación' },
+    //   { field: 'no_partida', header: 'No. de la Partida' },
+    //   { field: 'descripcion_partida', header: 'Descripción de la Partida' },
+    // ];
 
-    // this.selectedColumns = this.cols; (Para retornar todas las columnas de la tabla)
+     this.selectedColumns = this.cols;
 
     this.exportColumns = this.cols.map((col) => ({
       title: col.header,
