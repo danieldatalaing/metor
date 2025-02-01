@@ -1,7 +1,4 @@
 <app-topbar class="mb-6"></app-topbar>
-
-<a href="/public/TUBERIA_GALV_00000376.pdf">ver</a>
-
          <p-toolbar styleClass="mb-6 mt-9">
             <!-- <h1>Listado</h1>
             <ng-template #start>
@@ -21,7 +18,7 @@
         </p-toolbar>
 
         <div class="flex justify-center mb-6">
-          <div class="w-full lg:w-4/5">
+          <div class="w-full p-4">
             <p-table
             #dt
             [value]="products()"
@@ -50,13 +47,12 @@
                         <p-inputicon styleClass="pi pi-search" />
                         <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Referencia" class="border rounded-md p-2 w-full" />
                         </p-iconfield>
-                        <a href="flags_responsive.png">ver</a>
                       </div>
                     </div>
             </ng-template>
             <ng-template #header>
                 <tr>
-                    <th *ngFor="let col of selectedColumns" pReorderableColumn pSortableColumn="{{ col.field }}" pColumnFilter >
+                    <th *ngFor="let col of selectedColumns" pReorderableColumn pSortableColumn="{{ col.field }}" pColumnFilter>
                         {{ col.header }}
                           <p-sortIcon field="{{ col.field }}" />
                     </th>
