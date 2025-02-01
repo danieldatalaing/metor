@@ -6,13 +6,10 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { TopbarWidget } from './components/topbarwidget.component';
 import { HeroWidget } from './components/herowidget';
-import { FeaturesWidget } from './components/featureswidget';
-import { HighlightsWidget } from './components/highlightswidget';
-import { PricingWidget } from './components/pricingwidget';
-import { FooterWidget } from './components/footerwidget';
+
 @Component({
   selector: 'app-landing',
-  imports: [RouterModule,TopbarWidget ,RippleModule,HeroWidget,FeaturesWidget,HighlightsWidget,PricingWidget,FooterWidget, StyleClassModule, ButtonModule, DividerModule],
+  imports: [RouterModule,TopbarWidget ,RippleModule,HeroWidget, StyleClassModule, ButtonModule, DividerModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })

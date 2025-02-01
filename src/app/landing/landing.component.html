@@ -1,11 +1,21 @@
-<div class="bg-surface-0 ">
 
-    <div id="home" class="landing-wrapper overflow-hidden ">
-        <topbar-widget class="py-6 px-6 mx-0 md:mx-12 lg:mx-20 lg:px-20 flex items-center justify-between relative lg:static" />
+  <style>
+.overlay {
+    position: fixed; /* Important: Use fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Use viewport height */
+    background-image: url('public/working.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1; /* If you need it behind other content */
+}
+  </style>
+<div class="bg-surface-0 overlay  ">
+
+    <div id="home" class=" landing-wrapper overflow-hidden ">
+        <topbar-widget class="py-6 px-6 mx-0 md:mx-12 lg:mx-20 lg:px-20 h-full  relative lg:static" />
         <hero-widget />
-        <features-widget />
-        <highlights-widget />
-        <pricing-widget />
-        <footer-widget />
     </div>
 </div>

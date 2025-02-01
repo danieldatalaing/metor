@@ -7,81 +7,82 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'topbar-widget',
   imports: [RouterModule, StyleClassModule, ButtonModule, RippleModule],
-  template: `<a class="flex items-center" href="#">
-      <div class="flex items-center justify-center">
+  template: `
+    <div class="topbar flex items-center justify-between w-full h-20 px-6 ">
+      <div class="logo-left">
         <img
-          src="https://energytech.com.ve/img/Metor.webp"
-          class="rounded-md object-cover custom-height"
-          width="40%"
+          src="https://datalaing.net/assets/img/logo_blanco.png"
+          alt="Logo Izquierdo"
+          class="h-12"
         />
       </div>
 
-      <span
-        class="text-surface-900 dark:text-surface-0 font-medium text-2xl leading-normal w-full"
-        >Metor - Datalaing</span
-      >
-    </a>
-
-    <a
-      pButton
-      [text]="true"
-      severity="secondary"
-      [rounded]="true"
-      pRipple
-      class="lg:!hidden"
-      pStyleClass="@next"
-      enterClass="hidden"
-      leaveToClass="hidden"
-      [hideOnOutsideClick]="true"
-    >
-      <i class="pi pi-bars !text-2xl"></i>
-    </a>
-
-    <div
-      class="items-center bg-surface-0 dark:bg-surface-900 grow justify-between hidden lg:flex absolute lg:static w-full left-0 top-full px-12 lg:px-0 z-20 rounded-border"
-    >
-      <ul
-        class="list-none p-0 m-0 flex lg:items-center select-none flex-col lg:flex-row cursor-pointer gap-8"
-      >
-        <li>
-          <a
-            (click)="router.navigate(['/landing'], { fragment: 'home' })"
-            pRipple
-            class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl"
-          >
-            <span>Inicio</span>
-          </a>
-        </li>
-        <li>
-          <a
-            (click)="router.navigate(['/listado'], { fragment: 'features' })"
-            pRipple
-            class="px-0 py-4 text-surface-900 dark:text-surface-0 font-medium text-xl"
-          >
-            <span>Dashboard</span>
-          </a>
-        </li>
-      </ul>
-      <div
-        class="flex border-t lg:border-t-0 border-surface py-4 lg:py-0 mt-4 lg:mt-0 gap-2"
-      >
-        <!-- <button
-          pButton
-          pRipple
-          label="Login"
-          routerLink="/auth/login"
-          [rounded]="true"
-          [text]="true"
-        ></button>
+      <div class="nav-buttons flex gap-4">
         <button
-          pButton
+          (click)="router.navigate(['/landing'], { fragment: 'home' })"
           pRipple
-          label="Register"
-          routerLink="/auth/login"
-          [rounded]="true"
-        ></button>
-      </div> -->
-    </div> `,
+          class="px-6 py-3 text-white font-medium rounded-lg bg-blue-500 hover:bg-blue-700 transition duration-300 shadow-md"
+        >
+
+        </button>
+        <button
+          (click)="router.navigate(['/listado'], { fragment: 'features' })"
+          pRipple
+          class="px-6 py-3 text-white font-medium rounded-lg bg-green-500 hover:bg-green-700 transition duration-300 shadow-md"
+        >
+          <span>Dashboard</span>
+        </button>
+      </div>
+
+
+      <div class="logo-right">
+        <img
+          src="https://energytech.com.ve/img/Metor.webp"
+          alt="Logo Derecho"
+          class="h-12"
+        />
+      </div>
+
+      <a
+        pButton
+        [text]="true"
+        severity="secondary"
+        [rounded]="true"
+        pRipple
+        class="lg:!hidden absolute top-4 right-4"
+        pStyleClass="@next"
+        enterClass="hidden"
+        leaveToClass="hidden"
+        [hideOnOutsideClick]="true"
+      >
+        <i class="pi pi-bars !text-2xl"></i>
+      </a>
+    </div>
+  `,
+  styles: [
+    `
+      .topbar {
+        /* Estilos generales del contenedor */
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.54
+        ); /* Fondo semi-transparente */
+        border-radius: 20px;
+      }
+
+      .logo-left,
+      .logo-right {
+        /* Estilos para los logos */
+        display: flex; /* Para centrar verticalmente el logo */
+        align-items: center;
+      }
+      .nav-buttons a {
+        /* Estilos para los botones */
+      }
+    `,
+  ],
 })
 export class TopbarWidget {
   constructor(public router: Router) {}
