@@ -25,7 +25,9 @@ interface Column {
 })
 export class TableComponent implements OnInit {
   products!: Product[];
+  // ... en tu componente
 
+  filteredProducts: any[] = []; // O el tipo específico de tus orders
   productosFiltrados: Product[] = [];
 
   expandedRows = {};
@@ -40,12 +42,12 @@ export class TableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-     this.productService
-       .getProductsWithOrdersSmall()
+    this.productService
+      .getProductsWithOrdersSmall()
       .then((data) => (this.products = data));
 
     this.cols = [
-      { field: 'id', header: 'Proceso de Contratación' },
+      { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
       {
         field: 'id',
         header: 'Descripcion del Nombre Contrato',
@@ -108,14 +110,22 @@ export class TableComponent implements OnInit {
     this.selectedColumns = this.cols;
   }
 
-  filtrarProductos() {
+  filtrarProductos(procesoContratacionDeseado: Product) {
+    console.log(procesoContratacionDeseado.proceso_contratacion);
 
-    this.products = this.products.filter((product) => {
-      // Reasigna el resultado a this.products
-      return product.proceso_contratacion === 'GF-C-2024-01';
-    });
+    let producto = this.productService.getProductsData() as Product[];
 
-    console.log(this.products);
+    // console.log(this.productService);
+    const filteredProducts = producto.filter(
+      (product) =>
+        product.proceso_contratacion ===
+        procesoContratacionDeseado.proceso_contratacion
+    );
+
+    this.filteredProducts = filteredProducts;
+
+    console.log(filteredProducts);
+    return filteredProducts;
   }
 
   // expandAll() {
