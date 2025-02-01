@@ -1,5 +1,9 @@
-<header class="bg-red-600">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+
+<header class="bg-orange-00">
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+    aria-label="Global"
+  >
     <div class="flex lg:flex-1">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only">Your Company</span>
@@ -7,36 +11,60 @@
       </a>
     </div>
     <div class="flex lg:hidden">
-      <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+      <button
+        type="button"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      >
         <span class="sr-only">Open main menu</span>
-        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        <svg
+          class="size-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
         </svg>
       </button>
     </div>
-    <div class="hidden lg:flex lg:gap-x-12">
-      <div class="relative">
 
+<div class="hidden lg:flex lg:gap-x-12">
+  <div class="relative"></div>
 
-      </div>
+  <a href="" class="text-base font-bold text-white px-4 py-2 rounded-md transition duration-300 hover:bg-gray-200 hover:text-gray-800">
+    <b>Inicio</b>
+  </a>
+  <a href="listado" class="text-base font-semibold text-white px-4 py-2 rounded-md transition duration-300 hover:bg-gray-200 hover:text-gray-800">
+    <b>Listado</b>
+  </a>
+  <a href="#" class="text-base font-semibold text-white px-4 py-2 rounded-md transition duration-300 hover:bg-gray-200 hover:text-gray-800">
+    <b>Archivos</b>
+  </a>
+</div>
 
-      <a href="" class="text-sm/6 font-bold text-white"><b>Inicio</b></a>
-      <a href="listado" class="text-sm/6 font-semibold text-white"><b>Listado</b></a>
-      <a href="#" class="text-sm/6 font-semibold text-white"><b>Archivos</b></a>
-    </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-
-    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end"></div>
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
   <div class="lg:hidden" role="dialog" aria-modal="true">
     <!-- Background backdrop, show/hide based on slide-over state. -->
     <div class="fixed inset-0 z-10"></div>
-    <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <div
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+    >
       <div class="flex items-center justify-between">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://energytech.com.ve/img/Metor.webp" alt="">
+          <img
+            class="h-8 w-auto"
+            src="https://energytech.com.ve/img/Metor.webp"
+            alt=""
+          />
         </a>
         <!-- <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
           <span class="sr-only">Close menu</span>
@@ -49,34 +77,89 @@
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
             <div class="-mx-3">
-              <a href="/" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Inicio</a>
-            <a href="listado" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Listado</a>
-            <a href="#" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Archivos</a>
-
+              <a
+                href="/"
+                class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                >Inicio</a
+              >
+              <a
+                href="listado"
+                class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                >Listado</a
+              >
+              <a
+                href="#"
+                class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                >Archivos</a
+              >
             </div>
-
           </div>
-          <div class="py-6">
-
-          </div>
+          <div class="py-6"></div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<div class="mx-auto grid grid-cols-12 gap-4 bg-zinc-50 p-1 w-screen bg-gray-200 bg-[url('http://localhost:4200/imgs/working.jpg')] bg-cover bg-center">
 
-  <div class="col-span-12 rounded-lg p-32 sm:col-span-8 flex justify-center items-center transition duration-300 hover:translate-y-[-5px]">
-    <a href=""><img src="https://energytech.com.ve/img/Metor.webp" alt="" srcset="" class="max-w-full h-auto"></a>
-  </div>
-  <div class="col-span-12 rounded-lg  p-16 sm:col-span-4 flex justify-center items-center transition duration-300 hover:translate-y-[-5px]">
-    <a href="https://datalaing.com/site/contacto/"><img src="http://localhost:4200/imgs/data.png" alt="" srcset="" class="max-w-full h-auto"></a>
-  </div>
+<style>
+/* Estilos adicionales (opcional, para mejorar la apariencia) */
+.fotoback {
+  overflow: hidden; /* Evita que la máscara se desborde */
+}
+
+.fotoback .grid > div { /* Estilos para los elementos dentro del grid */
+  transition: all 0.3s ease; /* Transición suave para los elementos */
+}
+
+.fotoback .grid > div:hover {
+  transform: scale(1.05); /* Escala ligeramente al pasar el mouse */
+}
+
+/* Estilos para la imagen de fondo */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('http://localhost:4200/imgs/working.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Animación de zoom */
+.animate-zoom {
+  animation: zoom 20s infinite alternate; /* Ajusta la duración y la iteración */
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1.2); /* Escala inicial */
+  }
+  to {
+    transform: scale(1); /* Escala final (acercamiento) */
+  }
+}
+</style>
+
+<div>
 
 </div>
+<div class="fotoback relative">
+  <div class="background-image animate-zoom"></div>
+  <div class="mx-auto grid grid-cols-12 p-1 w-full h-screen relative">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="col-span-12 sm:col-span-6 flex justify-center items-center transition duration-300 hover:translate-y-[-5px] p-32 relative z-10">
+      <a href="">
+        <img src="https://energytech.com.ve/img/Metor.webp" alt="" class="max-w-full h-auto">
+      </a>
+    </div>
 
-<a href="imgs/working.jpg">ver</a>
-
-
-
+    <div class="col-span-12 sm:col-span-6 flex justify-center items-center transition duration-300 hover:translate-y-[-5px] p-16 relative z-10">
+      <a href="https://datalaing.com.ve/site/contacto/">
+        <img src="http://localhost:4200/imgs/data.png" alt="" class="max-w-full h-auto">
+      </a>
+    </div>
+  </div>
+</div>
