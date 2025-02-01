@@ -53722,7 +53722,59 @@ email: '759'
 
     //servicios de otras páginas
     getProductsWithOrdersData() {
-        return[{"id" : 1, "proceso_contratacion" : "GF-C-2024-01"}, {"id" : 7, "proceso_contratacion" : "GM-C-2023-48"}, {"id" : 20, "proceso_contratacion" : "GM-C-2023-55"}, {"id" : 33, "proceso_contratacion" : "GM-C-2023-57"}, {"id" : 40, "proceso_contratacion" : "GM-C-2023-59"}, {"id" : 52, "proceso_contratacion" : "GM-C-2024-08"}, {"id" : 87, "proceso_contratacion" : "GM-C-2024-11"}, {"id" : 101, "proceso_contratacion" : "GM-C-2024-14 "}, {"id" : 136, "proceso_contratacion" : "GM-C-2024-16"}, {"id" : 158, "proceso_contratacion" : "GM-C-2024-19"}, {"id" : 167, "proceso_contratacion" : "GM-C-2024-23"}, {"id" : 168, "proceso_contratacion" : "GM-C-2023-03"}, {"id" : 198, "proceso_contratacion" : "GM-C-2023-14 "}, {"id" : 210, "proceso_contratacion" : "GM-C-2023-15"}, {"id" : 211, "proceso_contratacion" : "GM-C-2023-16"}, {"id" : 212, "proceso_contratacion" : "GM-C-2023-17"}, {"id" : 213, "proceso_contratacion" : "GM-C-2023-18"}, {"id" : 214, "proceso_contratacion" : "GM-C-2023-19"}, {"id" : 215, "proceso_contratacion" : "GM-C-2023-20"}, {"id" : 224, "proceso_contratacion" : "DESARROLLODE INGENIERIA BASICA Y DE DETALLE PARA EL REEMPLAZODE LOS SWITCHGEAR DE BAJA TENSION Y BANCO DE CAPACITORES\""}, {"id" : 226, "proceso_contratacion" : "PROCURA Y SUMINISTRO DE TODOS LOS EQUIPOS NECESARIOS PARA EL REEMPLAZO DE LOS SIWTCHGEAR DE BAJA TENSION\""}, {"id" : 229, "proceso_contratacion" : "DESINSTALACION, INSTALACION, CONFIGURACION, PROGRAMACION PRUEBA Y PUESTA EN SERVICIO DE TODOS LOSEQUIPOS Y ACCESORIOS NECESARIOS PARA EL REEMPLAZO Y COMUNICACIÓN DE LOS SWITCHGEAR DE BAJA TENSION\""}, {"id" : 251, "proceso_contratacion" : "GM-C-2024-01"}, {"id" : 254, "proceso_contratacion" : "GPP-C-2024-04"}, {"id" : 282, "proceso_contratacion" : "GPP-STAP1-2024-01"}, {"id" : 290, "proceso_contratacion" : "GPP-STAP1-2024-02"}, {"id" : 296, "proceso_contratacion" : "GPP-STAP1-2024-35"}, {"id" : 300, "proceso_contratacion" : "GPP-STAP1-2024-23"}, {"id" : 336, "proceso_contratacion" : "GPP-STAP1-2024-24"}, {"id" : 340, "proceso_contratacion" : "GPP-STAP1-2024-29"}, {"id" : 363, "proceso_contratacion" : "GPP-STAP1-2024-31 "}, {"id" : 453, "proceso_contratacion" : "GPP-STAP1-2024-33"}, {"id" : 597, "proceso_contratacion" : ""}, {"id" : 648, "proceso_contratacion" : "GPP-STAP1-2024-03"}, {"id" : 690, "proceso_contratacion" : "GPP-STAP1-2024-13"}, {"id" : 715, "proceso_contratacion" : "GPP-STAP1-2024-14 "}, {"id" : 724, "proceso_contratacion" : "GPP-STAP1-2024-16"}, {"id" : 730, "proceso_contratacion" : "GPP-STAP1-2024-17 "}, {"id" : 732, "proceso_contratacion" : "GPP-STAP1-2024-18"}, {"id" : 742, "proceso_contratacion" : "GPP-STAP1-2024-19"}, {"id" : 855, "proceso_contratacion" : "GPP-STAP1-2024-48 "}, {"id" : 774, "proceso_contratacion" : "GPP-STAP1-2024-20 "}, {"id" : 845, "proceso_contratacion" : "GPP-STAP1-2024-21"}, {"id" : 849, "proceso_contratacion" : "GPP-STAP1-2024-45 "}, {"id" : 861, "proceso_contratacion" : "GPP-STAP1-2024-47"}, {"id" : 870, "proceso_contratacion" : "GPP-STAP1-2024-34"}, {"id" : 880, "proceso_contratacion" : "GPP-STAP1-2024-36 "}, {"id" : 893, "proceso_contratacion" : "GPP-STAP1-2024-32 "}, {"id" : 980, "proceso_contratacion" : "GPP-STAP1-2024-41 "}, {"id" : 1028, "proceso_contratacion" : " GPP-STAP1-2024-42 "}, {"id" : 1095, "proceso_contratacion" : "1089"}];
+        return[
+          {"id" : 1, "proceso_contratacion" : "GF-C-2024-01"},
+          {"id" : 7, "proceso_contratacion" : "GM-C-2023-48"},
+          {"id" : 20, "proceso_contratacion" : "GM-C-2023-55"},
+          {"id" : 33, "proceso_contratacion" : "GM-C-2023-57"},
+          {"id" : 40, "proceso_contratacion" : "GM-C-2023-59"},
+          {"id" : 52, "proceso_contratacion" : "GM-C-2024-08"},
+          {"id" : 87, "proceso_contratacion" : "GM-C-2024-11"},
+          {"id" : 101, "proceso_contratacion" : "GM-C-2024-14 "},
+          {"id" : 136, "proceso_contratacion" : "GM-C-2024-16"},
+          {"id" : 158, "proceso_contratacion" : "GM-C-2024-19"},
+          {"id" : 167, "proceso_contratacion" : "GM-C-2024-23"},
+          {"id" : 168, "proceso_contratacion" : "GM-C-2023-03"},
+          {"id" : 198, "proceso_contratacion" : "GM-C-2023-14 "},
+          {"id" : 210, "proceso_contratacion" : "GM-C-2023-15"},
+          {"id" : 211, "proceso_contratacion" : "GM-C-2023-16"},
+          {"id" : 212, "proceso_contratacion" : "GM-C-2023-17"},
+          {"id" : 213, "proceso_contratacion" : "GM-C-2023-18"},
+          {"id" : 214, "proceso_contratacion" : "GM-C-2023-19"},
+          {"id" : 215, "proceso_contratacion" : "GM-C-2023-20"},
+          {"id" : 224, "proceso_contratacion" : "DESARROLLODE INGENIERIA BASICA Y DE DETALLE PARA EL REEMPLAZODE LOS SWITCHGEAR DE BAJA TENSION Y BANCO DE CAPACITORES\""},
+          {"id" : 226, "proceso_contratacion" : "PROCURA Y SUMINISTRO DE TODOS LOS EQUIPOS NECESARIOS PARA EL REEMPLAZO DE LOS SIWTCHGEAR DE BAJA TENSION\""},
+          {"id" : 229, "proceso_contratacion" : "DESINSTALACION, INSTALACION, CONFIGURACION, PROGRAMACION PRUEBA Y PUESTA EN SERVICIO DE TODOS LOSEQUIPOS Y ACCESORIOS NECESARIOS PARA EL REEMPLAZO Y COMUNICACIÓN DE LOS SWITCHGEAR DE BAJA TENSION\""},
+          {"id" : 251, "proceso_contratacion" : "GM-C-2024-01"},
+          {"id" : 254, "proceso_contratacion" : "GPP-C-2024-04"},
+          {"id" : 282, "proceso_contratacion" : "GPP-STAP1-2024-01"},
+          {"id" : 290, "proceso_contratacion" : "GPP-STAP1-2024-02"},
+          {"id" : 296, "proceso_contratacion" : "GPP-STAP1-2024-35"},
+          {"id" : 300, "proceso_contratacion" : "GPP-STAP1-2024-23"},
+          {"id" : 336, "proceso_contratacion" : "GPP-STAP1-2024-24"},
+          {"id" : 340, "proceso_contratacion" : "GPP-STAP1-2024-29"},
+          {"id" : 363, "proceso_contratacion" : "GPP-STAP1-2024-31 "},
+          {"id" : 453, "proceso_contratacion" : "GPP-STAP1-2024-33"},
+          {"id" : 597, "proceso_contratacion" : ""},
+          {"id" : 648, "proceso_contratacion" : "GPP-STAP1-2024-03"},
+          {"id" : 690, "proceso_contratacion" : "GPP-STAP1-2024-13"},
+          {"id" : 715, "proceso_contratacion" : "GPP-STAP1-2024-14 "},
+          {"id" : 724, "proceso_contratacion" : "GPP-STAP1-2024-16"},
+          {"id" : 730, "proceso_contratacion" : "GPP-STAP1-2024-17 "},
+          {"id" : 732, "proceso_contratacion" : "GPP-STAP1-2024-18"},
+          {"id" : 742, "proceso_contratacion" : "GPP-STAP1-2024-19"},
+          {"id" : 855, "proceso_contratacion" : "GPP-STAP1-2024-48 "},
+          {"id" : 774, "proceso_contratacion" : "GPP-STAP1-2024-20 "},
+          {"id" : 845, "proceso_contratacion" : "GPP-STAP1-2024-21"},
+          {"id" : 849, "proceso_contratacion" : "GPP-STAP1-2024-45 "},
+          {"id" : 861, "proceso_contratacion" : "GPP-STAP1-2024-47"},
+          {"id" : 870, "proceso_contratacion" : "GPP-STAP1-2024-34"},
+          {"id" : 880, "proceso_contratacion" : "GPP-STAP1-2024-36 "},
+          {"id" : 893, "proceso_contratacion" : "GPP-STAP1-2024-32 "},
+          {"id" : 980, "proceso_contratacion" : "GPP-STAP1-2024-41 "},
+          {"id" : 1028, "proceso_contratacion" : " GPP-STAP1-2024-42 "},
+          {"id" : 1095, "proceso_contratacion" : "1089"}
+        ];
     }
 
     status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
@@ -53775,7 +53827,7 @@ email: '759'
     }
 
     getProductsWithOrdersSmall() {
-        return Promise.resolve(this.getProductsWithOrdersData().slice(0, 10));
+        return Promise.resolve(this.getProductsWithOrdersData());
     }
 
     // generatePrduct(): Product {

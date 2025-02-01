@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TableModule } from 'primeng/table';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { TableModule, Table } from 'primeng/table';
 //import { Product } from '@/domain/product';
 import { Tag } from 'primeng/tag';
 import { Rating } from 'primeng/rating';
@@ -9,6 +9,12 @@ import { Product, ProductService } from '../../service/product.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { TableRowCollapseEvent, TableRowExpandEvent } from 'primeng/table';
+import { SpeedDial } from 'primeng/speeddial';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { InputIconModule } from 'primeng/inputicon';
+import { IconFieldModule } from 'primeng/iconfield';
+import { AppTopbar } from '../layout/component/app.topbar';
+
 
 interface Column {
   field: string;
@@ -18,7 +24,17 @@ interface Column {
 
 @Component({
   selector: 'app-table',
-  imports: [TableModule, Tag, ToastModule, Rating, ButtonModule, CommonModule],
+  imports: [
+    TableModule,
+    ToastModule,
+    ButtonModule,
+    CommonModule,
+    SpeedDial,
+    MultiSelectModule,
+    InputIconModule,
+    IconFieldModule,
+    AppTopbar,
+  ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
   providers: [ProductService, MessageService],
@@ -31,6 +47,8 @@ export class TableComponent implements OnInit {
   productosFiltrados: Product[] = [];
 
   expandedRows = {};
+
+  @ViewChild('dt') dt!: Table;
 
   cols!: Column[];
 
@@ -49,10 +67,10 @@ export class TableComponent implements OnInit {
     this.cols = [
       { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
       {
-        field: 'id',
+        field: 'descripcion_corta_nombre_contrato',
         header: 'Descripcion del Nombre Contrato',
       },
-      { field: 'id', header: 'Fecha Presupuesto' },
+      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
       { field: 'fecha_contratacion', header: 'Fecha Contratación' },
       { field: 'partidas_totales', header: 'Partidas Totales' },
       { field: 'monto_total_cd', header: 'Monto Total' },
