@@ -16,7 +16,7 @@ import { RippleModule } from 'primeng/ripple';
   styleUrls: ['./herowidget.css'], // Importa el archivo CSS
 })
 export class HeroWidget implements OnInit, AfterViewInit, OnDestroy {
-  textParts = ['PARTIDAS CON SUS', 'ANÁLISIS DE PRECIOS UNITARIOS (APU)'];
+  textParts = ['PARTIDAS CON SUS', 'ANÁLISIS DE PRECIOS UNITARIOS'];
   currentText = '';
   currentIndex = 0;
   isTyping = true;

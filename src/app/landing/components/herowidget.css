@@ -22,20 +22,16 @@
 }
 
  /* Estilos para el contenedor principal */
- #hero {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   padding-top: 1.5rem;
-   padding-left: 5rem;
-   padding-right: 5rem;
-   overflow: hidden;
-   /* Mantén el overflow hidden para el clip-path */
-   background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(238, 239, 175) 0%, rgb(195, 227, 250) 100%);
-   /* Degradado de fondo */
-   clip-path: ellipse(150% 87% at 93% 13%);
-   /* Clip path */
- }
+#hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  overflow: hidden;
+  clip-path: ellipse(150% 87% at 93% 13%);
+}
 
  /* Estilos para la imagen de fondo (pseudo-elemento ::before) */
  #hero::before {
@@ -83,4 +79,22 @@ animation: expandir 10s linear infinite;
   padding: 2%;
   border-radius: 20px;
   /* width: 70%; */
+}
+
+/* Estilos para el fondo blanco del menú en móviles */
+@media (max-width: 916px) {
+
+  /* Ajusta el breakpoint si es necesario */
+  .mobile-menu-bg {
+    background-color: white !important;
+    /* Fondo blanco en móviles */
+  }
+}
+
+/* Estilos para el fondo del menú en pantallas mayores (opcional) */
+@media (min-width: 168px) {
+  .mobile-menu-bg {
+    background-color: red !important;
+    /* Fondo transparente en pantallas mayores */
+  }
 }
