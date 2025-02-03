@@ -139,6 +139,7 @@
 
                             <p-button  (onClick)="archivo(product.proceso_contratacion)"  class="ml-8" (click)="showDialog(filteredProducts)">VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button>
 
+
                         <p-table stripedRows class="shadow-lg" [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1725px' }" scrollHeight="400px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
 
                           <ng-template #header>
