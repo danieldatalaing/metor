@@ -68,7 +68,10 @@ export class TableComponent implements OnInit {
 
     this.cols = [
       { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
-      { field: 'descripcion_corta_nombre_contrato', header: 'Descripcion del Nombre Contrato'},
+      {
+        field: 'descripcion_corta_nombre_contrato',
+        header: 'Descripcion del Nombre Contrato',
+      },
       { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
       { field: 'fecha_contratacion', header: 'Fecha Contratación' },
       { field: 'partidas_totales', header: 'Partidas Totales' },
@@ -142,7 +145,7 @@ export class TableComponent implements OnInit {
   }
 
   filtrarProductos(procesoContratacionDeseado: Product) {
-    console.log(procesoContratacionDeseado.proceso_contratacion);
+    // console.log(procesoContratacionDeseado.proceso_contratacion);
 
     let producto = this.productService.getProductsData() as Product[];
 
@@ -157,6 +160,15 @@ export class TableComponent implements OnInit {
 
     console.log(filteredProducts);
     return filteredProducts;
+  }
+
+  archivo(procesoContratacionDeseado: Product) {
+    console.log(procesoContratacionDeseado);
+
+
+
+
+
   }
 
   // expandAll() {

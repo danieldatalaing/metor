@@ -134,7 +134,10 @@
                 <td colspan="7">
                     <div class="p-4">
                         <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
+
                               <p-multiselect class="mb-9" display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected" [style]="{ 'min-width': '200px' }" placeholder="Choose Columns" />
+
+                            <p-button  (onClick)="archivo(product.proceso_contratacion)"  class="ml-8">VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button>
 
                         <p-table stripedRows class="shadow-lg" [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1725px' }" scrollHeight="400px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
 
