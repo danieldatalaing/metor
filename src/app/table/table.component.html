@@ -135,9 +135,9 @@
                     <div class="p-4">
                         <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
 
-                              <p-multiselect class="mb-9" display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected" [style]="{ 'min-width': '200px' }" placeholder="Choose Columns" />
+                            <p-multiselect class="mb-9" display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected" [style]="{ 'min-width': '200px' }" placeholder="Choose Columns" />
 
-                            <p-button  (onClick)="archivo(product.proceso_contratacion)"  class="ml-8">VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button>
+                            <p-button  (onClick)="archivo(product.proceso_contratacion)"  class="ml-8" (click)="showDialog(filteredProducts)">VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button>
 
                         <p-table stripedRows class="shadow-lg" [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1725px' }" scrollHeight="400px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
 
@@ -171,7 +171,22 @@
 
 
 
-
+<p-dialog header="Archivos" [modal]="true" [(visible)]="visible" [style]="{ width: '100rem', height: '100rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
+        <p-table [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Proceso de Contratación</th>
+            <th>Archivo</th>
+        </tr>
+    </ng-template>
+    <ng-template #body>
+        <tr>
+            <td> {{ filteredProducts}} </td>
+            <td> product.name </td>
+        </tr>
+    </ng-template>
+</p-table>
+    </p-dialog>
 
 <!-- <div *ngFor="let i of this.filteredProducts">
 

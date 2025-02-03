@@ -15,6 +15,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { AppTopbar } from '../layout/component/app.topbar';
 import { FormsModule } from '@angular/forms';
+import { Dialog } from 'primeng/dialog';
 
 
 interface Column {
@@ -36,6 +37,7 @@ interface Column {
     IconFieldModule,
     AppTopbar,
     FormsModule,
+    Dialog,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -54,12 +56,24 @@ export class TableComponent implements OnInit {
 
   cols!: Column[];
 
+  product!: Product;
+
+  productDialog: boolean = false;
+
   selectedColumns!: Column[];
 
   constructor(
     private productService: ProductService,
     private messageService: MessageService
   ) {}
+
+  visible: boolean = false;
+
+  showDialog(product: Product) {
+    this.visible = true;
+    this.product = { ...product };
+    this.productDialog = true;
+  }
 
   ngOnInit() {
     this.productService
@@ -164,11 +178,6 @@ export class TableComponent implements OnInit {
 
   archivo(procesoContratacionDeseado: Product) {
     console.log(procesoContratacionDeseado);
-
-
-
-
-
   }
 
   // expandAll() {
