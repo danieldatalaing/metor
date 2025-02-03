@@ -1,0 +1,61 @@
+/* Estilos adicionales (opcional, para mejorar la apariencia) */
+.fotoback {
+  overflow: hidden;
+  /* Evita que la máscara se desborde */
+}
+
+.fotoback .grid>div {
+  /* Estilos para los elementos dentro del grid */
+  transition: all 0.3s ease;
+  /* Transición suave para los elementos */
+}
+
+.fotoback .grid>div:hover {
+  transform: scale(1.05);
+  /* Escala ligeramente al pasar el mouse */
+}
+
+/* Estilos para la imagen de fondo */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('http://localhost:4200/imgs/working.jpg');
+  background-size: contain;
+  /* Cambia a contain */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+  background-position: center;
+  /* Centra la imagen */
+
+}
+
+@media (max-width: 768px) {
+
+  /* Ejemplo para pantallas medianas y pequeñas */
+  .background-image {
+    background-size: cover;
+    /* O contain si lo prefieres en móviles */
+    background-position: center;
+  }
+}
+
+/* Animación de zoom */
+.animate-zoom {
+  animation: zoom 20s infinite alternate;
+  /* Ajusta la duración y la iteración */
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1.2);
+    /* Escala inicial */
+  }
+
+  to {
+    transform: scale(1);
+    /* Escala final (acercamiento) */
+  }
+}

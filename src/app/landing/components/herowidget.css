@@ -1,0 +1,100 @@
+/* hero-widget.component.css */
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  animation: blink-caret 0.75s step-end infinite;
+  font-family: 'TuFuenteDeLetra', sans-serif;
+  /* Reemplaza con tu fuente */
+  font-weight: bold;
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: white;
+  }
+}
+
+ /* Estilos para el contenedor principal */
+#hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  overflow: hidden;
+  clip-path: ellipse(150% 87% at 93% 13%);
+}
+
+ /* Estilos para la imagen de fondo (pseudo-elemento ::before) */
+ #hero::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-image: url('http://localhost:4200/imgs/working.jpg');
+   /* Ruta a la imagen */
+   background-size: cover;
+   /* o contain si prefieres */
+   background-position: center;
+   /* Posición inicial */
+   z-index: -1;
+   /* Asegura que esté detrás del contenido */
+animation: expandir 10s linear infinite;
+  /* Animación de expansión */
+
+   /* Animación */
+ }
+
+@keyframes expandir {
+  0% {
+    transform: scale(1);
+    /* Tamaño inicial */
+  }
+
+  50% {
+    transform: scale(1.2);
+    /* Tamaño intermedio (120%) */
+  }
+
+  100% {
+    transform: scale(1);
+    /* Tamaño final (vuelve al inicial) */
+  }
+}
+
+
+.fondoescrito {
+  background-color: rgba(0, 0, 0, 0.699);
+  color: white;
+  padding: 2%;
+  border-radius: 20px;
+  /* width: 70%; */
+}
+
+/* Estilos para el fondo blanco del menú en móviles */
+@media (max-width: 916px) {
+
+  /* Ajusta el breakpoint si es necesario */
+  .mobile-menu-bg {
+    background-color: white !important;
+    /* Fondo blanco en móviles */
+  }
+}
+
+/* Estilos para el fondo del menú en pantallas mayores (opcional) */
+@media (min-width: 168px) {
+  .mobile-menu-bg {
+    background-color: red !important;
+    /* Fondo transparente en pantallas mayores */
+  }
+}
