@@ -53777,6 +53777,182 @@ email: '759'
         ];
     }
 
+
+   getArchivos() {
+ return [
+  {
+    id: 1, // ID único para cada registro
+    nombre: 'GF-C-2024-01',
+    archivos: ['ALCANCE.pdf', 'OFERTA-ECONOMICA.pdf'],
+  },
+  {
+    id: 2,
+    nombre: 'GM-C-2023-48',
+    archivos: [
+      'ALCANCE TECNICO GM-C-2023-48.pdf',
+      'O.E INGELECTRIC.pdf',
+    ],
+  },
+  {
+    id: 3,
+    nombre: 'GM-C-2023-55',
+    archivos: [
+      'FABRICACIÓN E INSTALACIÓN DE TANQUE DE ACIDO SULFURICO TK-830 REV 2...pdf',
+      'OE NASSER.pdf',
+    ],
+  },
+  {
+    id: 4,
+    nombre: 'GM-C-2023-57',
+    archivos: [
+      'ALCANCE TECNICO (REV. 0).pdf',
+      'RESUMEN OFERTA - ESTRUCTURA DE COSTOS Y PART 3 - 5 CORREGIDOS 13 MARZO.pdf',
+    ],
+  },
+  {
+    id: 5,
+    nombre: 'GM-C-2023-59',
+    archivos: [
+      'Cambio de carbon activado Trenes A-B-C 2024 REV final 12-04-2024.pdf',
+      'OE SERSUINCA.pdf',
+    ],
+  },
+  {
+    id: 6,
+    nombre: 'GM-C-2024-08',
+    archivos: ['ALCANCE TECNICO.pdf', 'O.E. favorecida CATEM.pdf'],
+  },
+  {
+    id: 7,
+    nombre: 'GM-C-2024-11',
+    archivos: [
+      'ALCANCE MANTENIMIENTO Y CERTIFICACIÓN DE EQUIPOS PESADOS 2024 REV. 2.pdf',
+      'O.E. SF TRANSPORTE.pdf',
+    ],
+  },
+  {
+    id: 8,
+    nombre: 'GM-C-2024-14',
+    archivos: [
+      'INSPECCIÓN, MANTENIMIENTO Y CERTIFICACIÓN DE CALDERAS AUXILIARES B-620 ABC rev 2 (04-09-2024).pdf',
+      'O.E FABWELD.pdf',
+    ],
+  },
+  {
+    id: 9,
+    nombre: 'GM-C-2024-16',
+    archivos: [
+      'ALCANCE TECNICO FINAL (20-09-2024).pdf',
+      'O.E STARPCA.pdf',
+    ],
+  },
+  {
+    id: 10,
+    nombre: 'GM-C-2024-19',
+    archivos: ['ALCANCE TECNICO.pdf', 'O.E COSERPACA.pdf'],
+  },
+  {
+    id: 11,
+    nombre: 'GM-C-2024-23',
+    archivos: [
+      'O.E LEAK.pdf',
+      'SERVICIO DE CONTENCIÓN DE FUGA EN LINEA DE RG E-517 REV 0 FINAL.pdf',
+    ],
+  },
+  {
+    id: 12,
+    nombre: 'GO-C-2023-03',
+    archivos: ['ALCANCE.pdf', 'OFERTA ECONOMICA.pdf'],
+  },
+  {
+    id: 13,
+    nombre: 'GPP-C-2023-14',
+    archivos: ['ALCANCE FRANJA.pdf', 'OFERTA ECONOMICA.pdf'],
+  },
+  {
+    id: 14,
+    nombre: 'GPP-C-2023-16',
+    archivos: [
+      'ALCANCE SWITCHGEAR_250117_114736.pdf',
+      '[Untitled]_2024080614161173.pdf',
+    ],
+  },
+  {
+    id: 15,
+    nombre: 'GPP-C-2023-17',
+    archivos: [
+      'ALCANCE REP ESTRUCTURAS PIPE RACK FASE 1B rev.3FEB24.pdf',
+      'OFERTA ECONOMICA FASE 1B REV. 03.pdf',
+    ],
+  },
+  {
+    id: 16,
+    nombre: 'GPP-C-2024-01',
+    archivos: ['ALCANCE TECNICO.pdf', 'OFERTA ECONOMICA.pdf'],
+  },
+  {
+    id: 17,
+    nombre: 'GPP-C-2024-04',
+    archivos: [
+      'Alcance reparaciones vialidad en portones 4 y 5 de METOR S.A. Rev.1.pdf',
+      'O.E INMECICA REV. 1.pdf',
+    ],
+  },
+  {
+    id: 18,
+    nombre: 'GPP-STAP1-2024-01',
+    archivos: [
+      '1 Carta de entrega O. Economica.pdf',
+      '2 Resumen de la oferta.pdf',
+      '3 APU.pdf',
+      '4 A FSCL.pdf',
+      '5 Desglose gastos administrativos.pdf',
+      '6 Estructura costo oferta.pdf',
+      'Alcance Fibra de Vidrio STA-2024-P1 rev1.pdf',
+    ],
+  },
+  {
+    id: 19,
+    nombre: 'GPP-STAP1-2024-02',
+    archivos: [
+      'Alcance equipos pesados STA-2024-P1.pdf',
+      'ECONOMICA SP METOR PP 2024/01-Carta presentacion Oferta Economica.docx -.pdf',
+      'ECONOMICA SP METOR PP 2024/240122 OFERTA ECONOMICA SERVIPICA Metor PP.xlsx',
+      'ECONOMICA SP METOR PP 2024/FSCL - CHOFER LOWBOY.xlsx',
+      'ECONOMICA SP METOR PP 2024/FSCL - OPER GRUA 60 TON (Diurno).xlsx',
+      'ECONOMICA SP METOR PP 2024/FSCL - OPER MONTACARGA 4TON (Diurno).xlsx',
+      'ECONOMICA SP METOR PP 2024/FSCL - OPER MONTACARGA 4TON (Nocturno).xlsx',
+      'ECONOMICA SP METOR PP 2024/FSCL - OPER MONTACARGA 8TON (Diurno).xlsx',
+    ],
+  },
+  {
+    id: 20,
+    nombre: 'GPP-STAP1-2024-03',
+    archivos: [
+      'CD/Editable/FSCL VS.xlsx',
+      'CD/Editable/Gastos Administrativos VS.xlsx',
+      'CD/Editable/Oferta Economica VS.xlsx',
+      'CD/Editable/~$Oferta Economica VS.xlsx',
+      'CD/No Editable/1. Presupuesto.pdf',
+      'CD/No Editable/10. Gastos Administrativos.pdf',
+      'CD/No Editable/2. Estructura de costos.pdf',
+      'CD/No Editable/3. Resumen de presupuesto.pdf',
+      'CD/No Editable/4. Lista de materiales.pdf',
+      'CD/No Editable/5. Lista de equipos.pdf',
+      'CD/No Editable/6. Lista de mano de obra.pdf',
+      'CD/No Editable/7. Estructura de costos (grafica).pdf',
+      'CD/No Editable/8. Apu.pdf',
+      'CD/No Editable/9. FSCL.pdf',
+      'CD/No Editable/Carta Entrega de la Oferta Económica.pdf',
+      'MTTO A VALVULAS PSV EN TALLER EXTERNO STA-2024-P1REV1..docx.pdf',
+    ]
+    }
+  ]
+  }
+
+
+
+
     status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
     productNames: string[] = [
