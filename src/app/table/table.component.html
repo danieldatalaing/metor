@@ -109,9 +109,8 @@
         <ng-template #header>
             <tr>
                 <th ></th>
-                <th pSortableColumn="name">
+                <th pSortableColumn="proceso_contratacion">
                   Proceso de Contratación
-
                 </th>
 
             </tr>
@@ -126,7 +125,7 @@
                        (onClick)="filtrarProductos(product)"
                        (onClick)="collapseAll()" />
                 </td>
-                <td>{{ product.proceso_contratacion }}</td>
+                <td><b>{{ product.proceso_contratacion }}</b></td>
 
             </tr>
         </ng-template>
@@ -135,8 +134,10 @@
                 <td colspan="7">
                     <div class="p-4">
                         <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
+                              <p-multiselect class="mb-9" display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected" [style]="{ 'min-width': '200px' }" placeholder="Choose Columns" />
 
-                        <p-table [value]="filteredProducts" scrollable="true" [style]="{width: '1900px' }" scrollHeight="400px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
+                        <p-table stripedRows class="shadow-lg" [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1725px' }" scrollHeight="400px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
+
                           <ng-template #header>
                               <tr>
                                   <th *ngFor="let col of selectedColumns" pResizableColumn pReorderableColumn>

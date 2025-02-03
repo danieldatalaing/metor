@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: SimpleComponent,
   },
   {
-    path: 'prueba',
+    path: 'proceso',
     component: TableComponent,
   },
 ];

@@ -18,12 +18,13 @@ import { LayoutService } from '../service/layout.service';
       >
         <i class="pi pi-bars"></i>
       </button> -->
-      <a class="layout-topbar-logo" routerLink="/">
-        <img src="https://energytech.com.ve/img/Metor.webp" width="50" />
+      <a class="layout-topbar-logo" routerLink="/" class="ml-8">
+        <img src="https://energytech.com.ve/img/Metor.webp" width="70" />
         <span></span>
       </a>
-      <a routerLink="/" class="mr-4">Inicio</a>
-      <a routerLink="listado">Listado</a>
+      <a routerLink="/" class="mr-4 ml-4"><b>Inicio</b></a>
+      <a href="listado" class="mr-4"><b>Listado</b></a>
+      <a href="proceso"><b>Procesos de Contratación</b></a>
     </div>
 
     <div class="layout-topbar-actions">
@@ -57,7 +58,7 @@ import { LayoutService } from '../service/layout.service';
         </div>
       </div>
 
-       <button
+      <button
         class="layout-topbar-menu-button layout-topbar-action"
         pStyleClass="@next"
         enterFromClass="hidden"

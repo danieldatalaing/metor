@@ -14,6 +14,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { AppTopbar } from '../layout/component/app.topbar';
+import { FormsModule } from '@angular/forms';
 
 
 interface Column {
@@ -34,6 +35,7 @@ interface Column {
     InputIconModule,
     IconFieldModule,
     AppTopbar,
+    FormsModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -66,10 +68,7 @@ export class TableComponent implements OnInit {
 
     this.cols = [
       { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
-      {
-        field: 'descripcion_corta_nombre_contrato',
-        header: 'Descripcion del Nombre Contrato',
-      },
+      { field: 'descripcion_corta_nombre_contrato', header: 'Descripcion del Nombre Contrato'},
       { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
       { field: 'fecha_contratacion', header: 'Fecha Contratación' },
       { field: 'partidas_totales', header: 'Partidas Totales' },
@@ -125,7 +124,21 @@ export class TableComponent implements OnInit {
       { field: 'email', header: 'Email' },
     ];
 
-    this.selectedColumns = this.cols;
+    this.selectedColumns = [
+      { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
+      {
+        field: 'descripcion_corta_nombre_contrato',
+        header: 'Descripcion del Nombre Contrato',
+      },
+      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
+      { field: 'fecha_contratacion', header: 'Fecha Contratación' },
+      { field: 'partidas_totales', header: 'Partidas Totales' },
+      { field: 'monto_total_cd', header: 'Monto Total' },
+      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' },
+      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' },
+      { field: 'horario', header: 'Horario' },
+      { field: 'ubicacion', header: 'Ubicación' },
+    ];
   }
 
   filtrarProductos(procesoContratacionDeseado: Product) {

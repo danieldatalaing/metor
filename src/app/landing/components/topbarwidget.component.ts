@@ -9,7 +9,13 @@ import { ButtonModule } from 'primeng/button';
   imports: [RouterModule, StyleClassModule, ButtonModule, RippleModule],
   template: `
     <div class="flex justify-between items-center">
-      <img src="data.png" class="w-48 sm:w-60 md:w-78 lg:w-80 h-auto" alt="" />
+      <a href="https://datalaing.com/site/contacto/" target="_blank">
+        <img
+          src="data.png"
+          class="w-48 sm:w-60 md:w-78 lg:w-80 h-auto"
+          alt=""
+        />
+      </a>
     </div>
     <div class="flex justify-between items-center">
       <div class="flex items-center">
@@ -42,7 +48,7 @@ import { ButtonModule } from 'primeng/button';
                   <a
                     (click)="router.navigate(['/'], { fragment: 'home' })"
                     pRipple
-                    class="px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-red-500 hover:text-white"
+                    class="px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white"
                   >
                     <span>INICIO</span>
                   </a>
@@ -69,11 +75,13 @@ import { ButtonModule } from 'primeng/button';
       </div>
     </div>
     <div class="flex justify-between items-center">
-      <img
-        src="Metor.webp"
-        class="w-24 sm:w-32 md:w-14 lg:w-40 h-auto"
-        alt=""
-      />
+      <a href="https://www.metoronline.com/contacto" target="_blank">
+        <img
+          src="Metor.webp"
+          class="w-24 sm:w-32 md:w-14 lg:w-40 h-auto"
+          alt=""
+        />
+      </a>
     </div>
   `,
 })
