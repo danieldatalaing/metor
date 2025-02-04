@@ -183,7 +183,7 @@
 
 <p-dialog header="Procesos de Contratación" [modal]="true" [(visible)]="visible" [style]="{ width: '100rem', height: '100rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
   <p-multiselect class="mb-9" display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected" [style]="{ 'min-width': '200px' }" placeholder="Choose Columns" />
-  <p-table stripedRows [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1325px' }" scrollHeight="800px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
+  <p-table stripedRows [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1360px' }" scrollHeight="650px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
     <ng-template #header>
       <tr>
         <th *ngFor="let col of selectedColumns" pResizableColumn pReorderableColumn>
