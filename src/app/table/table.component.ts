@@ -76,8 +76,15 @@ export class TableComponent implements OnInit {
 
   visible: boolean = false;
 
+  visible2: boolean = false;
+
   showDialog(product: Product) {
     this.visible = true;
+    this.product = { ...product };
+    this.productDialog = true;
+  }
+  showDialog2(product: Product) {
+    this.visible2 = true;
     this.product = { ...product };
     this.productDialog = true;
   }
@@ -207,9 +214,9 @@ export class TableComponent implements OnInit {
         if (rutaCompleta) {
           const urlSegura: SafeUrl =
             this.sanitizer.bypassSecurityTrustUrl(rutaCompleta); // Sanitiza la URL
-            console.log(rutaCompleta);
+          console.log(rutaCompleta);
         } else {
-             console.log(rutaCompleta);
+          console.log(rutaCompleta);
           console.error(`No se pudo obtener la ruta para ${archivo}`);
         }
       });

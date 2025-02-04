@@ -77489,408 +77489,439 @@ export class ProductService {
 
   //servicios de otras páginas
   getProductsWithOrdersData() {
-    return[
-  {
-id: 360,
-proceso_contratacion: 'GPP-STAP1-2024-31 ',
-descripcion_partida: 'E-100 INSPECCION POR IRIS',
-no_partida: '1',
-total_partida: ' 2,251.05 ',
-descripcion_corta_nombre_contrato: 'INSP INTERCAMBIADORES'
-  },
-  {
-id: 87,
-proceso_contratacion: 'GM-C-2024-11',
-descripcion_partida: 'EJECUCION DE MANTENIMIENTO PREVENTIVO, CORRECTIVO Y PUESTA EN SERVICIO DE MONTACARGAS TOYOTA CAP-3500KG',
-no_partida: '1',
-total_partida: ' 7,457.76 ',
-descripcion_corta_nombre_contrato: 'MTTO EQUIPOS PESADOS'
-  },
-  {
-id: 235,
-proceso_contratacion: 'GPP-C-2023-17',
-descripcion_partida: 'DEMOLICION DE CONCRETO EN VIGA',
-no_partida: '1',
-total_partida: ' 100,925.45 ',
-descripcion_corta_nombre_contrato: 'REP PIPE RACK'
-  },
-  {
-id: 297,
-proceso_contratacion: 'GPP-STAP1-2024-23',
-descripcion_partida: 'MANTENIMIENTO PREVENTIVO Y/O CORRECTIVO GRUPO  A ',
-no_partida: '1',
-total_partida: '',
-descripcion_corta_nombre_contrato: 'MTTO VALV CONTROL TALLER EXT'
-  },
-  {
-id: 40,
-proceso_contratacion: 'GM-C-2023-59',
-descripcion_partida: 'INSTALACION Y RETIROS DE CIEGO DE LINEAS DE 6  150# / 8  150#',
-no_partida: '1',
-total_partida: ' 893.12 ',
-descripcion_corta_nombre_contrato: 'CARBONO ACTIVADO'
-  },
-  {
-id: 1023,
-proceso_contratacion: ' GPP-STAP1-2024-42 ',
-descripcion_partida: 'MANTENIMIENTO MENOR  COMPRESOR K-101',
-no_partida: '1',
-total_partida: ' 21,827.34 ',
-descripcion_corta_nombre_contrato: 'MTTO. GRAL ROTATIVOS\n '
-  },
-  {
-id: 1140,
-proceso_contratacion: 'GPP-STAP1-2024-39',
-descripcion_partida: 'REEMPLAZO Y CALIBRACIÓN DE SPRING HANGERS EN PENTHOUSE',
-no_partida: '1',
-total_partida: ' 21,972.09 ',
-descripcion_corta_nombre_contrato: ' MANTENIMIENTO GENERAL DEL HORNO REFORMADOR F-201 DURANTE LA PARADA DE PLANTA PROGRAMADA STA-2024-P1 DE METANOL DE ORIENTE, METOR, S.A '
-  },
-  {
-id: 645,
-proceso_contratacion: 'GPP-STAP1-2024-03',
-descripcion_partida: 'MANTENIMIENTO Y CALIBRACIÓN DE VÁLVULAS DE SEGURIDAD PSV-101 4 -300# - 6 -150#',
-no_partida: '1',
-total_partida: ' 1,501.05 ',
-descripcion_corta_nombre_contrato: 'MTTO VALV SEG TALLER EXT'
-  },
-  {
-id: 739,
-proceso_contratacion: 'GPP-STAP1-2024-19',
-descripcion_partida: 'INSTALACION, CONEXION Y PRUEBAS DE LOS ACTUADORES ELECTRICOS NUEVOS MARCA ROTORK (HV-0210, HV-0212 Y HV-0402)',
-no_partida: '1',
-total_partida: ' 34,765.75 ',
-descripcion_corta_nombre_contrato: 'MTTO GENERAL ELECTRICIDAD'
-  },
-  {
-id: 52,
-proceso_contratacion: 'GM-C-2024-08',
-descripcion_partida: 'SUMINISTRO E INSTALACION DE TIBERIA RIGIDA DE CLORURO DE POLIVINILO (PVC), SERIE PESADA, SCHEDULE 40, DIAMETRO DE 1  PARA LLEGADA AL Z-1/01AB',
-no_partida: '1',
-total_partida: ' 148.00 ',
-descripcion_corta_nombre_contrato: 'CABLES DE POTENCIA'
-  },
-  {
-id: 867,
-proceso_contratacion: 'GPP-STAP1-2024-34',
-descripcion_partida: 'INSTALACION Y RETIRO DE CIEGOS MEDIANTE HERRAMIENTAS MANUALES O NEUMÁTICAS Y TRABAJOS MECÁNICOS MENORES DE PLANTA ',
-no_partida: '1',
-total_partida: ' 28,551.94 ',
-descripcion_corta_nombre_contrato: 'INST Y RET CIEGOS'
-  },
-  {
-id: 279,
-proceso_contratacion: 'GPP-STAP1-2024-01',
-descripcion_partida: 'REVESTIMIENTO EXTERNO CON FIBRA EN SPOOL',
-no_partida: '1',
-total_partida: ' 9,600.00 ',
-descripcion_corta_nombre_contrato: 'FIBRA VIDRIO'
-  },
-  {
-id: 333,
-proceso_contratacion: 'GPP-STAP1-2024-24',
-descripcion_partida: 'ALQUILER DE RADIOS PORTATILES',
-no_partida: '1',
-total_partida: ' 35,548.99 ',
-descripcion_corta_nombre_contrato: 'ALQUILER RADIOS PORTATILES'
-  },
-  {
-id: 7,
-proceso_contratacion: 'GM-C-2023-48',
-descripcion_partida: 'MANTENIMIENTO PREVENTIVO DE EQUIPOS DE AIRE ACONDICIONADO',
-no_partida: '1',
-total_partida: ' 70,661.76 ',
-descripcion_corta_nombre_contrato: 'AIRES ACONDICIONADOS'
-  },
-  {
-id: 858,
-proceso_contratacion: 'GPP-STAP1-2024-47',
-descripcion_partida: 'HORARIOS PROFESIONALES (DIA/8 HORAS DE LUNES A VIERNES) ESPEC',
-no_partida: '1.2',
-total_partida: ' 70,922.10 ',
-descripcion_corta_nombre_contrato: 'ASIST TEC SERV AUX SALA CONTROL Y SUB ELEC PPAL'
-  },
-  {
-id: 136,
-proceso_contratacion: 'GM-C-2024-16',
-descripcion_partida: 'MANTENIMIENTO PREVENTIVO A CONJUNTO MOTOR/ BOMBA CENTRIFUGAS',
-no_partida: '1',
-total_partida: ' 82,354.48 ',
-descripcion_corta_nombre_contrato: 'CONF. DE ROTATIVOS'
-  },
-  {
-id: 450,
-proceso_contratacion: 'GPP-STAP1-2024-33',
-descripcion_partida: 'INSPECTOR SSA LUNES-VIERNES DIURNO (8HR)',
-no_partida: '1',
-total_partida: ' 8,293.22 ',
-descripcion_corta_nombre_contrato: 'LABORES'
-  },
-  {
-id: 973,
-proceso_contratacion: 'GPP-STAP1-2024-41 ',
-descripcion_partida: '',
-no_partida: '1',
-total_partida: ' 81,736.77 ',
-descripcion_corta_nombre_contrato: 'AVISOS M5'
-  },
-  {
-id: 1090,
-proceso_contratacion: 'GPP-STAP1-2024-44 ',
-descripcion_partida: 'ALQUILER DOS TRAILERS PARA OFICINA',
-no_partida: '1',
-total_partida: ' 101,038.00 ',
-descripcion_corta_nombre_contrato: 'ALQUILER FACILIDADES'
-  },
-  {
-id: 771,
-proceso_contratacion: 'GPP-STAP1-2024-20 ',
-descripcion_partida: 'PARTIDA 1 SUMINISTRO, ARMADO Y DESARMADO DE ANDAMIOS',
-no_partida: '1',
-total_partida: ' 113,148.00 ',
-descripcion_corta_nombre_contrato: 'REEMPLAZO E-205 STA-P1'
-  },
-  {
-id: 1114,
-proceso_contratacion: 'GPP-STAP1-2024-49',
-descripcion_partida: 'TRASLADO EN GANDOLA 3 EJES CON PLATAFORMA LUNES A VIERNES. (TRANSPORTE DE MATERIALES)',
-no_partida: '1',
-total_partida: ' 4,813.20 ',
-descripcion_corta_nombre_contrato: 'SERVICIO DE TRANSPORTE POR VÍA TERRESTRE PARA LOS MATERIALES DE LA PARADA DE PLANTA STA-2024-P1 DE METANOL DE ORIENTE, METOR S.A.'
-  },
-  {
-id: 842,
-proceso_contratacion: 'GPP-STAP1-2024-21',
-descripcion_partida: 'ASISTENCIA TECNICA (DIAS DE SEMANAS)',
-no_partida: '1',
-total_partida: ' 50,175.72 ',
-descripcion_corta_nombre_contrato: 'FLOWSERVE'
-  },
-  {
-id: 248,
-proceso_contratacion: 'GPP-C-2024-01',
-descripcion_partida: 'ELABORACION DE GIGANTOGRAFIAS INFORMATIVAS TIPO BANNER',
-no_partida: '1',
-total_partida: ' -   ',
-descripcion_corta_nombre_contrato: 'ELAB GIGANTOGRAFIAS INFORMATIVAS'
-  },
-  {
-id: 293,
-proceso_contratacion: 'GPP-STAP1-2024-35',
-descripcion_partida: 'FABRICACION DE PIEZAS METALMECANICAS ',
-no_partida: '1',
-total_partida: ' 51,804.00 ',
-descripcion_corta_nombre_contrato: 'TALLER METALMECANICO'
-  },
-  {
-id: 712,
-proceso_contratacion: 'GPP-STAP1-2024-14 ',
-descripcion_partida: 'TRATAMIENTO Y DISPOSICION FINAL DE LANA MINERAL Y FIBRA CERAMICA',
-no_partida: '1',
-total_partida: ' 64,440.00 ',
-descripcion_corta_nombre_contrato: 'DISP FINAL DESECHOS'
-  },
-  {
-id: 687,
-proceso_contratacion: 'GPP-STAP1-2024-13',
-descripcion_partida: 'DESARROLLO DE INGENIERÍA DE DETALLE PARA EL REEMPLAZO DEL SISTEMA DE IGNICIÓN Y PILOTOS DEL FLARE M-721.',
-no_partida: '1',
-total_partida: ' 4,138.85 ',
-descripcion_corta_nombre_contrato: 'REEMPLAZO STMA IGNIC FLARE M-721'
-  },
-  {
-id: 168,
-proceso_contratacion: 'GO-C-2023-03',
-descripcion_partida: 'TRATAMIENTO QUIMICO. SISTEMAS DE AGUA DE ENFRIAMIENTO (CWTU PI)',
-no_partida: '',
-total_partida: ' 21,604.54 ',
-descripcion_corta_nombre_contrato: 'SUMINISTRO DE QUIMICOS Y SERVICIO TECNICO'
-  },
-  {
-id: 1118,
-proceso_contratacion: 'GPP-STAP1-2024-40',
-descripcion_partida: 'REEMPLAZO DE HACES TUBULARES E-507-7, E-507-8, E-507-9, E-507-10, E-507-\n 11, E-507-12',
-no_partida: '1',
-total_partida: ' 457,820.52 ',
-descripcion_corta_nombre_contrato: 'MTTO ESTR REEM VENT Y HACES TUB'
-  },
-  {
-id: 223,
-proceso_contratacion: 'GPP-C-2023-16',
-descripcion_partida: '\nDESARROLLODE INGENIERIA BASICA Y DE DETALLE PARA EL REEMPLAZODE LOS SWITCHGEAR DE BAJA TENSION Y BANCO DE CAPACITORES',
-no_partida: '1',
-total_partida: ' 111,998.82 ',
-descripcion_corta_nombre_contrato: 'IPC YPUESTA EN MARCHA SWITCHGEAR BAJA TENSION '
-  },
-  {
-id: 101,
-proceso_contratacion: 'GM-C-2024-14 ',
-descripcion_partida: 'INSTALACION Y RETIRO DE CIEGOS EN CALDERAS AUXILIARES B-620 A/B/C',
-no_partida: '1',
-total_partida: ' 3,387.51 ',
-descripcion_corta_nombre_contrato: 'CERTIF. CALDERA A-B-C'
-  },
-  {
-id: 287,
-proceso_contratacion: 'GPP-STAP1-2024-02',
-descripcion_partida: 'SUMINISTRO DE UN (01) MONTACARGA 4 TON. INCLUYENDO OPERADOR (DIURNO)',
-no_partida: '1',
-total_partida: ' 10,881.36 ',
-descripcion_corta_nombre_contrato: 'EQUIPOS PESADOS'
-  },
-  {
-id: 852,
-proceso_contratacion: 'GPP-STAP1-2024-48 ',
-descripcion_partida: 'TOLDO 5X5',
-no_partida: '1',
-total_partida: ' 1,464.00 ',
-descripcion_corta_nombre_contrato: 'SERV Y SUMIN TOLDOS Y MAT UTILERIA'
-  },
-  {
-id: 337,
-proceso_contratacion: 'GPP-STAP1-2024-29',
-descripcion_partida: 'INSPECCION DE INTERCAMBIADORES DE CALOR',
-no_partida: '1',
-total_partida: ' 26,621.42 ',
-descripcion_corta_nombre_contrato: 'INSP EQ EST Y ROT'
-  },
-  {
-id: 167,
-proceso_contratacion: 'GM-C-2024-23',
-descripcion_partida: 'SUMINISTRO, FABRICACION E INSTALACION DE CAPSULA METALICA CON INYECCION DE QUIMICO SELLANTE',
-no_partida: '1',
-total_partida: ' 172,980.00 ',
-descripcion_corta_nombre_contrato: 'URGENCIA CHAQUETA'
-  },
-  {
-id: 198,
-proceso_contratacion: 'GPP-C-2023-14 ',
-descripcion_partida: 'MOVILIZACION Y DESMOVILIZACION',
-no_partida: '1',
-total_partida: ' 6,174.75 ',
-descripcion_corta_nombre_contrato: 'ADECUACION FRANJA'
-  },
-  {
-id: 1105,
-proceso_contratacion: 'GPP-STAP2-2024-43',
-descripcion_partida: 'APERTURA Y CIERRE DE BRIDAS PARA REEMPLAZO DE CATALIZADOR EN HIDROGENADOR R- 1101.',
-no_partida: '1',
-total_partida: ' 93,731.27 ',
-descripcion_corta_nombre_contrato: 'SERVICIO DE REEMPLAZO DE CATALIZADOR DEL HIDROGENADOR R-1101 Y EL HORNO REFORMADOR F-1201 DURANTE LA PARADA DE PLANTA PROGRAMADA STA-2024-P2 DE METANOL DE ORIENTE, METOR S.A'
-  },
-  {
-id: 886,
-proceso_contratacion: 'GPP-STAP1-2024-32 ',
-descripcion_partida: 'DESCONEXIÓN / CONEXIÓN, MANTENIMIENTO Y CALIBRACIÓN DE VÁLVULAS DE CONTROL EN SITIO. MARCA MASONEILAN/ FISHER/ YARWAY/ COPES VULCAN',
-no_partida: '1',
-total_partida: '',
-descripcion_corta_nombre_contrato: ' MTTO GRAL INSTRUMENT'
-  },
-  {
-id: 721,
-proceso_contratacion: 'GPP-STAP1-2024-16',
-descripcion_partida: 'REMOCION, SUMINISTRO E INSTALACION DE AISLAMIENTO TERMICO.',
-no_partida: '1',
-total_partida: ' 57,938.00 ',
-descripcion_corta_nombre_contrato: 'AISLAMIENTO TERM  PETROPARADA'
-  },
-  {
-id: 20,
-proceso_contratacion: 'GM-C-2023-55',
-descripcion_partida: 'CALCULOS DE INGENIERIA Y REVISION DOCUMENTOS',
-no_partida: '1',
-total_partida: ' 23,760.00 ',
-descripcion_corta_nombre_contrato: 'FABRICACION TANQU T-830'
-  },
-  {
-id: 729,
-proceso_contratacion: 'GPP-STAP1-2024-18',
-descripcion_partida: 'ANALISIS QUIMICO PUNTUAL POR DISPERSION DE ENERGIA (EDS)',
-no_partida: '1',
-total_partida: ' 2,656.00 ',
-descripcion_corta_nombre_contrato: ' EVAL METALURGICAS'
-  },
-  {
-id: 158,
-proceso_contratacion: 'GM-C-2024-19',
-descripcion_partida: 'MANTENIMIENTO A CONJUNTO MOTOR/ AEROENFRIADOR DE ANGULO FIJO PLANTA 1',
-no_partida: '1',
-total_partida: ' 21,122.20 ',
-descripcion_corta_nombre_contrato: 'URGENCIA AEROENFRIADORES'
-  },
-  {
-id: 873,
-proceso_contratacion: 'GPP-STAP1-2024-36 ',
-descripcion_partida: 'MANTENIMIENTO PREVENTIVO DEL MOTOR ELÉCTRICO DE MEDIA TENSIÓN DE 4000 V, 1306 KW.',
-no_partida: '1',
-total_partida: ' 34,521.99 ',
-descripcion_corta_nombre_contrato: 'MTTO TALLER EXT MOTORES ELECT MEDIA Y BAJA TENSIÓN'
-  },
-  {
-id: 727,
-proceso_contratacion: 'GPP-STAP1-2024-17 ',
-descripcion_partida: 'INSPECCIÓN CON FLOOR SCANNER',
-no_partida: '1',
-total_partida: ' 7,989.34 ',
-descripcion_corta_nombre_contrato: ' FLOOR SCANNER'
-  },
-  {
-id: 594,
-proceso_contratacion: '',
-descripcion_partida: 'OPERADOR SERVICIOS GENERALES LUNESVIERNES DIURNO (8HR)',
-no_partida: '145',
-total_partida: ' 2,793.60 ',
-descripcion_corta_nombre_contrato: ''
-  },
-  {
-id: 33,
-proceso_contratacion: 'GM-C-2023-57',
-descripcion_partida: 'REEMPLAZO DE LAS BOLAS DE CERAMICA (CERAMIC BALL 1/4 )',
-no_partida: '1',
-total_partida: '',
-descripcion_corta_nombre_contrato: 'REEMPL. CAT. AZUFRE'
-  },
-  {
-id: 1,
-proceso_contratacion: 'GF-C-2024-01',
-descripcion_partida: 'MANTENIMIENTO DE AREAS VERDES',
-no_partida: '1',
-total_partida: ' 20,878.56 ',
-descripcion_corta_nombre_contrato: 'AREAS VERDES'
-  },
-  {
-id: 251,
-proceso_contratacion: 'GPP-C-2024-04',
-descripcion_partida: 'REPLANTEO Y NIVELACIÓN TOPOGRÁFICA EN ZONA EXTERNA DE PORTON',
-no_partida: '1',
-total_partida: ' 4,026.15 ',
-descripcion_corta_nombre_contrato: 'URGENCIA VIALIDAD'
-  },
-  {
-id: 1096,
-proceso_contratacion: 'GT-C-2024-02',
-descripcion_partida: 'DESARROLLO DE LA INGENIERIA DE DETALLE',
-no_partida: '1',
-total_partida: ' 10,922.34 ',
-descripcion_corta_nombre_contrato: 'ACTUALIZACION DE PLC'
-  },
-  {
-id: 1190,
-proceso_contratacion: 'GPP-STAP1-2024-37',
-descripcion_partida: 'MANTENIMIENTO AL ENFRIADOR DE CORRIENTE ANTI-ONDEO DEL COMPRESOR DE GAS NATURAL E-100',
-no_partida: '1',
-total_partida: ' 2,729.52 ',
-descripcion_corta_nombre_contrato: 'MTTO GENERAL ESTÁTICO'
-  },
-  {
-id: 846,
-proceso_contratacion: 'GPP-STAP1-2024-45 ',
-descripcion_partida: 'SUMINISTRO, ARMADO DE ANDAMIOS Y DESARMADO DE ANDAMIOS ',
-no_partida: '1',
-total_partida: ' 63,974.00 ',
-descripcion_corta_nombre_contrato: 'ANDAMIOS CUPLOCK'
-  }
-];
+    return [
+      {
+        id: 360,
+        proceso_contratacion: 'GPP-STAP1-2024-31 ',
+        descripcion_partida: 'E-100 INSPECCION POR IRIS',
+        no_partida: '1',
+        total_partida: ' 2,251.05 ',
+        descripcion_corta_nombre_contrato: 'INSP INTERCAMBIADORES',
+      },
+      {
+        id: 87,
+        proceso_contratacion: 'GM-C-2024-11',
+        descripcion_partida:
+          'EJECUCION DE MANTENIMIENTO PREVENTIVO, CORRECTIVO Y PUESTA EN SERVICIO DE MONTACARGAS TOYOTA CAP-3500KG',
+        no_partida: '1',
+        total_partida: ' 7,457.76 ',
+        descripcion_corta_nombre_contrato: 'MTTO EQUIPOS PESADOS',
+      },
+      {
+        id: 235,
+        proceso_contratacion: 'GPP-C-2023-17',
+        descripcion_partida: 'DEMOLICION DE CONCRETO EN VIGA',
+        no_partida: '1',
+        total_partida: ' 100,925.45 ',
+        descripcion_corta_nombre_contrato: 'REP PIPE RACK',
+      },
+      {
+        id: 297,
+        proceso_contratacion: 'GPP-STAP1-2024-23',
+        descripcion_partida:
+          'MANTENIMIENTO PREVENTIVO Y/O CORRECTIVO GRUPO  A ',
+        no_partida: '1',
+        total_partida: '',
+        descripcion_corta_nombre_contrato: 'MTTO VALV CONTROL TALLER EXT',
+      },
+      {
+        id: 40,
+        proceso_contratacion: 'GM-C-2023-59',
+        descripcion_partida:
+          'INSTALACION Y RETIROS DE CIEGO DE LINEAS DE 6  150# / 8  150#',
+        no_partida: '1',
+        total_partida: ' 893.12 ',
+        descripcion_corta_nombre_contrato: 'CARBONO ACTIVADO',
+      },
+      {
+        id: 1023,
+        proceso_contratacion: ' GPP-STAP1-2024-42 ',
+        descripcion_partida: 'MANTENIMIENTO MENOR  COMPRESOR K-101',
+        no_partida: '1',
+        total_partida: ' 21,827.34 ',
+        descripcion_corta_nombre_contrato: 'MTTO. GRAL ROTATIVOS\n ',
+      },
+      {
+        id: 1140,
+        proceso_contratacion: 'GPP-STAP1-2024-39',
+        descripcion_partida:
+          'REEMPLAZO Y CALIBRACIÓN DE SPRING HANGERS EN PENTHOUSE',
+        no_partida: '1',
+        total_partida: ' 21,972.09 ',
+        descripcion_corta_nombre_contrato:
+          ' MANTENIMIENTO GENERAL DEL HORNO REFORMADOR F-201 DURANTE LA PARADA DE PLANTA PROGRAMADA STA-2024-P1 DE METANOL DE ORIENTE, METOR, S.A ',
+      },
+      {
+        id: 645,
+        proceso_contratacion: 'GPP-STAP1-2024-03',
+        descripcion_partida:
+          'MANTENIMIENTO Y CALIBRACIÓN DE VÁLVULAS DE SEGURIDAD PSV-101 4 -300# - 6 -150#',
+        no_partida: '1',
+        total_partida: ' 1,501.05 ',
+        descripcion_corta_nombre_contrato: 'MTTO VALV SEG TALLER EXT',
+      },
+      {
+        id: 739,
+        proceso_contratacion: 'GPP-STAP1-2024-19',
+        descripcion_partida:
+          'INSTALACION, CONEXION Y PRUEBAS DE LOS ACTUADORES ELECTRICOS NUEVOS MARCA ROTORK (HV-0210, HV-0212 Y HV-0402)',
+        no_partida: '1',
+        total_partida: ' 34,765.75 ',
+        descripcion_corta_nombre_contrato: 'MTTO GENERAL ELECTRICIDAD',
+      },
+      {
+        id: 52,
+        proceso_contratacion: 'GM-C-2024-08',
+        descripcion_partida:
+          'SUMINISTRO E INSTALACION DE TIBERIA RIGIDA DE CLORURO DE POLIVINILO (PVC), SERIE PESADA, SCHEDULE 40, DIAMETRO DE 1  PARA LLEGADA AL Z-1/01AB',
+        no_partida: '1',
+        total_partida: ' 148.00 ',
+        descripcion_corta_nombre_contrato: 'CABLES DE POTENCIA',
+      },
+      {
+        id: 867,
+        proceso_contratacion: 'GPP-STAP1-2024-34',
+        descripcion_partida:
+          'INSTALACION Y RETIRO DE CIEGOS MEDIANTE HERRAMIENTAS MANUALES O NEUMÁTICAS Y TRABAJOS MECÁNICOS MENORES DE PLANTA ',
+        no_partida: '1',
+        total_partida: ' 28,551.94 ',
+        descripcion_corta_nombre_contrato: 'INST Y RET CIEGOS',
+      },
+      {
+        id: 279,
+        proceso_contratacion: 'GPP-STAP1-2024-01',
+        descripcion_partida: 'REVESTIMIENTO EXTERNO CON FIBRA EN SPOOL',
+        no_partida: '1',
+        total_partida: ' 9,600.00 ',
+        descripcion_corta_nombre_contrato: 'FIBRA VIDRIO',
+      },
+      {
+        id: 333,
+        proceso_contratacion: 'GPP-STAP1-2024-24',
+        descripcion_partida: 'ALQUILER DE RADIOS PORTATILES',
+        no_partida: '1',
+        total_partida: ' 35,548.99 ',
+        descripcion_corta_nombre_contrato: 'ALQUILER RADIOS PORTATILES',
+      },
+      {
+        id: 7,
+        proceso_contratacion: 'GM-C-2023-48',
+        descripcion_partida:
+          'MANTENIMIENTO PREVENTIVO DE EQUIPOS DE AIRE ACONDICIONADO',
+        no_partida: '1',
+        total_partida: ' 70,661.76 ',
+        descripcion_corta_nombre_contrato: 'AIRES ACONDICIONADOS',
+      },
+      {
+        id: 858,
+        proceso_contratacion: 'GPP-STAP1-2024-47',
+        descripcion_partida:
+          'HORARIOS PROFESIONALES (DIA/8 HORAS DE LUNES A VIERNES) ESPEC',
+        no_partida: '1.2',
+        total_partida: ' 70,922.10 ',
+        descripcion_corta_nombre_contrato:
+          'ASIST TEC SERV AUX SALA CONTROL Y SUB ELEC PPAL',
+      },
+      {
+        id: 136,
+        proceso_contratacion: 'GM-C-2024-16',
+        descripcion_partida:
+          'MANTENIMIENTO PREVENTIVO A CONJUNTO MOTOR/ BOMBA CENTRIFUGAS',
+        no_partida: '1',
+        total_partida: ' 82,354.48 ',
+        descripcion_corta_nombre_contrato: 'CONF. DE ROTATIVOS',
+      },
+      {
+        id: 450,
+        proceso_contratacion: 'GPP-STAP1-2024-33',
+        descripcion_partida: 'INSPECTOR SSA LUNES-VIERNES DIURNO (8HR)',
+        no_partida: '1',
+        total_partida: ' 8,293.22 ',
+        descripcion_corta_nombre_contrato: 'LABORES',
+      },
+      {
+        id: 973,
+        proceso_contratacion: 'GPP-STAP1-2024-41 ',
+        descripcion_partida: '',
+        no_partida: '1',
+        total_partida: ' 81,736.77 ',
+        descripcion_corta_nombre_contrato: 'AVISOS M5',
+      },
+      {
+        id: 1090,
+        proceso_contratacion: 'GPP-STAP1-2024-44 ',
+        descripcion_partida: 'ALQUILER DOS TRAILERS PARA OFICINA',
+        no_partida: '1',
+        total_partida: ' 101,038.00 ',
+        descripcion_corta_nombre_contrato: 'ALQUILER FACILIDADES',
+      },
+      {
+        id: 771,
+        proceso_contratacion: 'GPP-STAP1-2024-20 ',
+        descripcion_partida:
+          'PARTIDA 1 SUMINISTRO, ARMADO Y DESARMADO DE ANDAMIOS',
+        no_partida: '1',
+        total_partida: ' 113,148.00 ',
+        descripcion_corta_nombre_contrato: 'REEMPLAZO E-205 STA-P1',
+      },
+      {
+        id: 1114,
+        proceso_contratacion: 'GPP-STAP1-2024-49',
+        descripcion_partida:
+          'TRASLADO EN GANDOLA 3 EJES CON PLATAFORMA LUNES A VIERNES. (TRANSPORTE DE MATERIALES)',
+        no_partida: '1',
+        total_partida: ' 4,813.20 ',
+        descripcion_corta_nombre_contrato:
+          'SERVICIO DE TRANSPORTE POR VÍA TERRESTRE PARA LOS MATERIALES DE LA PARADA DE PLANTA STA-2024-P1 DE METANOL DE ORIENTE, METOR S.A.',
+      },
+      {
+        id: 842,
+        proceso_contratacion: 'GPP-STAP1-2024-21',
+        descripcion_partida: 'ASISTENCIA TECNICA (DIAS DE SEMANAS)',
+        no_partida: '1',
+        total_partida: ' 50,175.72 ',
+        descripcion_corta_nombre_contrato: 'FLOWSERVE',
+      },
+      {
+        id: 248,
+        proceso_contratacion: 'GPP-C-2024-01',
+        descripcion_partida:
+          'ELABORACION DE GIGANTOGRAFIAS INFORMATIVAS TIPO BANNER',
+        no_partida: '1',
+        total_partida: ' -   ',
+        descripcion_corta_nombre_contrato: 'ELAB GIGANTOGRAFIAS INFORMATIVAS',
+      },
+      {
+        id: 293,
+        proceso_contratacion: 'GPP-STAP1-2024-35',
+        descripcion_partida: 'FABRICACION DE PIEZAS METALMECANICAS ',
+        no_partida: '1',
+        total_partida: ' 51,804.00 ',
+        descripcion_corta_nombre_contrato: 'TALLER METALMECANICO',
+      },
+      {
+        id: 712,
+        proceso_contratacion: 'GPP-STAP1-2024-14 ',
+        descripcion_partida:
+          'TRATAMIENTO Y DISPOSICION FINAL DE LANA MINERAL Y FIBRA CERAMICA',
+        no_partida: '1',
+        total_partida: ' 64,440.00 ',
+        descripcion_corta_nombre_contrato: 'DISP FINAL DESECHOS',
+      },
+      {
+        id: 687,
+        proceso_contratacion: 'GPP-STAP1-2024-13',
+        descripcion_partida:
+          'DESARROLLO DE INGENIERÍA DE DETALLE PARA EL REEMPLAZO DEL SISTEMA DE IGNICIÓN Y PILOTOS DEL FLARE M-721.',
+        no_partida: '1',
+        total_partida: ' 4,138.85 ',
+        descripcion_corta_nombre_contrato: 'REEMPLAZO STMA IGNIC FLARE M-721',
+      },
+      {
+        id: 168,
+        proceso_contratacion: 'GO-C-2023-03',
+        descripcion_partida:
+          'TRATAMIENTO QUIMICO. SISTEMAS DE AGUA DE ENFRIAMIENTO (CWTU PI)',
+        no_partida: '',
+        total_partida: ' 21,604.54 ',
+        descripcion_corta_nombre_contrato:
+          'SUMINISTRO DE QUIMICOS Y SERVICIO TECNICO',
+      },
+      {
+        id: 1118,
+        proceso_contratacion: 'GPP-STAP1-2024-40',
+        descripcion_partida:
+          'REEMPLAZO DE HACES TUBULARES E-507-7, E-507-8, E-507-9, E-507-10, E-507-\n 11, E-507-12',
+        no_partida: '1',
+        total_partida: ' 457,820.52 ',
+        descripcion_corta_nombre_contrato: 'MTTO ESTR REEM VENT Y HACES TUB',
+      },
+      {
+        id: 223,
+        proceso_contratacion: 'GPP-C-2023-16',
+        descripcion_partida:
+          '\nDESARROLLODE INGENIERIA BASICA Y DE DETALLE PARA EL REEMPLAZODE LOS SWITCHGEAR DE BAJA TENSION Y BANCO DE CAPACITORES',
+        no_partida: '1',
+        total_partida: ' 111,998.82 ',
+        descripcion_corta_nombre_contrato:
+          'IPC YPUESTA EN MARCHA SWITCHGEAR BAJA TENSION ',
+      },
+      {
+        id: 101,
+        proceso_contratacion: 'GM-C-2024-14 ',
+        descripcion_partida:
+          'INSTALACION Y RETIRO DE CIEGOS EN CALDERAS AUXILIARES B-620 A/B/C',
+        no_partida: '1',
+        total_partida: ' 3,387.51 ',
+        descripcion_corta_nombre_contrato: 'CERTIF. CALDERA A-B-C',
+      },
+      {
+        id: 287,
+        proceso_contratacion: 'GPP-STAP1-2024-02',
+        descripcion_partida:
+          'SUMINISTRO DE UN (01) MONTACARGA 4 TON. INCLUYENDO OPERADOR (DIURNO)',
+        no_partida: '1',
+        total_partida: ' 10,881.36 ',
+        descripcion_corta_nombre_contrato: 'EQUIPOS PESADOS',
+      },
+      {
+        id: 852,
+        proceso_contratacion: 'GPP-STAP1-2024-48 ',
+        descripcion_partida: 'TOLDO 5X5',
+        no_partida: '1',
+        total_partida: ' 1,464.00 ',
+        descripcion_corta_nombre_contrato: 'SERV Y SUMIN TOLDOS Y MAT UTILERIA',
+      },
+      {
+        id: 337,
+        proceso_contratacion: 'GPP-STAP1-2024-29',
+        descripcion_partida: 'INSPECCION DE INTERCAMBIADORES DE CALOR',
+        no_partida: '1',
+        total_partida: ' 26,621.42 ',
+        descripcion_corta_nombre_contrato: 'INSP EQ EST Y ROT',
+      },
+      {
+        id: 167,
+        proceso_contratacion: 'GM-C-2024-23',
+        descripcion_partida:
+          'SUMINISTRO, FABRICACION E INSTALACION DE CAPSULA METALICA CON INYECCION DE QUIMICO SELLANTE',
+        no_partida: '1',
+        total_partida: ' 172,980.00 ',
+        descripcion_corta_nombre_contrato: 'URGENCIA CHAQUETA',
+      },
+      {
+        id: 198,
+        proceso_contratacion: 'GPP-C-2023-14 ',
+        descripcion_partida: 'MOVILIZACION Y DESMOVILIZACION',
+        no_partida: '1',
+        total_partida: ' 6,174.75 ',
+        descripcion_corta_nombre_contrato: 'ADECUACION FRANJA',
+      },
+      {
+        id: 1105,
+        proceso_contratacion: 'GPP-STAP2-2024-43',
+        descripcion_partida:
+          'APERTURA Y CIERRE DE BRIDAS PARA REEMPLAZO DE CATALIZADOR EN HIDROGENADOR R- 1101.',
+        no_partida: '1',
+        total_partida: ' 93,731.27 ',
+        descripcion_corta_nombre_contrato:
+          'SERVICIO DE REEMPLAZO DE CATALIZADOR DEL HIDROGENADOR R-1101 Y EL HORNO REFORMADOR F-1201 DURANTE LA PARADA DE PLANTA PROGRAMADA STA-2024-P2 DE METANOL DE ORIENTE, METOR S.A',
+      },
+      {
+        id: 886,
+        proceso_contratacion: 'GPP-STAP1-2024-32 ',
+        descripcion_partida:
+          'DESCONEXIÓN / CONEXIÓN, MANTENIMIENTO Y CALIBRACIÓN DE VÁLVULAS DE CONTROL EN SITIO. MARCA MASONEILAN/ FISHER/ YARWAY/ COPES VULCAN',
+        no_partida: '1',
+        total_partida: '',
+        descripcion_corta_nombre_contrato: ' MTTO GRAL INSTRUMENT',
+      },
+      {
+        id: 721,
+        proceso_contratacion: 'GPP-STAP1-2024-16',
+        descripcion_partida:
+          'REMOCION, SUMINISTRO E INSTALACION DE AISLAMIENTO TERMICO.',
+        no_partida: '1',
+        total_partida: ' 57,938.00 ',
+        descripcion_corta_nombre_contrato: 'AISLAMIENTO TERM  PETROPARADA',
+      },
+      {
+        id: 20,
+        proceso_contratacion: 'GM-C-2023-55',
+        descripcion_partida: 'CALCULOS DE INGENIERIA Y REVISION DOCUMENTOS',
+        no_partida: '1',
+        total_partida: ' 23,760.00 ',
+        descripcion_corta_nombre_contrato: 'FABRICACION TANQU T-830',
+      },
+      {
+        id: 729,
+        proceso_contratacion: 'GPP-STAP1-2024-18',
+        descripcion_partida:
+          'ANALISIS QUIMICO PUNTUAL POR DISPERSION DE ENERGIA (EDS)',
+        no_partida: '1',
+        total_partida: ' 2,656.00 ',
+        descripcion_corta_nombre_contrato: ' EVAL METALURGICAS',
+      },
+      {
+        id: 158,
+        proceso_contratacion: 'GM-C-2024-19',
+        descripcion_partida:
+          'MANTENIMIENTO A CONJUNTO MOTOR/ AEROENFRIADOR DE ANGULO FIJO PLANTA 1',
+        no_partida: '1',
+        total_partida: ' 21,122.20 ',
+        descripcion_corta_nombre_contrato: 'URGENCIA AEROENFRIADORES',
+      },
+      {
+        id: 873,
+        proceso_contratacion: 'GPP-STAP1-2024-36 ',
+        descripcion_partida:
+          'MANTENIMIENTO PREVENTIVO DEL MOTOR ELÉCTRICO DE MEDIA TENSIÓN DE 4000 V, 1306 KW.',
+        no_partida: '1',
+        total_partida: ' 34,521.99 ',
+        descripcion_corta_nombre_contrato:
+          'MTTO TALLER EXT MOTORES ELECT MEDIA Y BAJA TENSIÓN',
+      },
+      {
+        id: 727,
+        proceso_contratacion: 'GPP-STAP1-2024-17 ',
+        descripcion_partida: 'INSPECCIÓN CON FLOOR SCANNER',
+        no_partida: '1',
+        total_partida: ' 7,989.34 ',
+        descripcion_corta_nombre_contrato: ' FLOOR SCANNER',
+      },
+      {
+        id: 33,
+        proceso_contratacion: 'GM-C-2023-57',
+        descripcion_partida:
+          'REEMPLAZO DE LAS BOLAS DE CERAMICA (CERAMIC BALL 1/4 )',
+        no_partida: '1',
+        total_partida: '',
+        descripcion_corta_nombre_contrato: 'REEMPL. CAT. AZUFRE',
+      },
+      {
+        id: 1,
+        proceso_contratacion: 'GF-C-2024-01',
+        descripcion_partida: 'MANTENIMIENTO DE AREAS VERDES',
+        no_partida: '1',
+        total_partida: ' 20,878.56 ',
+        descripcion_corta_nombre_contrato: 'AREAS VERDES',
+      },
+      {
+        id: 251,
+        proceso_contratacion: 'GPP-C-2024-04',
+        descripcion_partida:
+          'REPLANTEO Y NIVELACIÓN TOPOGRÁFICA EN ZONA EXTERNA DE PORTON',
+        no_partida: '1',
+        total_partida: ' 4,026.15 ',
+        descripcion_corta_nombre_contrato: 'URGENCIA VIALIDAD',
+      },
+      {
+        id: 1096,
+        proceso_contratacion: 'GT-C-2024-02',
+        descripcion_partida: 'DESARROLLO DE LA INGENIERIA DE DETALLE',
+        no_partida: '1',
+        total_partida: ' 10,922.34 ',
+        descripcion_corta_nombre_contrato: 'ACTUALIZACION DE PLC',
+      },
+      {
+        id: 1190,
+        proceso_contratacion: 'GPP-STAP1-2024-37',
+        descripcion_partida:
+          'MANTENIMIENTO AL ENFRIADOR DE CORRIENTE ANTI-ONDEO DEL COMPRESOR DE GAS NATURAL E-100',
+        no_partida: '1',
+        total_partida: ' 2,729.52 ',
+        descripcion_corta_nombre_contrato: 'MTTO GENERAL ESTÁTICO',
+      },
+      {
+        id: 846,
+        proceso_contratacion: 'GPP-STAP1-2024-45 ',
+        descripcion_partida:
+          'SUMINISTRO, ARMADO DE ANDAMIOS Y DESARMADO DE ANDAMIOS ',
+        no_partida: '1',
+        total_partida: ' 63,974.00 ',
+        descripcion_corta_nombre_contrato: 'ANDAMIOS CUPLOCK',
+      },
+    ];
   }
 
   getArchivos() {
@@ -78163,4 +78194,4 @@ descripcion_corta_nombre_contrato: 'ANDAMIOS CUPLOCK'
   generateRating() {
     return Math.floor(Math.random() * Math.floor(5) + 1);
   }
-};
+}
