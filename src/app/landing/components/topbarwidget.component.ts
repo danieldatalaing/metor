@@ -58,7 +58,7 @@ import { ButtonModule } from 'primeng/button';
                 </li>
                 <li>
                   <a
-                    routerLink="/listado"
+                    routerLink="/proceso"
                     pRipple
                     class="px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-red-500 hover:text-white"
                   >
