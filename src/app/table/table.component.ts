@@ -270,7 +270,7 @@ export class TableComponent implements OnInit {
   onRowExpand(event: TableRowExpandEvent) {
     this.messageService.add({
       severity: 'info',
-      summary: 'Product Expanded',
+      summary: 'Proceso desplegado',
       detail: event.data.name,
       life: 3000,
     });

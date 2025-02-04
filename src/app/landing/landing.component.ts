@@ -32,7 +32,7 @@ import { HeroWidget } from './components/herowidget';
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('/fondo3.jpg');
+        background-image: url('http://localhost:4200/metor.jpg');
         /* Ruta a la imagen */
         background-size: cover;
         /* o contain si prefieres */

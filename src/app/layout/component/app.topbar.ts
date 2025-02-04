@@ -19,7 +19,7 @@ import { LayoutService } from '../service/layout.service';
         <i class="pi pi-bars"></i>
       </button> -->
       <a class="layout-topbar-logo" routerLink="/" class="ml-8">
-        <img src="https://energytech.com.ve/img/Metor.webp" width="70" />
+        <img src="https://energytech.com.ve/img/Metor.webp" width="75" />
         <span></span>
       </a>
       <a routerLink="/" class="mr-4 ml-4"><b>Inicio</b></a>
@@ -43,7 +43,7 @@ import { LayoutService } from '../service/layout.service';
           ></i>
         </button>
         <div class="relative">
-          <button
+          <!-- <button
             class="layout-topbar-action layout-topbar-action-highlight"
             pStyleClass="@next"
             enterFromClass="hidden"
@@ -53,8 +53,8 @@ import { LayoutService } from '../service/layout.service';
             [hideOnOutsideClick]="true"
           >
             <i class="pi pi-palette"></i>
-          </button>
-          <app-configurator />
+          </button> -->
+          <!-- <app-configurator /> -->
         </div>
       </div>
 
