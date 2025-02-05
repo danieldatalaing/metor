@@ -136,8 +136,8 @@
                 </td>
                 <td>{{product.descripcion_corta_nombre_contrato}}</td>
                 <td>{{product.no_partida}}</td>
-                <td><p-button severity="danger" (onClick)="filtrarProductos(product)"
-                      class="mt-2" (click)="showDialog2(filteredProducts)">
+                <td><p-button severity="danger"
+                      class="mt-2" (onClick)="archivo(product.proceso_contratacion)">
                       Ver
                     </p-button>
                 </td>
@@ -214,18 +214,18 @@
 </p-dialog>
 
 <p-dialog header="Archivos" [modal]="true" [(visible)]="visible2" [style]="{ width: '100rem', height: '100rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
-  <p-table stripedRows [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1360px' }" scrollHeight="650px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
+  <p-table stripedRows [value]="urlsSeguras" [columns]="selectedColumns" scrollable="true" [style]="{width: '1360px' }" scrollHeight="650px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
     <ng-template #header>
       <tr>
-        <th >
-          Nombre
+        <th>
+          Archivos
         </th>
       </tr>
     </ng-template>
     <ng-template #body let-item>
       <tr>
         <td >
-          archivos
+          <a [href]="item" target="_blank">{{ item }}</a>
         </td>
         <!-- <td>{{ item.proceso_contratacion }}</td>
              <td>{{ item.proceso_contratacion }}</td>
