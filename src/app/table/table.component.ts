@@ -20,11 +20,17 @@ import { Dialog } from 'primeng/dialog';
 import { SortEvent } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 
-interface Carpeta {
+interface Archivo {
+  id: number;
   nombre: string;
-  archivos: string[];
+  tipo: string;
 }
 
+interface Carpeta {
+  id: number;
+  nombre: string;
+  archivos: Archivo[];
+}
 
 interface Column {
   field: string;
@@ -55,6 +61,7 @@ interface Column {
   providers: [ProductService, MessageService],
 })
 export class TableComponent implements OnInit {
+  urlsSeguras: SafeUrl[] = [];
   products!: Product[];
 
   filteredProducts: any[] = []; // O el tipo específico de tus orders
@@ -88,11 +95,9 @@ export class TableComponent implements OnInit {
     this.product = { ...product };
     this.productDialog = true;
   }
-  showDialog2(product: Product) {
-    this.visible2 = true;
-    this.product = { ...product };
-    this.productDialog = true;
-  }
+  // showDialog2(product: Product) {
+
+  // }
 
   ngOnInit() {
     this.productService
@@ -178,11 +183,8 @@ export class TableComponent implements OnInit {
   }
 
   filtrarProductos(procesoContratacionDeseado: Product) {
-    // console.log(procesoContratacionDeseado.proceso_contratacion);
-
     let producto = this.productService.getProductsData() as Product[];
 
-    // console.log(this.productService);
     const filteredProducts = producto.filter(
       (product) =>
         product.proceso_contratacion ===
@@ -191,40 +193,52 @@ export class TableComponent implements OnInit {
 
     this.filteredProducts = filteredProducts;
 
-    console.log(filteredProducts);
     return filteredProducts;
   }
 
   archivo(procesoContratacionDeseado: string) {
-    console.log(procesoContratacionDeseado);
+    this.visible2 = true;
+    this.productDialog = true;
 
+    // Elimina espacios en blanco al inicio y al final del string
     let procesosinespacio = procesoContratacionDeseado.trim();
 
+    // Obtiene los archivos desde el servicio
     let archivos = this.productService.getArchivos() as Carpeta[];
 
+    // Filtra las carpetas que coinciden con el nombre del proceso
     const filteredProducts = archivos.filter(
-      (archivo) => archivo.nombre === procesosinespacio
+      (carpeta) => carpeta.nombre === procesosinespacio
     );
 
     if (filteredProducts.length > 0) {
-      // Verifica si se encontró el proceso
       const carpeta = filteredProducts[0];
-      console.log(carpeta.archivos);
+      console.log('Carpeta encontrada: ' + carpeta.nombre);
 
-      carpeta.archivos.forEach(async (archivo) => {
-        const rutaCompleta = await this.obtenerRutaCompleta(
-          carpeta.nombre,
-          archivo
-        ); // Obtén la ruta completa
-        if (rutaCompleta) {
-          const urlSegura: SafeUrl =
-            this.sanitizer.bypassSecurityTrustUrl(rutaCompleta); // Sanitiza la URL
-          console.log(rutaCompleta);
-        } else {
-          console.log(rutaCompleta);
-          console.error(`No se pudo obtener la ruta para ${archivo}`);
-        }
-      });
+      // Limpia el array de URLs seguras antes de agregar nuevas
+      this.urlsSeguras = [];
+
+      // Usamos Promise.all para manejar todas las promesas
+      Promise.all(
+        carpeta.archivos.map(async (archivo) => {
+          const rutaCompleta = await this.obtenerRutaCompleta(
+            carpeta.nombre,
+            archivo.nombre
+          );
+
+          if (rutaCompleta) {
+            this.urlsSeguras.push(rutaCompleta); // Almacena la URL segura
+          } else {
+            console.error(`No se pudo obtener la ruta para ${archivo.nombre}`);
+          }
+        })
+      )
+        .then(() => {
+          console.log('Todas las URLs se han obtenido:', this.urlsSeguras);
+        })
+        .catch((error) => {
+          console.error('Error al obtener las URLs:', error);
+        });
     } else {
       console.error(`No se encontró el proceso ${procesoContratacionDeseado}`);
     }
