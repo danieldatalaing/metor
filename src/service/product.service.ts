@@ -78856,7 +78856,7 @@ archivos:[
     tipo:'pdf'
       }
     ]
-  }{
+  },{
 id:33,
 nombre:'GPP-STAP1-2024-32',
 archivos:[
