@@ -66,7 +66,8 @@ interface Column {
 export class TableComponent implements OnInit {
   urlsSeguras: SafeUrl[] = [];
   products!: Product[];
-
+  pdfs: { nombre: string; url: SafeResourceUrl }[] = []; // Para PDFs
+  archivosDescargables: { nombre: string; url: string }[] = []; // Para Excel y Word
   filteredProducts: any[] = []; // O el tipo específico de tus orders
 
   productosFiltrados: Product[] = [];
@@ -225,8 +226,7 @@ export class TableComponent implements OnInit {
   }
 
   archivo(procesoContratacionDeseado: string) {
-    this.visible2 = true;
-    this.productDialog = true;
+
 
     let procesosinespacio = procesoContratacionDeseado.trim();
 
@@ -239,8 +239,10 @@ export class TableComponent implements OnInit {
     if (filteredProducts.length > 0) {
       const carpeta = filteredProducts[0];
       console.log('Carpeta encontrada: ' + carpeta.nombre);
-
-      this.urlsSeguras = [];
+   this.visible2 = true;
+   this.productDialog = true;
+      this.pdfs = []; // Reiniciar arreglo de PDFs
+      this.archivosDescargables = []; // Reiniciar arreglo de archivos descargables
 
       Promise.all(
         carpeta.archivos.map(async (archivo) => {
@@ -250,17 +252,29 @@ export class TableComponent implements OnInit {
           );
 
           if (rutaCompleta) {
-            // ***AQUÍ ESTÁ LA CORRECCIÓN***
-            const urlSegura =
-              this.sanitizer.bypassSecurityTrustResourceUrl(rutaCompleta); // Sanitizar la URL
-            this.urlsSeguras.push(urlSegura); // Almacenar la URL SEGURA
+            if (this.esPDF(archivo.nombre)) {
+              // Si es un PDF, sanitizar la URL y almacenarla
+              const urlSegura =
+                this.sanitizer.bypassSecurityTrustResourceUrl(rutaCompleta);
+              this.pdfs.push({ nombre: archivo.nombre, url: urlSegura });
+            } else if (
+              this.esExcel(archivo.nombre) ||
+              this.esWord(archivo.nombre)
+            ) {
+              // Si es un archivo de Excel o Word, almacenar la URL para descargar
+              this.archivosDescargables.push({
+                nombre: archivo.nombre,
+                url: rutaCompleta,
+              });
+            }
           } else {
             console.error(`No se pudo obtener la ruta para ${archivo.nombre}`);
           }
         })
       )
         .then(() => {
-          console.log('Todas las URLs se han obtenido:', this.urlsSeguras);
+          console.log('PDFs para mostrar:', this.pdfs);
+          console.log('Archivos para descargar:', this.archivosDescargables);
         })
         .catch((error) => {
           console.error('Error al obtener las URLs:', error);
@@ -270,6 +284,26 @@ export class TableComponent implements OnInit {
     }
   }
 
+  // Método para verificar si un archivo es PDF
+  esPDF(nombreArchivo: string): boolean {
+    return nombreArchivo.toLowerCase().endsWith('.pdf');
+  }
+
+  // Método para verificar si un archivo es Excel
+  esExcel(nombreArchivo: string): boolean {
+    return (
+      nombreArchivo.toLowerCase().endsWith('.xlsx') ||
+      nombreArchivo.toLowerCase().endsWith('.xls')
+    );
+  }
+
+  // Método para verificar si un archivo es Word
+  esWord(nombreArchivo: string): boolean {
+    return (
+      nombreArchivo.toLowerCase().endsWith('.docx') ||
+      nombreArchivo.toLowerCase().endsWith('.doc')
+    );
+  }
   async obtenerRutaCompleta(
     nombreCarpeta: string,
     nombreArchivo: string
@@ -279,6 +313,15 @@ export class TableComponent implements OnInit {
     return ruta;
   }
 
+  descargarArchivo(url: string) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = url.split('/').pop() || 'archivo'; // Obtener el nombre del archivo desde la URL
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
   collapseAll() {
     this.expandedRows = {};
   }

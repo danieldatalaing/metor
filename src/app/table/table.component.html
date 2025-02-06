@@ -41,7 +41,7 @@
                 <td>{{ product.price | currency : 'USD' }}</td>
                 <td>{{ product.category }}</td>
                 <td><p-rating  [readonly]="true" /></td> -->
-                <!-- <td>
+<!-- <td>
                     <p-tag [value]="product.inventoryStatus" />
                 </td>
             </tr>
@@ -87,57 +87,44 @@
   </p>
 </div> -->
 
-
 <app-topbar class="mb-6"></app-topbar>
 
 <!-- <p-speeddial (onClick)="collapseAll()"  direction="left" [style]="{ position: 'fixed', top: 'calc(50% - 2rem)', left: 0 }" /> -->
 
-<div class="card mr-8 ml-8 mb-8 shadow-xl" style="margin-top: 75px;">
+<div class="card mr-8 ml-8 mb-8 shadow-xl" style="margin-top: 75px">
   <p-table
-   [value]="products"
-   dataKey="id"
-   [tableStyle]="{ 'min-width': '60rem' }"
-   [expandedRowKeys]="expandedRows"
-   (onRowExpand)="onRowExpand($event)"
-   (onRowCollapse)="onRowCollapse($event)"
-   showGridlines
-   >
-        <ng-template #caption>
-            <!-- <div class="flex flex-wrap justify-end gap-2">
+    [value]="products"
+    dataKey="id"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    [expandedRowKeys]="expandedRows"
+    (onRowExpand)="onRowExpand($event)"
+    (onRowCollapse)="onRowCollapse($event)"
+    showGridlines
+  >
+    <ng-template #caption>
+      <!-- <div class="flex flex-wrap justify-end gap-2">
                 <p-button label="Cerrar todo" severity="danger" icon="pi pi-minus" text (onClick)="collapseAll()" />
              -->
-          <div class="flex flex-wrap justify-end gap-2">
-             <p-iconfield iconPosition="left" class="ml-auto">
-                <p-inputicon>
-                    <i class="pi pi-search"></i>
-                </p-inputicon>
-                <input
-                    pInputText
-                    type="text"
-                    placeholder="Buscar Proceso"
-                />
-            </p-iconfield>
-          </div>
-        </ng-template>
-        <ng-template #header>
-            <tr>
-
-                <th>
-                  Proceso de Contratación
-                </th>
-                <th>
-                  descripción
-                </th>
-                <th>
-                  Total de Partidas
-                </th>
-                <th>Archivos</th>
-
-            </tr>
-        </ng-template>
-        <ng-template #body let-product let-expanded="expanded">
-            <tr>
-                <!-- <td>
+      <div class="flex flex-wrap justify-end gap-2">
+        <p-iconfield iconPosition="left" class="ml-auto">
+          <p-inputicon>
+            <i class="pi pi-search"></i>
+          </p-inputicon>
+          <input pInputText type="text" placeholder="Buscar Proceso" />
+        </p-iconfield>
+      </div>
+    </ng-template>
+    <ng-template #header>
+      <tr>
+        <th>Proceso de Contratación</th>
+        <th>descripción</th>
+        <th>Total de Partidas</th>
+        <th>Archivos</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-product let-expanded="expanded">
+      <tr>
+        <!-- <td>
                     <p-button type="button"  pRipple
                     [pRowToggler]="product" [text]="true"
                      [rounded]="true" [plain]="true"
@@ -145,134 +132,185 @@
                        (onClick)="filtrarProductos(product)"
                        (onClick)="collapseAll()" />
                 </td> -->
-                <td>
-                  <p-button severity="info" (onClick)="filtrarProductos(product)"
-                      class="mt-2" (click)="showDialog(filteredProducts)">
-                      {{ product.proceso_contratacion }}
-                    </p-button>
-                </td>
-                <td>{{product.descripcion_corta_nombre_contrato}}</td>
-                <td>{{product.no_partida}}</td>
-                <td><p-button severity="danger"
-                      class="mt-2" (onClick)="archivo(product.proceso_contratacion)">
-                      Ver
-                    </p-button>
-                </td>
+        <td>
+          <p-button
+            severity="info"
+            (onClick)="filtrarProductos(product)"
+            class="mt-2"
+            (click)="showDialog(filteredProducts)"
+          >
+            {{ product.proceso_contratacion }}
+          </p-button>
+        </td>
+        <td>{{ product.descripcion_corta_nombre_contrato }}</td>
+        <td>{{ product.no_partida }}</td>
+        <td>
+          <p-button
+            severity="danger"
+            class="mt-2"
+            (onClick)="archivo(product.proceso_contratacion)"
+          >
+            Ver
+          </p-button>
+        </td>
 
-                <!-- <td><b>{{ product.proceso_contratacion }}</b></td> -->
-
-            </tr>
-        </ng-template>
-        <ng-template #expandedrow let-product>
-            <tr>
-                <td colspan="7">
-                    <div class="p-4">
-                        <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
-
-                            <p-multiselect class="mb-9" display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected" [style]="{ 'min-width': '200px' }" placeholder="Choose Columns" />
-
-                            <p-button  (onClick)="archivo(product.proceso_contratacion)"  class="ml-8" (click)="showDialog(filteredProducts)">VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button>
-
-
-                        <p-table stripedRows class="shadow-lg" [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1725px' }" scrollHeight="400px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
-
-                          <ng-template #header>
-                              <tr>
-                                  <th *ngFor="let col of selectedColumns" pResizableColumn pReorderableColumn>
-                                      {{ col.header  }}
-
-                                    </th>
-                              </tr>
-                          </ng-template>
-                          <ng-template #body let-item>
-                              <tr>
-                                  <td *ngFor="let col of selectedColumns">
-                                    {{ item[col.field] || '- Sin información -' }}
-                                  </td>
-                                  <!-- <td>{{ item.proceso_contratacion }}</td>
-                                  <td>{{ item.proceso_contratacion }}</td>
-                                  <td>{{ item.quantity }}</td> -->
-                              </tr>
-                          </ng-template>
-                        </p-table>
-                    </div>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-
-</div>
-
-
-
-
-
-<p-dialog header="Procesos de Contratación" [modal]="true" [(visible)]="visible" [style]="{ width: '100rem', height: '100rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
-      <p-multiselect class="mb-9" display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected" [style]="{ 'min-width': '200px' }" placeholder="Choose Columns" />
-  <div class="flex justify-center items-center">
-  <p-table stripedRows [value]="filteredProducts" [columns]="selectedColumns" scrollable="true" [style]="{width: '1360px' }" scrollHeight="650px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
-    <ng-template #header>
-      <tr>
-        <th *ngFor="let col of selectedColumns" pResizableColumn pReorderableColumn>
-          {{ col.header  }}
-        </th>
+        <!-- <td><b>{{ product.proceso_contratacion }}</b></td> -->
       </tr>
     </ng-template>
-    <ng-template #body let-item>
+    <ng-template #expandedrow let-product>
       <tr>
-        <td *ngFor="let col of selectedColumns">
-          {{ item[col.field] || '- Sin información -' }}
+        <td colspan="7">
+          <div class="p-4">
+            <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
+
+            <p-multiselect
+              class="mb-9"
+              display="chip"
+              [options]="cols"
+              [(ngModel)]="selectedColumns"
+              optionLabel="header"
+              selectedItemsLabel="{0} columns selected"
+              [style]="{ 'min-width': '200px' }"
+              placeholder="Choose Columns"
+            />
+
+            <p-button
+              (onClick)="archivo(product.proceso_contratacion)"
+              class="ml-8"
+              (click)="showDialog(filteredProducts)"
+              >VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button
+            >
+
+            <p-table
+              stripedRows
+              class="shadow-lg"
+              [value]="filteredProducts"
+              [columns]="selectedColumns"
+              scrollable="true"
+              [style]="{ width: '1725px' }"
+              scrollHeight="400px"
+              showGridlines
+              [resizableColumns]="true"
+              [columns]="cols"
+              [reorderableColumns]="true"
+            >
+              <ng-template #header>
+                <tr>
+                  <th
+                    *ngFor="let col of selectedColumns"
+                    pResizableColumn
+                    pReorderableColumn
+                  >
+                    {{ col.header }}
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template #body let-item>
+                <tr>
+                  <td *ngFor="let col of selectedColumns">
+                    {{ item[col.field] || "- Sin información -" }}
+                  </td>
+                  <!-- <td>{{ item.proceso_contratacion }}</td>
+                                  <td>{{ item.proceso_contratacion }}</td>
+                                  <td>{{ item.quantity }}</td> -->
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
         </td>
-        <!-- <td>{{ item.proceso_contratacion }}</td>
-             <td>{{ item.proceso_contratacion }}</td>
-             <td>{{ item.quantity }}</td>
-        -->
       </tr>
     </ng-template>
   </p-table>
 </div>
-</p-dialog>
 
-<p-dialog header="Archivos" [modal]="true" [(visible)]="visible2" [style]="{ width: '100rem', height: '100rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
-   <!-- <p-table stripedRows [value]="urlsSeguras" [columns]="selectedColumns" scrollable="true" [style]="{width: '1360px' }" scrollHeight="650px" showGridlines [resizableColumns]="true" [columns]="cols" [reorderableColumns]="true">
-    <ng-template #header>
-      <tr>
-        <th>
-          Archivos
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template #body let-item>
-      <tr>
-        <td >
-          <a [href]="item" target="_blank">{{ item }}</a>
-        </td>
-          <td>{{ item.proceso_contratacion }}</td>
+<p-dialog
+  header="Procesos de Contratación"
+  [modal]="true"
+  [(visible)]="visible"
+  [style]="{ width: '100rem', height: '100rem' }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [maximizable]="true"
+>
+  <p-multiselect
+    class="mb-9"
+    display="chip"
+    [options]="cols"
+    [(ngModel)]="selectedColumns"
+    optionLabel="header"
+    selectedItemsLabel="{0} columns selected"
+    [style]="{ 'min-width': '200px' }"
+    placeholder="Choose Columns"
+  />
+  <div class="flex justify-center items-center">
+    <p-table
+      stripedRows
+      [value]="filteredProducts"
+      [columns]="selectedColumns"
+      scrollable="true"
+      [style]="{ width: '1360px' }"
+      scrollHeight="650px"
+      showGridlines
+      [resizableColumns]="true"
+      [columns]="cols"
+      [reorderableColumns]="true"
+    >
+      <ng-template #header>
+        <tr>
+          <th
+            *ngFor="let col of selectedColumns"
+            pResizableColumn
+            pReorderableColumn
+          >
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-item>
+        <tr>
+          <td *ngFor="let col of selectedColumns">
+            {{ item[col.field] || "- Sin información -" }}
+          </td>
+          <!-- <td>{{ item.proceso_contratacion }}</td>
              <td>{{ item.proceso_contratacion }}</td>
              <td>{{ item.quantity }}</td>
-      </tr>
-    </ng-template>
-  </p-table> -->
+        --></tr>
+      </ng-template>
+    </p-table>
+  </div>
+</p-dialog>
 
-<div class="card">
-    <p-carousel [value]="urlsSeguras" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
-        <ng-template let-url #item>
-    <div class="border border-surface rounded-border m-2 p-4">
-        <div class="mb-4">
-            <div class="relative mx-auto">
-                <iframe [src]="url" frameborder="0"></iframe>  </div>
-        </div>
-        <div class="mb-4 font-medium">{{ url.name }}</div>
-        <div class="flex justify-between items-center">
-            <span>
-                <a [href]="url" target="_blank"><p-button icon="pi pi-eye" severity="info" [outlined]="true" /></a>
-                <p></p>
-            </span>
-        </div>
+<p-dialog
+  header="Archivos"
+  [modal]="true"
+  [(visible)]="visible2"
+  [style]="{ width: '75vw', height: '80vh' }"
+  [breakpoints]="{ '1199px': '90vw', '575px': '95vw' }"
+  [maximizable]="true"
+>
+  <div class="p-4">
+    <!-- Mostrar PDFs en iframes -->
+    <div *ngFor="let pdf of pdfs" class="mb-4">
+      <h4>{{ pdf.nombre }}</h4>
+      <iframe
+        [src]="pdf.url"
+        type="application/pdf"
+
+      ></iframe>
+
+       <a [href]="pdf.url" target="_blank">AQUI</a>
     </div>
-</ng-template>
-    </p-carousel>
-</div>
+
+
+    <!-- Mostrar botones de descarga para archivos de Excel y Word -->
+    <div *ngFor="let archivo of archivosDescargables" class="mb-4">
+      <h4>{{ archivo.nombre }}</h4>
+      <p-button
+        label="Descargar {{ archivo.nombre }}"
+        icon="pi pi-download"
+        (onClick)="descargarArchivo(archivo.url)"
+      ></p-button>
+    </div>
+  </div>
 </p-dialog>
 
 <!-- <div *ngFor="let i of this.filteredProducts">
@@ -281,5 +319,3 @@
     {{ i.proceso_contratacion }}
   </p>
 </div> -->
-
-
