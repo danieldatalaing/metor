@@ -17,6 +17,8 @@ import { AppTopbar } from '../layout/component/app.topbar';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Dialog } from 'primeng/dialog';
+import { SortEvent } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
 
 interface Carpeta {
   nombre: string;
@@ -44,6 +46,9 @@ interface Column {
     AppTopbar,
     FormsModule,
     Dialog,
+    IconFieldModule,
+    InputTextModule,
+    InputIconModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -51,9 +56,9 @@ interface Column {
 })
 export class TableComponent implements OnInit {
   products!: Product[];
-  // ... en tu componente
 
   filteredProducts: any[] = []; // O el tipo específico de tus orders
+
   productosFiltrados: Product[] = [];
 
   expandedRows = {};
