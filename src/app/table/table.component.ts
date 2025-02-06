@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, SecurityContext } from '@angular/core';
 import { TableModule, Table } from 'primeng/table';
 //import { Product } from '@/domain/product';
 import { Tag } from 'primeng/tag';
@@ -15,10 +15,12 @@ import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { AppTopbar } from '../layout/component/app.topbar';
 import { FormsModule } from '@angular/forms';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+//import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Dialog } from 'primeng/dialog';
 import { SortEvent } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
+import { CarouselModule } from 'primeng/carousel';
+import { DomSanitizer, SafeResourceUrl, SafeUrl, } from '@angular/platform-browser';
 
 interface Archivo {
   id: number;
@@ -55,6 +57,7 @@ interface Column {
     IconFieldModule,
     InputTextModule,
     InputIconModule,
+    CarouselModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -67,6 +70,8 @@ export class TableComponent implements OnInit {
   filteredProducts: any[] = []; // O el tipo específico de tus orders
 
   productosFiltrados: Product[] = [];
+
+  responsiveOptions: any[] | undefined;
 
   expandedRows = {};
 
@@ -180,6 +185,29 @@ export class TableComponent implements OnInit {
       { field: 'horario', header: 'Horario' },
       { field: 'ubicacion', header: 'Ubicación' },
     ];
+
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 2,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
   }
 
   filtrarProductos(procesoContratacionDeseado: Product) {
@@ -200,13 +228,10 @@ export class TableComponent implements OnInit {
     this.visible2 = true;
     this.productDialog = true;
 
-    // Elimina espacios en blanco al inicio y al final del string
     let procesosinespacio = procesoContratacionDeseado.trim();
 
-    // Obtiene los archivos desde el servicio
     let archivos = this.productService.getArchivos() as Carpeta[];
 
-    // Filtra las carpetas que coinciden con el nombre del proceso
     const filteredProducts = archivos.filter(
       (carpeta) => carpeta.nombre === procesosinespacio
     );
@@ -215,10 +240,8 @@ export class TableComponent implements OnInit {
       const carpeta = filteredProducts[0];
       console.log('Carpeta encontrada: ' + carpeta.nombre);
 
-      // Limpia el array de URLs seguras antes de agregar nuevas
       this.urlsSeguras = [];
 
-      // Usamos Promise.all para manejar todas las promesas
       Promise.all(
         carpeta.archivos.map(async (archivo) => {
           const rutaCompleta = await this.obtenerRutaCompleta(
@@ -227,7 +250,10 @@ export class TableComponent implements OnInit {
           );
 
           if (rutaCompleta) {
-            this.urlsSeguras.push(rutaCompleta); // Almacena la URL segura
+            // ***AQUÍ ESTÁ LA CORRECCIÓN***
+            const urlSegura =
+              this.sanitizer.bypassSecurityTrustResourceUrl(rutaCompleta); // Sanitizar la URL
+            this.urlsSeguras.push(urlSegura); // Almacenar la URL SEGURA
           } else {
             console.error(`No se pudo obtener la ruta para ${archivo.nombre}`);
           }
@@ -244,27 +270,13 @@ export class TableComponent implements OnInit {
     }
   }
 
-  // Función para obtener la ruta completa (debe ser implementada)
   async obtenerRutaCompleta(
     nombreCarpeta: string,
     nombreArchivo: string
   ): Promise<string | null> {
-    // Aquí debes implementar la lógica para construir la ruta completa al archivo.
-    // Esto dependerá de cómo estás almacenando tus archivos y cómo puedes acceder a ellos.
-    // Por ejemplo, si los archivos están en un servidor, podrías usar una URL base y
-    // concatenar los nombres de la carpeta y el archivo.
-
-    // Ejemplo (adaptar a tu caso):
     const urlBase = 'http://localhost:4200/files/'; // Reemplaza con tu URL base
     const ruta = `${urlBase}${nombreCarpeta}/${nombreArchivo}`;
-
-    // Si necesitas alguna lógica asíncrona para obtener la ruta, puedes usar async/await.
-    // Por ejemplo, si necesitas consultar una API para obtener la ruta:
-    // const respuesta = await fetch(`/api/ruta?carpeta=${nombreCarpeta}&archivo=${nombreArchivo}`);
-    // const datos = await respuesta.json();
-    // return datos.ruta;
-
-    return ruta; // O null si no se pudo obtener la ruta
+    return ruta;
   }
 
   collapseAll() {
