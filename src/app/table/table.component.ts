@@ -21,6 +21,7 @@ import { SortEvent } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { CarouselModule } from 'primeng/carousel';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, } from '@angular/platform-browser';
+import { CardModule } from 'primeng/card';
 
 interface Archivo {
   id: number;
@@ -47,7 +48,7 @@ interface Column {
     ToastModule,
     ButtonModule,
     CommonModule,
-    SpeedDial,
+    //SpeedDial,
     MultiSelectModule,
     InputIconModule,
     IconFieldModule,
@@ -58,6 +59,7 @@ interface Column {
     InputTextModule,
     InputIconModule,
     CarouselModule,
+    CardModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',

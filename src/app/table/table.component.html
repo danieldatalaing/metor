@@ -280,7 +280,7 @@
 </p-dialog>
 
 <p-dialog
-  header="Archivos"
+  header="Archivos {{product.proceso_contratacion}}"
   [modal]="true"
   [(visible)]="visible2"
   [style]="{ width: '75vw', height: '80vh' }"
@@ -305,29 +305,30 @@
         </div>
     </ng-template>
 </p-carousel>
-  <!-- <div class="p-4">
-    Mostrar PDFs en iframes
-    <div *ngFor="let pdf of pdfs" class="mb-4">
-      <h4>{{ pdf.nombre }}</h4>
-      <iframe
-        [src]="pdf.url"
-        type="application/pdf"
-
-      ></iframe>
-
-       <a [href]="pdf.url" target="_blank">AQUI</a>
-    </div>
 
 
-     Mostrar botones de descarga para archivos de Excel y Word
-    <div *ngFor="let archivo of archivosDescargables" class="mb-4">
-      <h4>{{ archivo.nombre }}</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+  <p-card *ngFor="let archivo of archivosDescargables" header="{{ archivo.nombre }}" class="col-span-1">
+    <div class="p-4">
       <p-button
-        label="Descargar {{ archivo.nombre }}"
+        label="Descargar"
+        icon="pi pi-download"
+        (onClick)="descargarArchivo(archivo.url)"
+        class="p-button-rounded"
+      ></p-button>
+    </div>
+  </p-card>
+</div>
+
+
+
+  <!-- <div *ngFor="let archivo of archivosDescargables" class="mb-4">
+      <h2>{{ archivo.nombre }}</h2>
+      <p-button
+        label="Descargar"
         icon="pi pi-download"
         (onClick)="descargarArchivo(archivo.url)"
       ></p-button>
-    </div>
   </div> -->
 </p-dialog>
 
