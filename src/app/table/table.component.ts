@@ -205,6 +205,10 @@ export class TableComponent implements OnInit {
     ];
   }
 
+  onGlobalFilter(table: Table, event: Event) {
+    table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+  }
+
   filtrarProductos(procesoContratacionDeseado: Product) {
     let producto = this.productService.getProductsData() as Product[];
 
