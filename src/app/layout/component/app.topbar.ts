@@ -98,15 +98,17 @@ import { LayoutService } from '../service/layout.service';
       <div class="flex justify-center items-left layout-topbar-actions">
         <a
           routerLink="/"
-          class="mr-4 ml-4 hover:bg-red-500 hover:text-white rounded p-2"
+          class="mr-4 ml-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-500 hover:border-red-500 hover:border-solid hover:border-2"
           ><b>Inicio</b></a
         >
         <a
           href="listado"
-          class="mr-4 hover:bg-red-500 hover:text-white rounded p-2"
+          class="mr-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-500 hover:border-red-500 hover:border-solid hover:border-2"
           ><b>Listado</b></a
         >
-        <a href="proceso" class="hover:bg-red-500 hover:text-white rounded p-2"
+        <a
+          href="proceso"
+          class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-500 hover:border-red-500 hover:border-solid hover:border-2"
           ><b>Procesos de Contratación</b></a
         >
       </div>
