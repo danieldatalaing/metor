@@ -60,7 +60,6 @@ export interface Product {
 
 @Injectable()
 export class ProductService {
-
   getProductsData() {
     return [
       {
@@ -78433,987 +78432,1002 @@ export class ProductService {
         ],
       },
 
-{
-id:24,
-nombre:'GPP-STAP1-2024-17',
-archivos:[
       {
-    id:101,
-    nombre:'2-1-SOBRE-2-OFERTA-ECONOMICA-floor-scanner.doc',
-    tipo:'doc'
+        id: 24,
+        nombre: 'GPP-STAP1-2024-17',
+        archivos: [
+          {
+            id: 101,
+            nombre: '2-1-SOBRE-2-OFERTA-ECONOMICA-floor-scanner.doc',
+            tipo: 'doc',
+          },
+          {
+            id: 102,
+            nombre: '2-2-PRESUPUESTO-floor-scanner.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 103,
+            nombre: '2-3-APUs-floor-scanner.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 104,
+            nombre: '2-4-GASTOS-ADMINISTRATIVOS-41-23-floor-scanner.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 105,
+            nombre: '2-5-ESTRUCTURA-DE-COSTOS-floor-scanner.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 106,
+            nombre:
+              'Alcance-Servicio-de-Inspeccion-mediante-Floor-Scanner-e-TK-802A-STA-2024-P1-Rev-0-docx.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 25,
+        nombre: 'GPP-STAP1-2024-18',
+        archivos: [
+          {
+            id: 201,
+            nombre: 'Alcance-Evaluaciones-Metalurgicas-STA-2024-P1-Rev-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 202,
+            nombre: 'Untitled-2024080609561912.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 26,
+        nombre: 'GPP-STAP1-2024-19',
+        archivos: [
+          {
+            id: 301,
+            nombre: '1-APU.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 302,
+            nombre: '2-CARTA-Oferta-economica-CATEM.docx',
+            tipo: 'docx',
+          },
+          {
+            id: 303,
+            nombre: '3-ESTRUCTURA-DE-COSTOS.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 304,
+            nombre: '4-FSCL-METOR.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 305,
+            nombre: '5-GASTOS-ADMINISTRATIVOS.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 306,
+            nombre: '6-PRESUPUESTO.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 307,
+            nombre: '7-RESUMEN-PRESUPUESTO.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 308,
+            nombre:
+              'Alcance-Mtto-General-de-Electricidad-Planta-1-STA-2024-P1-Rev-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 309,
+            nombre: 'APU-RATIFICACION.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 310,
+            nombre: 'ESTRUCTURA-DE-COSTOS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 311,
+            nombre: 'FSCL-METOR.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 312,
+            nombre: 'GASTOS-ADMINISTRATIVOS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 313,
+            nombre: 'PRESUPUESTO.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 314,
+            nombre: 'RESUMEN-PRESUPUESTO.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 27,
+        nombre: 'GPP-STAP1-2024-20',
+        archivos: [
+          {
+            id: 401,
+            nombre:
+              'RATIFICACION-OFERTA-ECONOMICA-PROCESO-GPP-STAP1-2024-20.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 402,
+            nombre:
+              'Reemplazo-De-caldera-de-Recuperacion-de-Calor-E-205-Rev02-26-12-2023.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 28,
+        nombre: 'GPP-STAP1-2024-21',
+        archivos: [
+          {
+            id: 501,
+            nombre:
+              '1-VZR23408496-SF-SERVICIO-DE-CAMPO-DE-FLOWSERVE-PARA-LAS-BOMBAS-DE-ALIMENTACION-DE-CALDERAS-SF.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 502,
+            nombre: '2-Oferta-VZR23408496.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 503,
+            nombre: '3-Gastos-Administrativos-VZR23408496.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 504,
+            nombre: '4-Estructura-de-Costo-VZR23408496.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 505,
+            nombre: '5-Carta-Oferta-comercial.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 506,
+            nombre: '6-APU-VZR23408496.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 507,
+            nombre: 'Alcance-STAP1-2024-21-ASIS-TEC-P-621-y-624.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 508,
+            nombre: 'ANDRES-FELIPE-RODRIGUEZ-MORENO.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 509,
+            nombre: 'APU-TECNICO-VZR23408496.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 510,
+            nombre: 'CUADRO-DE-PARTIDAS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 511,
+            nombre: 'Declaraciones-Juradas.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 512,
+            nombre: 'Disponibilidad-de-realizar-el-trabajo.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 513,
+            nombre: 'Formatos-de-inspeccion-BB3-y-BB2.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 514,
+            nombre: 'FORMATOS-DE-INSPECCION.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 515,
+            nombre: 'HV-FS-Eduardo-Delgado.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 516,
+            nombre: 'Listado-de-herramientas.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 517,
+            nombre: 'Oferta-Tecnica.7z',
+            tipo: '7z',
+          },
+          {
+            id: 518,
+            nombre: 'Oferta-Tecnica.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 29,
+        nombre: 'GPP-STAP1-2024-23',
+        archivos: [
+          {
+            id: 601,
+            nombre: '1-FSCL-VC.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 602,
+            nombre: '10-Gastos-Administrativos.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 603,
+            nombre: '11-resumen-de-mano-de-obra.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 604,
+            nombre: '12-estructura-de-costos-grafica.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 605,
+            nombre: '13-Carta-Entrega-de-la-Oferta-Economica.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 606,
+            nombre: '14-presupuesto.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 607,
+            nombre: '15-TASA-BCV-12-01-24.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 608,
+            nombre: '16-OFERTA-ECONOMICA-editable-mtto-preventivo-23.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 609,
+            nombre: '17-PPTO-2024-23-REV-1.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 610,
+            nombre: '2-Gastos-Administrativos-VC.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 611,
+            nombre: '3-Oferta-Economica-Valvulas-de-Control.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 612,
+            nombre: '4-estructura-de-costos.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 613,
+            nombre: '5-resumen-del-presupuesto.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 614,
+            nombre: '6-resumen-de-equipos.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 615,
+            nombre: '7-resumen-de-materiales.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 616,
+            nombre: '8-apu.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 617,
+            nombre: '9-FSCL.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 618,
+            nombre:
+              'Mantenimiento-de-Valvulas-de-Control-en-Taller-Externo-STA-2024-P1-Rev-1.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 30,
+        nombre: 'GPP-STAP1-2024-24',
+        archivos: [
+          {
+            id: 701,
+            nombre: '1-APU-Parada-de-Planta-2024.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 702,
+            nombre:
+              '2-Carta-Presentacion-Oferta-Economica-Parada-Planta-2024.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 703,
+            nombre: '3-Estructura-de-Costos-Parada-de-Planta-2024.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 704,
+            nombre: '4-Gastos-Administrativos-Parada-de-Planta-2024.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 705,
+            nombre: '5-Oferta-Economica-Parada-de-Planta-2024.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 706,
+            nombre:
+              'Alcance-de-Alquiler-de-Radios-Portatiles-de-Planta-1-STA-24-P1-Rev-1.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 31,
+        nombre: 'GPP-STAP1-2024-29',
+        archivos: [
+          {
+            id: 801,
+            nombre: 'GPP-STAP1-2024-29-alcance.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 802,
+            nombre: 'Oferta-de-servicios-de-inspectores-GPP-STAP1-2024-29.xls',
+            tipo: 'xls',
+          },
+          {
+            id: 803,
+            nombre: 'Oferta-Economica-Proceso-ESTATICOS-ROTATIVOS-2024.doc',
+            tipo: 'doc',
+          },
+          {
+            id: 804,
+            nombre: 'Oferta-Economica-Proceso-ESTATICOS-ROTATIVOS-2024.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 32,
+        nombre: 'GPP-STAP1-2024-31',
+        archivos: [
+          {
+            id: 901,
+            nombre:
+              '1-CARTA-DE-ENTREGA-DE-OFERTA-ECONOMICA-GPP-STAP1-2024-31.docx',
+            tipo: 'docx',
+          },
+          {
+            id: 902,
+            nombre: '2-CONTENIDO-DE-LA-OFERTA-ECONOMICA-GPP-STAP1-2024-31.ppt',
+            tipo: 'ppt',
+          },
+          {
+            id: 903,
+            nombre: '3-OFERTA-ECONOMICA-FINAL-Rev-18-14-01-24.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 904,
+            nombre:
+              'Servicio-de-inspeccion-para-intercambiadores-STA-2024-Planta-1-rev-0.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 33,
+        nombre: 'GPP-STAP1-2024-32',
+        archivos: [
+          {
+            id: 1001,
+            nombre: 'Alcance-STAP1-2024-32-MTTO-GRAL-INSTRUMENT.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1002,
+            nombre: 'APU-01-2024006-CD.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 1003,
+            nombre:
+              'APU-01-2024006-Sin-formula-CD-Rev-2-2-02-DE-MARZO-2024-Certificada-0000.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1004,
+            nombre: 'Carta-Oferta-Economica.PDF',
+            tipo: 'pdf',
+          },
+          {
+            id: 1005,
+            nombre: 'Resumen-Presupuesto.PDF',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 34,
+        nombre: 'GPP-STAP1-2024-33',
+        archivos: [
+          {
+            id: 1101,
+            nombre: '1-APU-STA-2024-P1-33-p2-CONT-AVA-ING-PROCESOS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1102,
+            nombre: '10-CARTA-DE-REVISION-Y-RATIFICACION-DE-OFERTA .pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1103,
+            nombre: '11-FSCL-ALMACENISTAS-REV1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1104,
+            nombre: '12-FSCL-OPE-SERV-GRALES.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1105,
+            nombre: '13-FSCL-OPERADOR-PCP.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1106,
+            nombre: '14-GASTOS-ADMINISTRATIVOS-PARADA-2024.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1107,
+            nombre: '15-listado-partida-p1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1108,
+            nombre: '16-listado-partida-p2.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1109,
+            nombre: '17-listado-partida-p3.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1110,
+            nombre: '18-listado-partida-p4.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1111,
+            nombre: '19-listado-partida-p5.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1112,
+            nombre: '2-APU-STA-2024-P1-33-P3-SUP-MEC-EST-ROT.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1113,
+            nombre: '20-listado-partida-p6.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1114,
+            nombre: '21-LISTADO-PARTIDA-P7-REV1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1115,
+            nombre: '22-listado-partida-p8.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1116,
+            nombre: '23-LISTADO-PARTIDA-P9-REV1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1117,
+            nombre: '24-RESUMEN-DE-OFERTA-REV1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1118,
+            nombre: '3-APU-STA-2024-P1-33-P4-SUP-ELEC-INSTRU.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1119,
+            nombre: '4-APU-STA-2024-P1-33 -P5-SUP-INSP-MEC-EST-ROT.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1120,
+            nombre: '5-APU-STA-2024-P1-33-P6-SUP-INSP-INST-ELECT.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1121,
+            nombre: '6-APU-STA-2024-P1-33-P7-OPE-ALM-GRAL-REV1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1122,
+            nombre: '7-APU-STA-2024-P1-33-P8-PCP.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1123,
+            nombre: '8-APU-STA-2024-P1-33-P9-CMO-COORD-Y-INST-PROV-REV1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1124,
+            nombre: '9-APU-STA-2024-P1-33-p1-SSA-CONTRO-AVANCE.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1125,
+            nombre: 'Alcance-de-labores-de-mantenimiento-STA-2024-P1-rev-0.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1126,
+            nombre: 'OFERTA-REV01-SSHH.zip',
+            tipo: 'zip',
+          },
+        ],
+      },
+      {
+        id: 35,
+        nombre: 'GPP-STAP1-2024-34',
+        archivos: [
+          {
+            id: 1201,
+            nombre:
+              'ALCANCE-INSTALACION-Y-RETIRO-DE-CIEGOS-STA-2024-P1-REV2.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1202,
+            nombre: 'Anexo-3-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1203,
+            nombre: 'APU-2.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1204,
+            nombre: 'CARTA-DE-ENTREGA-DE-OFERTA-ECONOMICA-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1205,
+            nombre: 'CARTA-DE-PRESENTACIO-OFERTA-ECONOMICA-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1206,
+            nombre: 'FSCL-2.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1207,
+            nombre: 'GASTOS-ADMINISTRATIVOS-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1208,
+            nombre: 'LISTADO-DE-PARTIDA-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1209,
+            nombre: 'RESUMEN-PRESUPUESTO-Y-ESTRUCTURA-DE-COSTOS-1.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 36,
+        nombre: 'GPP-STAP1-2024-35',
+        archivos: [
+          {
+            id: 1301,
+            nombre: 'Alcance-de-taller-metal-mecanico-STA-2024-P1rev1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1302,
+            nombre: 'SCAN-OFERTA-PROCES- N-GPP-STAP1-2024-35.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 37,
+        nombre: 'GPP-STAP1-2024-36',
+        archivos: [
+          {
+            id: 1401,
+            nombre: '0-1-Portada-Oferta-Economica.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1402,
+            nombre: '1-Carta-de-entrega-de-Oferta-Economica.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1403,
+            nombre: '2-Resumen-del-Presupuesto.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1404,
+            nombre: '3-1-Factor-Sobrecosto-Labor.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1405,
+            nombre: '3-2-Carta-Explicativa-de-Sueldos.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1406,
+            nombre: '3-Analisis-de-Precio-Unitario.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1407,
+            nombre: '4-Desglose-de-Gastos-Administrativos.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1408,
+            nombre: '5-Estructura-de-Costos.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1409,
+            nombre:
+              'Alcance-de-Mtto-de-motores-de-MT-y-BT-de-Planta-1-STA-24-P1-Rev-0EB.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 38,
+        nombre: 'GPP-STAP1-2024-37',
+        archivos: [
+          {
+            id: 1501,
+            nombre:
+              'ALCANCE-MANTENIMIENTO-GENERAL-DE-PLANTA-STA-2024-P1-Rev-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1502,
+            nombre: 'APU-REV-2-PARADA-DE-PLANTA-STA-2024-P1-METOR.PDF',
+            tipo: 'pdf',
+          },
+          {
+            id: 1503,
+            nombre: 'APU.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1504,
+            nombre: 'CARTA-ENTREGA-DE-OFERTA-OFERTA-1.PDF',
+            tipo: 'pdf',
+          },
+          {
+            id: 1505,
+            nombre: 'COMPROMISO-MANTENIMIENTO-DE-LA-OFERTA.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1506,
+            nombre: 'CUADRO-RESUMEN.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1507,
+            nombre: 'ESTRUCTURA-DE-COSTO.PDF',
+            tipo: 'pdf',
+          },
+          {
+            id: 1508,
+            nombre: 'FCAS-GADM.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1509,
+            nombre: 'RESUMEN-DE-PRESUPUESTO.PDF',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 39,
+        nombre: 'GPP-STAP1-2024-39',
+        archivos: [
+          {
+            id: 1601,
+            nombre: 'ALCANCE-MANTENIMIENTO-F-201-STA-2024-P1-Rev-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1602,
+            nombre: 'Oferta-definitiva-Rev1-Escaneada-Horno-20-01-2024.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 40,
+        nombre: 'GPP-STAP1-2024-40',
+        archivos: [
+          {
+            id: 1701,
+            nombre:
+              '1-CARTA-DE-ENTREGA-DE-OFERTA-ECONOMICA-VENTILADORES-HACES-TUBULARES.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1702,
+            nombre: '2-RESUMEN-DEL-PRESUPUESTO.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1703,
+            nombre: '3-ANALISIS-DE-PRECIOS-UNITARIOS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1704,
+            nombre: '4-DESGLOCE-DE-GASTOS-ADMINISTRATIVOS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1705,
+            nombre: '5-ESTRUCTURA-DE-COSTOS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1706,
+            nombre: 'Alcance-STAP1-2024-40-MTTO-ESTRUC-Y-AERO.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1707,
+            nombre: 'Oferta-rev1.xlsx',
+            tipo: 'xlsx',
+          },
+        ],
+      },
+      {
+        id: 41,
+        nombre: 'GPP-STAP1-2024-41',
+        archivos: [
+          {
+            id: 1801,
+            nombre: 'Alcance-STAP1-2024-41-AVISOS-M5.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1802,
+            nombre: 'APU-AVISOS-M5-rev1-2-copia.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 1803,
+            nombre: 'APU-AVISOS-M5-rev1-2.xlsx',
+            tipo: 'xlsx',
+          },
+          {
+            id: 1804,
+            nombre: 'OE-M5-FAB-WELD.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 42,
+        nombre: 'GPP-STAP1-2024-42',
+        archivos: [
+          {
+            id: 1901,
+            nombre: 'Alcance-STAP1-2024-42-MTTO-GRAL-ROTATIVOS.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1902,
+            nombre: 'Oferta-Economica-REV-4-110324.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 43,
+        nombre: 'GPP-STAP1-2024-44',
+        archivos: [
+          {
+            id: 2001,
+            nombre: 'ALQUILER-FACILIDADES-STA-2024-P1-Rev-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 2002,
+            nombre: 'GPP-STAP1-2024-44-APU-REV01.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 2003,
+            nombre: 'OFERTA-COMERCIAL-STAP1-2024-44.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 44,
+        nombre: 'GPP-STAP1-2024-45',
+        archivos: [
+          {
+            id: 2101,
+            nombre: 'Alcance-Andamios-STA-2024-P1-rev1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 2102,
+            nombre: 'GPP-STAP1-2024-48-ANDAMIOS-CUPLOCK.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 2103,
+            nombre: 'Untitled-2024080609495598.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 45,
+        nombre: 'GPP-STAP1-2024-47',
+        archivos: [
+          {
+            id: 2201,
+            nombre: 'Alcance-STAP1-2024-47-AT-SUBEST-PLANTA-1.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 2202,
+            nombre: 'Untitled-2024080610233350.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 46,
+        nombre: 'GPP-STAP1-2024-48',
+        archivos: [
+          {
+            id: 1301,
+            nombre: 'ALCANCE-TECNICO.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1302,
+            nombre: 'OFERTA-ECONOMICA.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 47,
+        nombre: 'GPP-STAP1-2024-49',
+        archivos: [
+          {
+            id: 1303,
+            nombre: 'Alcance-STAP1-2024-49-TRANSPORTE-DE-CARGA.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1304,
+            nombre: 'Untitled-2024080610330119.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 48,
+        nombre: 'GPP-STAP2-2024-43',
+        archivos: [
+          {
+            id: 1305,
+            nombre: 'ALCANCE-TECNICO.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1306,
+            nombre: 'O-E-SERPVENCA-RATIFICADA-30-08-2024.pdf',
+            tipo: 'pdf',
+          },
+        ],
+      },
+      {
+        id: 49,
+        nombre: 'GT-C-2024-02',
+        archivos: [
+          {
+            id: 1307,
+            nombre: 'ALCANCE-TECNICO.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1308,
+            nombre: 'O-E-SERPVENCA-RATIFICADA-30-08-2024.pdf',
+            tipo: 'pdf',
+          },
+        ],
       },
-      {
-    id:102,
-    nombre:'2-2-PRESUPUESTO-floor-scanner.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:103,
-    nombre:'2-3-APUs-floor-scanner.xls',
-    tipo:'xls'
-      },
-      {
-    id:104,
-    nombre:'2-4-GASTOS-ADMINISTRATIVOS-41-23-floor-scanner.xls',
-    tipo:'xls'
-      },
-      {
-    id:105,
-    nombre:'2-5-ESTRUCTURA-DE-COSTOS-floor-scanner.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:106,
-    nombre:'Alcance-Servicio-de-Inspeccion-mediante-Floor-Scanner-e-TK-802A-STA-2024-P1-Rev-0-docx.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:25,
-nombre:'GPP-STAP1-2024-18',
-archivos:[
-      {
-    id:201,
-    nombre:'Alcance-Evaluaciones-Metalurgicas-STA-2024-P1-Rev-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:202,
-    nombre:'Untitled-2024080609561912.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:26,
-nombre:'GPP-STAP1-2024-19',
-archivos:[
-      {
-    id:301,
-    nombre:'1-APU.xls',
-    tipo:'xls'
-      },
-      {
-    id:302,
-    nombre:'2-CARTA-Oferta-economica-CATEM.docx',
-    tipo:'docx'
-      },
-      {
-    id:303,
-    nombre:'3-ESTRUCTURA-DE-COSTOS.xls',
-    tipo:'xls'
-      },
-      {
-    id:304,
-    nombre:'4-FSCL-METOR.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:305,
-    nombre:'5-GASTOS-ADMINISTRATIVOS.xls',
-    tipo:'xls'
-      },
-      {
-    id:306,
-    nombre:'6-PRESUPUESTO.xls',
-    tipo:'xls'
-      },
-      {
-    id:307,
-    nombre:'7-RESUMEN-PRESUPUESTO.xls',
-    tipo:'xls'
-      },
-      {
-    id:308,
-    nombre:'Alcance-Mtto-General-de-Electricidad-Planta-1-STA-2024-P1-Rev-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:309,
-    nombre:'APU-RATIFICACION.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:310,
-    nombre:'ESTRUCTURA-DE-COSTOS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:311,
-    nombre:'FSCL-METOR.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:312,
-    nombre:'GASTOS-ADMINISTRATIVOS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:313,
-    nombre:'PRESUPUESTO.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:314,
-    nombre:'RESUMEN-PRESUPUESTO.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:27,
-nombre:'GPP-STAP1-2024-20',
-archivos:[
-      {
-    id:401,
-    nombre:'RATIFICACION-OFERTA-ECONOMICA-PROCESO-GPP-STAP1-2024-20.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:402,
-    nombre:'Reemplazo-De-caldera-de-Recuperacion-de-Calor-E-205-Rev02-26-12-2023.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:28,
-nombre:'GPP-STAP1-2024-21',
-archivos:[
-      {
-    id:501,
-    nombre:'1-VZR23408496-SF-SERVICIO-DE-CAMPO-DE-FLOWSERVE-PARA-LAS-BOMBAS-DE-ALIMENTACION-DE-CALDERAS-SF.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:502,
-    nombre:'2-Oferta-VZR23408496.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:503,
-    nombre:'3-Gastos-Administrativos-VZR23408496.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:504,
-    nombre:'4-Estructura-de-Costo-VZR23408496.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:505,
-    nombre:'5-Carta-Oferta-comercial.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:506,
-    nombre:'6-APU-VZR23408496.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:507,
-    nombre:'Alcance-STAP1-2024-21-ASIS-TEC-P-621-y-624.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:508,
-    nombre:'ANDRES-FELIPE-RODRIGUEZ-MORENO.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:509,
-    nombre:'APU-TECNICO-VZR23408496.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:510,
-    nombre:'CUADRO-DE-PARTIDAS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:511,
-    nombre:'Declaraciones-Juradas.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:512,
-    nombre:'Disponibilidad-de-realizar-el-trabajo.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:513,
-    nombre:'Formatos-de-inspeccion-BB3-y-BB2.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:514,
-    nombre:'FORMATOS-DE-INSPECCION.xls',
-    tipo:'xls'
-      },
-      {
-    id:515,
-    nombre:'HV-FS-Eduardo-Delgado.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:516,
-    nombre:'Listado-de-herramientas.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:517,
-    nombre:'Oferta-Tecnica.7z',
-    tipo:'7z'
-      },
-      {
-    id:518,
-    nombre:'Oferta-Tecnica.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:29,
-nombre:'GPP-STAP1-2024-23',
-archivos:[
-      {
-    id:601,
-    nombre:'1-FSCL-VC.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:602,
-    nombre:'10-Gastos-Administrativos.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:603,
-    nombre:'11-resumen-de-mano-de-obra.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:604,
-    nombre:'12-estructura-de-costos-grafica.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:605,
-    nombre:'13-Carta-Entrega-de-la-Oferta-Economica.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:606,
-    nombre:'14-presupuesto.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:607,
-    nombre:'15-TASA-BCV-12-01-24.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:608,
-    nombre:'16-OFERTA-ECONOMICA-editable-mtto-preventivo-23.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:609,
-    nombre:'17-PPTO-2024-23-REV-1.xls',
-    tipo:'xls'
-      },
-      {
-    id:610,
-    nombre:'2-Gastos-Administrativos-VC.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:611,
-    nombre:'3-Oferta-Economica-Valvulas-de-Control.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:612,
-    nombre:'4-estructura-de-costos.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:613,
-    nombre:'5-resumen-del-presupuesto.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:614,
-    nombre:'6-resumen-de-equipos.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:615,
-    nombre:'7-resumen-de-materiales.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:616,
-    nombre:'8-apu.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:617,
-    nombre:'9-FSCL.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:618,
-    nombre:'Mantenimiento-de-Valvulas-de-Control-en-Taller-Externo-STA-2024-P1-Rev-1.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:30,
-nombre:'GPP-STAP1-2024-24',
-archivos:[
-      {
-    id:701,
-    nombre:'1-APU-Parada-de-Planta-2024.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:702,
-    nombre:'2-Carta-Presentacion-Oferta-Economica-Parada-Planta-2024.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:703,
-    nombre:'3-Estructura-de-Costos-Parada-de-Planta-2024.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:704,
-    nombre:'4-Gastos-Administrativos-Parada-de-Planta-2024.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:705,
-    nombre:'5-Oferta-Economica-Parada-de-Planta-2024.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:706,
-    nombre:'Alcance-de-Alquiler-de-Radios-Portatiles-de-Planta-1-STA-24-P1-Rev-1.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:31,
-nombre:'GPP-STAP1-2024-29',
-archivos:[
-      {
-    id:801,
-    nombre:'GPP-STAP1-2024-29-alcance.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:802,
-    nombre:'Oferta-de-servicios-de-inspectores-GPP-STAP1-2024-29.xls',
-    tipo:'xls'
-      },
-      {
-    id:803,
-    nombre:'Oferta-Economica-Proceso-ESTATICOS-ROTATIVOS-2024.doc',
-    tipo:'doc'
-      },
-      {
-    id:804,
-    nombre:'Oferta-Economica-Proceso-ESTATICOS-ROTATIVOS-2024.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:32,
-nombre:'GPP-STAP1-2024-31',
-archivos:[
-      {
-    id:901,
-    nombre:'1-CARTA-DE-ENTREGA-DE-OFERTA-ECONOMICA-GPP-STAP1-2024-31.docx',
-    tipo:'docx'
-      },
-      {
-    id:902,
-    nombre:'2-CONTENIDO-DE-LA-OFERTA-ECONOMICA-GPP-STAP1-2024-31.ppt',
-    tipo:'ppt'
-      },
-      {
-    id:903,
-    nombre:'3-OFERTA-ECONOMICA-FINAL-Rev-18-14-01-24.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:904,
-    nombre:'Servicio-de-inspeccion-para-intercambiadores-STA-2024-Planta-1-rev-0.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },{
-id:33,
-nombre:'GPP-STAP1-2024-32',
-archivos:[
-      {
-    id:1001,
-    nombre:'Alcance-STAP1-2024-32-MTTO-GRAL-INSTRUMENT.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1002,
-    nombre:'APU-01-2024006-CD.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:1003,
-    nombre:'APU-01-2024006-Sin-formula-CD-Rev-2-2-02-DE-MARZO-2024-Certificada-0000.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1004,
-    nombre:'Carta-Oferta-Economica.PDF',
-    tipo:'pdf'
-      },
-      {
-    id:1005,
-    nombre:'Resumen-Presupuesto.PDF',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:34,
-nombre:'GPP-STAP1-2024-33',
-archivos:[
-      {
-    id:1101,
-    nombre:'1-APU-STA-2024-P1-33-p2-CONT-AVA-ING-PROCESOS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1102,
-    nombre:'10-CARTA-DE-REVISION-Y-RATIFICACION-DE-OFERTA .pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1103,
-    nombre:'11-FSCL-ALMACENISTAS-REV1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1104,
-    nombre:'12-FSCL-OPE-SERV-GRALES.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1105,
-    nombre:'13-FSCL-OPERADOR-PCP.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1106,
-    nombre:'14-GASTOS-ADMINISTRATIVOS-PARADA-2024.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1107,
-    nombre:'15-listado-partida-p1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1108,
-    nombre:'16-listado-partida-p2.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1109,
-    nombre:'17-listado-partida-p3.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1110,
-    nombre:'18-listado-partida-p4.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1111,
-    nombre:'19-listado-partida-p5.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1112,
-    nombre:'2-APU-STA-2024-P1-33-P3-SUP-MEC-EST-ROT.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1113,
-    nombre:'20-listado-partida-p6.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1114,
-    nombre:'21-LISTADO-PARTIDA-P7-REV1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1115,
-    nombre:'22-listado-partida-p8.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1116,
-    nombre:'23-LISTADO-PARTIDA-P9-REV1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1117,
-    nombre:'24-RESUMEN-DE-OFERTA-REV1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1118,
-    nombre:'3-APU-STA-2024-P1-33-P4-SUP-ELEC-INSTRU.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1119,
-    nombre:'4-APU-STA-2024-P1-33 -P5-SUP-INSP-MEC-EST-ROT.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1120,
-    nombre:'5-APU-STA-2024-P1-33-P6-SUP-INSP-INST-ELECT.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1121,
-    nombre:'6-APU-STA-2024-P1-33-P7-OPE-ALM-GRAL-REV1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1122,
-    nombre:'7-APU-STA-2024-P1-33-P8-PCP.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1123,
-    nombre:'8-APU-STA-2024-P1-33-P9-CMO-COORD-Y-INST-PROV-REV1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1124,
-    nombre:'9-APU-STA-2024-P1-33-p1-SSA-CONTRO-AVANCE.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1125,
-    nombre:'Alcance-de-labores-de-mantenimiento-STA-2024-P1-rev-0.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1126,
-    nombre:'OFERTA-REV01-SSHH.zip',
-    tipo:'zip'
-      }
-    ]
-  },
-  {
-id:35,
-nombre:'GPP-STAP1-2024-34',
-archivos:[
-      {
-    id:1201,
-    nombre:'ALCANCE-INSTALACION-Y-RETIRO-DE-CIEGOS-STA-2024-P1-REV2.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1202,
-    nombre:'Anexo-3-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1203,
-    nombre:'APU-2.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1204,
-    nombre:'CARTA-DE-ENTREGA-DE-OFERTA-ECONOMICA-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1205,
-    nombre:'CARTA-DE-PRESENTACIO-OFERTA-ECONOMICA-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1206,
-    nombre:'FSCL-2.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1207,
-    nombre:'GASTOS-ADMINISTRATIVOS-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1208,
-    nombre:'LISTADO-DE-PARTIDA-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1209,
-    nombre:'RESUMEN-PRESUPUESTO-Y-ESTRUCTURA-DE-COSTOS-1.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:36,
-nombre:'GPP-STAP1-2024-35',
-archivos:[
-      {
-    id:1301,
-    nombre:'Alcance-de-taller-metal-mecanico-STA-2024-P1rev1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1302,
-    nombre:'SCAN-OFERTA-PROCES- N-GPP-STAP1-2024-35.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:37,
-nombre:'GPP-STAP1-2024-36',
-archivos:[
-      {
-    id:1401,
-    nombre:'0-1-Portada-Oferta-Economica.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1402,
-    nombre:'1-Carta-de-entrega-de-Oferta-Economica.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1403,
-    nombre:'2-Resumen-del-Presupuesto.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1404,
-    nombre:'3-1-Factor-Sobrecosto-Labor.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1405,
-    nombre:'3-2-Carta-Explicativa-de-Sueldos.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1406,
-    nombre:'3-Analisis-de-Precio-Unitario.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1407,
-    nombre:'4-Desglose-de-Gastos-Administrativos.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1408,
-    nombre:'5-Estructura-de-Costos.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1409,
-    nombre:'Alcance-de-Mtto-de-motores-de-MT-y-BT-de-Planta-1-STA-24-P1-Rev-0EB.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:38,
-nombre:'GPP-STAP1-2024-37',
-archivos:[
-      {
-    id:1501,
-    nombre:'ALCANCE-MANTENIMIENTO-GENERAL-DE-PLANTA-STA-2024-P1-Rev-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1502,
-    nombre:'APU-REV-2-PARADA-DE-PLANTA-STA-2024-P1-METOR.PDF',
-    tipo:'pdf'
-      },
-      {
-    id:1503,
-    nombre:'APU.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1504,
-    nombre:'CARTA-ENTREGA-DE-OFERTA-OFERTA-1.PDF',
-    tipo:'pdf'
-      },
-      {
-    id:1505,
-    nombre:'COMPROMISO-MANTENIMIENTO-DE-LA-OFERTA.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1506,
-    nombre:'CUADRO-RESUMEN.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1507,
-    nombre:'ESTRUCTURA-DE-COSTO.PDF',
-    tipo:'pdf'
-      },
-      {
-    id:1508,
-    nombre:'FCAS-GADM.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1509,
-    nombre:'RESUMEN-DE-PRESUPUESTO.PDF',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:39,
-nombre:'GPP-STAP1-2024-39',
-archivos:[
-      {
-    id:1601,
-    nombre:'ALCANCE-MANTENIMIENTO-F-201-STA-2024-P1-Rev-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1602,
-    nombre:'Oferta-definitiva-Rev1-Escaneada-Horno-20-01-2024.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:40,
-nombre:'GPP-STAP1-2024-40',
-archivos:[
-      {
-    id:1701,
-    nombre:'1-CARTA-DE-ENTREGA-DE-OFERTA-ECONOMICA-VENTILADORES-HACES-TUBULARES.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1702,
-    nombre:'2-RESUMEN-DEL-PRESUPUESTO.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1703,
-    nombre:'3-ANALISIS-DE-PRECIOS-UNITARIOS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1704,
-    nombre:'4-DESGLOCE-DE-GASTOS-ADMINISTRATIVOS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1705,
-    nombre:'5-ESTRUCTURA-DE-COSTOS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1706,
-    nombre:'Alcance-STAP1-2024-40-MTTO-ESTRUC-Y-AERO.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1707,
-    nombre:'Oferta-rev1.xlsx',
-    tipo:'xlsx'
-      }
-    ]
-  },
-  {
-id:41,
-nombre:'GPP-STAP1-2024-41',
-archivos:[
-      {
-    id:1801,
-    nombre:'Alcance-STAP1-2024-41-AVISOS-M5.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1802,
-    nombre:'APU-AVISOS-M5-rev1-2-copia.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:1803,
-    nombre:'APU-AVISOS-M5-rev1-2.xlsx',
-    tipo:'xlsx'
-      },
-      {
-    id:1804,
-    nombre:'OE-M5-FAB-WELD.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:42,
-nombre:'GPP-STAP1-2024-42',
-archivos:[
-      {
-    id:1901,
-    nombre:'Alcance-STAP1-2024-42-MTTO-GRAL-ROTATIVOS.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1902,
-    nombre:'Oferta-Economica-REV-4-110324.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:43,
-nombre:'GPP-STAP1-2024-44',
-archivos:[
-      {
-    id:2001,
-    nombre:'ALQUILER-FACILIDADES-STA-2024-P1-Rev-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:2002,
-    nombre:'GPP-STAP1-2024-44-APU-REV01.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:2003,
-    nombre:'OFERTA-COMERCIAL-STAP1-2024-44.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:44,
-nombre:'GPP-STAP1-2024-45',
-archivos:[
-      {
-    id:2101,
-    nombre:'Alcance-Andamios-STA-2024-P1-rev1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:2102,
-    nombre:'GPP-STAP1-2024-48-ANDAMIOS-CUPLOCK.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:2103,
-    nombre:'Untitled-2024080609495598.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:45,
-nombre:'GPP-STAP1-2024-47',
-archivos:[
-      {
-    id:2201,
-    nombre:'Alcance-STAP1-2024-47-AT-SUBEST-PLANTA-1.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:2202,
-    nombre:'Untitled-2024080610233350.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-{
-id:46,
-nombre:'GPP-STAP1-2024-48',
-archivos:[
-      {
-    id:1301,
-    nombre:'ALCANCE-TECNICO.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1302,
-    nombre:'OFERTA-ECONOMICA.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:47,
-nombre:'GPP-STAP1-2024-49',
-archivos:[
-      {
-    id:1303,
-    nombre:'Alcance-STAP1-2024-49-TRANSPORTE-DE-CARGA.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1304,
-    nombre:'Untitled-2024080610330119.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:48,
-nombre:'GPP-STAP2-2024-43',
-archivos:[
-      {
-    id:1305,
-    nombre:'ALCANCE-TECNICO.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1306,
-    nombre:'O-E-SERPVENCA-RATIFICADA-30-08-2024.pdf',
-    tipo:'pdf'
-      }
-    ]
-  },
-  {
-id:49,
-nombre:'GT-C-2024-02',
-archivos:[
-      {
-    id:1307,
-    nombre:'ALCANCE-TECNICO.pdf',
-    tipo:'pdf'
-      },
-      {
-    id:1308,
-    nombre:'O-E-SERPVENCA-RATIFICADA-30-08-2024.pdf',
-    tipo:'pdf'
-      }
-    ]
-  }
-
     ];
   }
 

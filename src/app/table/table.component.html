@@ -280,37 +280,63 @@
 </p-dialog>
 
 <p-dialog
-  header="Archivos"
+  header="Archivos {{product.proceso_contratacion}}"
   [modal]="true"
   [(visible)]="visible2"
   [style]="{ width: '75vw', height: '80vh' }"
   [breakpoints]="{ '1199px': '90vw', '575px': '95vw' }"
   [maximizable]="true"
 >
-  <div class="p-4">
-    <!-- Mostrar PDFs en iframes -->
-    <div *ngFor="let pdf of pdfs" class="mb-4">
-      <h4>{{ pdf.nombre }}</h4>
-      <iframe
-        [src]="pdf.url"
-        type="application/pdf"
 
-      ></iframe>
+<p-carousel [value]="pdfs" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
+    <ng-template let-pdf #item>
+        <div class="border border-surface rounded-border m-2 p-4">
+            <div class="mb-4">
+                <div class="relative mx-auto">
+                    <iframe [src]="pdf.url" type="application/pdf"></iframe>
+                </div>
+            </div>
+            <div class="mb-4 font-medium">{{ pdf.nombre }}</div>
+            <div class="flex justify-between items-center">
+                <span>
+                    <a [href]="pdf.url" target="_blank"><p-button icon="pi pi-download" severity="secondary" [outlined]="true" /></a>
+                </span>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
 
-       <a [href]="pdf.url" target="_blank">AQUI</a>
-    </div>
 
-
-    <!-- Mostrar botones de descarga para archivos de Excel y Word -->
-    <div *ngFor="let archivo of archivosDescargables" class="mb-4">
-      <h4>{{ archivo.nombre }}</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+  <p-card *ngFor="let archivo of archivosDescargables" header="{{ archivo.nombre }}" class="col-span-1">
+    <div class="p-4">
       <p-button
-        label="Descargar {{ archivo.nombre }}"
+        label="Descargar"
+        icon="pi pi-download"
+        (onClick)="descargarArchivo(archivo.url)"
+        class="p-button-rounded"
+      ></p-button>
+    </div>
+  </p-card>
+</div>
+
+
+
+  <!-- <div *ngFor="let archivo of archivosDescargables" class="mb-4">
+      <h2>{{ archivo.nombre }}</h2>
+      <p-button
+        label="Descargar"
         icon="pi pi-download"
         (onClick)="descargarArchivo(archivo.url)"
       ></p-button>
-    </div>
-  </div>
+  </div> -->
+</p-dialog>
+
+
+<p-dialog header="información" [modal]="true" [(visible)]="visible3" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+    <p>
+        Archivos no encontrados
+    </p>
 </p-dialog>
 
 <!-- <div *ngFor="let i of this.filteredProducts">

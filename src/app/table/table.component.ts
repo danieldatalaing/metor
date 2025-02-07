@@ -21,6 +21,7 @@ import { SortEvent } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { CarouselModule } from 'primeng/carousel';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, } from '@angular/platform-browser';
+import { CardModule } from 'primeng/card';
 
 interface Archivo {
   id: number;
@@ -47,7 +48,7 @@ interface Column {
     ToastModule,
     ButtonModule,
     CommonModule,
-    SpeedDial,
+    //SpeedDial,
     MultiSelectModule,
     InputIconModule,
     IconFieldModule,
@@ -58,6 +59,7 @@ interface Column {
     InputTextModule,
     InputIconModule,
     CarouselModule,
+    CardModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -95,6 +97,8 @@ export class TableComponent implements OnInit {
   visible: boolean = false;
 
   visible2: boolean = false;
+
+  visible3: boolean = false;
 
   showDialog(product: Product) {
     this.visible = true;
@@ -226,8 +230,6 @@ export class TableComponent implements OnInit {
   }
 
   archivo(procesoContratacionDeseado: string) {
-
-
     let procesosinespacio = procesoContratacionDeseado.trim();
 
     let archivos = this.productService.getArchivos() as Carpeta[];
@@ -239,8 +241,8 @@ export class TableComponent implements OnInit {
     if (filteredProducts.length > 0) {
       const carpeta = filteredProducts[0];
       console.log('Carpeta encontrada: ' + carpeta.nombre);
-   this.visible2 = true;
-   this.productDialog = true;
+      this.visible2 = true;
+      this.productDialog = true;
       this.pdfs = []; // Reiniciar arreglo de PDFs
       this.archivosDescargables = []; // Reiniciar arreglo de archivos descargables
 
@@ -268,6 +270,7 @@ export class TableComponent implements OnInit {
               });
             }
           } else {
+            this.visible3 = true;
             console.error(`No se pudo obtener la ruta para ${archivo.nombre}`);
           }
         })
@@ -280,6 +283,7 @@ export class TableComponent implements OnInit {
           console.error('Error al obtener las URLs:', error);
         });
     } else {
+      this.visible3 = true;
       console.error(`No se encontró el proceso ${procesoContratacionDeseado}`);
     }
   }
