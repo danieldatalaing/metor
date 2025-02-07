@@ -22,7 +22,7 @@ import { SplitterModule } from 'primeng/splitter';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { Product, ProductService } from '../../../../../service/product.service';
 import { AppTopbar } from '../../../../layout/component/app.topbar';
-import { AppFooter } from '../../../../layout/component/app.footer';
+
 
 interface Column {
   field: string;
@@ -58,7 +58,6 @@ interface ExportColumn {
     SplitterModule,
     MultiSelectModule,
     AppTopbar,
-    AppFooter,
     //Dialog,
   ],
   templateUrl: './simple.component.html',
