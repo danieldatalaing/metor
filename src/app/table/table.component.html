@@ -25,9 +25,9 @@
     <ng-template #header>
       <tr>
         <th>Proceso de Contratación</th>
+        <th>Archivos</th>
         <th>descripción</th>
         <th>Total de Partidas</th>
-        <th>Archivos</th>
       </tr>
     </ng-template>
     <ng-template #body let-product let-expanded="expanded">
@@ -42,8 +42,6 @@
             {{ product.proceso_contratacion }}
           </p-button>
         </td>
-        <td>{{ product.descripcion_corta_nombre_contrato }}</td>
-        <td>{{ product.no_partida }}</td>
         <td>
           <p-button
             severity="danger"
@@ -53,6 +51,8 @@
             Ver
           </p-button>
         </td>
+        <td>{{ product.descripcion_corta_nombre_contrato }}</td>
+        <td>{{ product.no_partida }}</td>
       </tr>
     </ng-template>
     <ng-template #expandedrow let-product>
