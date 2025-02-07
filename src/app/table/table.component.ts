@@ -106,7 +106,10 @@ export class TableComponent implements OnInit {
 
     this.cols = [
       { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
-      { field: 'descripcion_corta_nombre_contrato', header: 'Descripcion del Nombre Contrato',},
+      {
+        field: 'descripcion_corta_nombre_contrato',
+        header: 'Descripcion del Nombre Contrato',
+      },
       { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
       { field: 'fecha_contratacion', header: 'Fecha Contratación' },
       { field: 'partidas_totales', header: 'Partidas Totales' },
@@ -126,7 +129,10 @@ export class TableComponent implements OnInit {
       { field: 'rendimiento_diario', header: 'Rendimiento Diario' },
       { field: 'duracion_partida_dias', header: 'Duración de Partida' },
       { field: 'no_personas_apu', header: 'No de Personas al Día en APU' },
-      { field: 'horas_trabajadas_dia_apu', header: 'Horas Trabajadas al dia en APU',},
+      {
+        field: 'horas_trabajadas_dia_apu',
+        header: 'Horas Trabajadas al dia en APU',
+      },
       { field: 'hh_dia_real', header: 'HH/dia (REAL)' },
       { field: 'hh_lapso_8hrs', header: 'HH/Lapso' },
       { field: 'relacion_htd_8hrs', header: 'Relacion HTD/8hrs' },
