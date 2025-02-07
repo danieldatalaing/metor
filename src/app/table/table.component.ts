@@ -63,6 +63,9 @@ export class TableComponent implements OnInit {
   products!: Product[];
   pdfs: { nombre: string; url: SafeResourceUrl }[] = []; // Para PDFs
   archivosDescargables: { nombre: string; url: string }[] = []; // Para Excel y Word
+
+  informacion?: Product;
+
   filteredProducts: any[] = []; // O el tipo específico de tus orders
 
   productosFiltrados: Product[] = [];
@@ -223,8 +226,9 @@ export class TableComponent implements OnInit {
     return filteredProducts;
   }
 
-  archivo(procesoContratacionDeseado: string) {
-    let procesosinespacio = procesoContratacionDeseado.trim();
+  archivo(proceso: Product) {
+    let procesosinespacio = proceso.proceso_contratacion?.trim();
+   this.informacion = proceso;
 
     let archivos = this.productService.getArchivos() as Carpeta[];
 
@@ -278,7 +282,7 @@ export class TableComponent implements OnInit {
         });
     } else {
       this.visible3 = true;
-      console.error(`No se encontró el proceso ${procesoContratacionDeseado}`);
+      console.error(`No se encontró el proceso ${proceso}`);
     }
   }
 

@@ -48,7 +48,7 @@
           <p-button
             severity="danger"
             class="mt-2"
-            (onClick)="archivo(product.proceso_contratacion)"
+            (onClick)="archivo(product)"
           >
             Ver
           </p-button>
@@ -171,15 +171,15 @@
 </p-dialog>
 
 <p-dialog
-  header="Archivos"
+  header="ARCHIVOS DE PROCESOS DE CONTRATACIÓN {{ this.informacion?.proceso_contratacion }} - {{ this.informacion?.descripcion_corta_nombre_contrato }}"
   [modal]="true"
   [(visible)]="visible2"
   [style]="{ width: '75vw', height: '80vh' }"
   [breakpoints]="{ '1199px': '90vw', '575px': '95vw' }"
   [maximizable]="true"
 >
-
   <p-carousel [value]="pdfs" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
+
       <ng-template let-pdf #item>
           <div class="border border-surface rounded-border m-2 p-4">
               <div class="mb-4">
