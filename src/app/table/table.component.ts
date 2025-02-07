@@ -218,7 +218,7 @@ export class TableComponent implements OnInit {
 
 
     const filteredProducts = producto.filter(
-      (product) => product.proceso_contratacion === procesosinespacio
+      (product) => product.proceso_contratacion?.trim() === procesosinespacio
     );
 
     this.filteredProducts = filteredProducts;

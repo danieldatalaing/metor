@@ -54193,7 +54193,7 @@ export class ProductService {
       },
       {
         id: 1023,
-        proceso_contratacion: 'GPP-STAP1-2024-42',
+        proceso_contratacion: ' GPP-STAP1-2024-42 ',
         descripcion_corta_nombre_contrato: 'MTTO. GRAL ROTATIVOS\n ',
         fecha_presupuesto: '03/11/2024',
         fecha_contratacion: 'NO LO ESPECIFICA',
