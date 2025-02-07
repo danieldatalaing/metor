@@ -34,15 +34,16 @@
     </ng-template>
     <ng-template #body let-product let-expanded="expanded">
       <tr>
+
         <td style="text-align: center;">
-          <p-button
-            severity="info"
-            (onClick)="filtrarProductos(product)"
-            class="mt-2 "
-            (click)="showDialog(filteredProducts)"
-          >
-            {{ product.proceso_contratacion }}
-          </p-button>
+   <p-button
+    severity="info"
+    (onClick)="filtrarProductos(product)"
+    class="mt-2"
+    (click)="showDialog(filteredProducts)">
+   <p [ngStyle]="{ 'font-size': product.proceso_contratacion.length >= 16 ? '12px' : '17px',
+                 'width': product.proceso_contratacion.length > 16 ? '120%' : '125%' }"> {{ product.proceso_contratacion }} </p>
+</p-button>
         </td>
         <td style="text-align: center;">
           <p-button
@@ -50,7 +51,7 @@
             class="mt-2"
             (onClick)="archivo(product)"
           >
-            Ver
+            ARCHIVOS
           </p-button>
         </td>
         <td>{{ product.descripcion_corta_nombre_contrato }}</td>
