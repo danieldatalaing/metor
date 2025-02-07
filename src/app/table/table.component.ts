@@ -214,11 +214,11 @@ export class TableComponent implements OnInit {
 
   filtrarProductos(procesoContratacionDeseado: Product) {
     let producto = this.productService.getProductsData() as Product[];
+    let procesosinespacio = procesoContratacionDeseado.proceso_contratacion?.trim();
+
 
     const filteredProducts = producto.filter(
-      (product) =>
-        product.proceso_contratacion ===
-        procesoContratacionDeseado.proceso_contratacion
+      (product) => product.proceso_contratacion === procesosinespacio
     );
 
     this.filteredProducts = filteredProducts;

@@ -118,7 +118,7 @@
 </div>
 
 <p-dialog
-  header="Procesos de Contratación"
+  header="Procesos de Contratación {{ this.informacion?.proceso_contratacion }} - {{ this.informacion?.descripcion_corta_nombre_contrato }} "
   [modal]="true"
   [(visible)]="visible"
   [style]="{ width: '100rem', height: '100rem' }"
