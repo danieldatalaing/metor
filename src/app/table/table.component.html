@@ -1,95 +1,6 @@
-<!-- <div class="card">
 
-    <p-toast />
-    <p-table
-        [value]="products"
-        dataKey="id"
-        [tableStyle]="{ 'min-width': '60rem' }"
-        [expandedRowKeys]="expandedRows"
-        (onRowExpand)="onRowExpand($event)"
-        (onRowCollapse)="onRowCollapse($event)">
-
-        <ng-template #caption>
-            <div class="flex flex-wrap justify-end gap-2">
-                <p-button label="Collapse All" icon="pi pi-minus" text  />
-            </div>
-        </ng-template>
-
-        <ng-template #header>
-            <tr>
-                <th style="width: 5rem"></th>
-                <th pSortableColumn="name">Proceso de Contratación <p-sortIcon field="name" /></th>
-                 <th>Image</th>
-                <th pSortableColumn="price">Price <p-sortIcon field="price" /></th>
-                <th pSortableColumn="category">Category <p-sortIcon field="category" /></th>
-                <th pSortableColumn="rating">Reviews <p-sortIcon field="rating" /></th>
-                <th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus" /></th>
-            </tr>
-        </ng-template>
-
-        <ng-template #body let-product let-expanded="expanded">
-            <tr>
-                <td>
-                    <p-button type="button"  pRipple
-                    [pRowToggler]="product" [text]="true"
-                     [rounded]="true" [plain]="true"
-                      [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
-                       (onClick)="filtrarProductos(product)" />
-                </td>
-                <td  >{{ product.proceso_contratacion }}</td>
-                 <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.name" width="50" class="shadow-lg" /></td>
-                <td>{{ product.price | currency : 'USD' }}</td>
-                <td>{{ product.category }}</td>
-                <td><p-rating  [readonly]="true" /></td> -->
-<!-- <td>
-                    <p-tag [value]="product.inventoryStatus" />
-                </td>
-            </tr>
-        </ng-template>
-        <ng-template #expandedrow let-product>
-            <tr>
-                <td colspan="7">
-                    <div class="p-4">
-                        <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
-                        <p-table [value]="product.orders" dataKey="id">
-                            <ng-template #header>
-                                <tr>
-                                    <th *ngFor="let col of selectedColumns">
-                                      {{ col.header }}
-
-                                    </th>
-
-                                </tr>
-                            </ng-template >
-                            <ng-template #body let-order>
-                                <tr>
-                                    <td>{{ product.proceso_contratacion }}</td>
-                                    <td><p-button type="button" icon="pi pi-search" /></td>
-                                </tr>
-                            </ng-template>
-                            <ng-template #emptymessage>
-                                <tr>
-                                    <td colspan="6">There are no order for this product yet.</td>
-                                </tr>
-                            </ng-template>
-                        </p-table>
-                    </div>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-</div>
-
-<div *ngFor="let i of this.filteredProducts">
-
-  <p>
-    {{ i.proceso_contratacion }}
-  </p>
-</div> -->
 
 <app-topbar class="mb-6"></app-topbar>
-
-<!-- <p-speeddial (onClick)="collapseAll()"  direction="left" [style]="{ position: 'fixed', top: 'calc(50% - 2rem)', left: 0 }" /> -->
 
 <div class="card mr-8 ml-8 mb-8 shadow-xl" style="margin-top: 75px">
   <p-table
@@ -102,9 +13,6 @@
     showGridlines
   >
     <ng-template #caption>
-      <!-- <div class="flex flex-wrap justify-end gap-2">
-                <p-button label="Cerrar todo" severity="danger" icon="pi pi-minus" text (onClick)="collapseAll()" />
-             -->
       <div class="flex flex-wrap justify-end gap-2">
         <p-iconfield iconPosition="left" class="ml-auto">
           <p-inputicon>
@@ -124,14 +32,6 @@
     </ng-template>
     <ng-template #body let-product let-expanded="expanded">
       <tr>
-        <!-- <td>
-                    <p-button type="button"  pRipple
-                    [pRowToggler]="product" [text]="true"
-                     [rounded]="true" [plain]="true"
-                      [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-down'"
-                       (onClick)="filtrarProductos(product)"
-                       (onClick)="collapseAll()" />
-                </td> -->
         <td>
           <p-button
             severity="info"
@@ -153,8 +53,6 @@
             Ver
           </p-button>
         </td>
-
-        <!-- <td><b>{{ product.proceso_contratacion }}</b></td> -->
       </tr>
     </ng-template>
     <ng-template #expandedrow let-product>
@@ -210,9 +108,6 @@
                   <td *ngFor="let col of selectedColumns">
                     {{ item[col.field] || "- Sin información -" }}
                   </td>
-                  <!-- <td>{{ item.proceso_contratacion }}</td>
-                                  <td>{{ item.proceso_contratacion }}</td>
-                                  <td>{{ item.quantity }}</td> -->
                 </tr>
               </ng-template>
             </p-table>
@@ -270,17 +165,14 @@
           <td *ngFor="let col of selectedColumns">
             {{ item[col.field] || "- Sin información -" }}
           </td>
-          <!-- <td>{{ item.proceso_contratacion }}</td>
-             <td>{{ item.proceso_contratacion }}</td>
-             <td>{{ item.quantity }}</td>
-        --></tr>
+          </tr>
       </ng-template>
     </p-table>
   </div>
 </p-dialog>
 
 <p-dialog
-  header="Archivos {{product.proceso_contratacion}}"
+  header="Archivos"
   [modal]="true"
   [(visible)]="visible2"
   [style]="{ width: '75vw', height: '80vh' }"
@@ -319,17 +211,6 @@
     </div>
   </p-card>
 </div>
-
-
-
-  <!-- <div *ngFor="let archivo of archivosDescargables" class="mb-4">
-      <h2>{{ archivo.nombre }}</h2>
-      <p-button
-        label="Descargar"
-        icon="pi pi-download"
-        (onClick)="descargarArchivo(archivo.url)"
-      ></p-button>
-  </div> -->
 </p-dialog>
 
 
@@ -339,9 +220,3 @@
     </p>
 </p-dialog>
 
-<!-- <div *ngFor="let i of this.filteredProducts">
-
-  <p>
-    {{ i.proceso_contratacion }}
-  </p>
-</div> -->
