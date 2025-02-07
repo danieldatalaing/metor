@@ -1,5 +1,3 @@
-
-
 <app-topbar class="mb-6"></app-topbar>
 
 <div class="card mr-8 ml-8 mb-8 shadow-xl" style="margin-top: 75px">
@@ -32,7 +30,7 @@
     </ng-template>
     <ng-template #body let-product let-expanded="expanded">
       <tr>
-        <td>
+        <td style="text-align: center;">
           <p-button
             severity="info"
             (onClick)="filtrarProductos(product)"
@@ -42,7 +40,7 @@
             {{ product.proceso_contratacion }}
           </p-button>
         </td>
-        <td>
+        <td style="text-align: center;">
           <p-button
             severity="danger"
             class="mt-2"
@@ -52,7 +50,7 @@
           </p-button>
         </td>
         <td>{{ product.descripcion_corta_nombre_contrato }}</td>
-        <td>{{ product.no_partida }}</td>
+        <td style="text-align: right;">{{ product.no_partida }}</td>
       </tr>
     </ng-template>
     <ng-template #expandedrow let-product>
@@ -60,57 +58,54 @@
         <td colspan="7">
           <div class="p-4">
             <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
-
-            <p-multiselect
-              class="mb-9"
-              display="chip"
-              [options]="cols"
-              [(ngModel)]="selectedColumns"
-              optionLabel="header"
-              selectedItemsLabel="{0} columns selected"
-              [style]="{ 'min-width': '200px' }"
-              placeholder="Choose Columns"
-            />
-
-            <p-button
-              (onClick)="archivo(product.proceso_contratacion)"
-              class="ml-8"
-              (click)="showDialog(filteredProducts)"
-              >VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button
-            >
-
-            <p-table
-              stripedRows
-              class="shadow-lg"
-              [value]="filteredProducts"
-              [columns]="selectedColumns"
-              scrollable="true"
-              [style]="{ width: '1725px' }"
-              scrollHeight="400px"
-              showGridlines
-              [resizableColumns]="true"
-              [columns]="cols"
-              [reorderableColumns]="true"
-            >
-              <ng-template #header>
-                <tr>
-                  <th
-                    *ngFor="let col of selectedColumns"
-                    pResizableColumn
-                    pReorderableColumn
-                  >
-                    {{ col.header }}
-                  </th>
-                </tr>
-              </ng-template>
-              <ng-template #body let-item>
-                <tr>
-                  <td *ngFor="let col of selectedColumns">
-                    {{ item[col.field] || "- Sin información -" }}
-                  </td>
-                </tr>
-              </ng-template>
-            </p-table>
+              <p-multiselect
+                class="mb-9"
+                display="chip"
+                [options]="cols"
+                [(ngModel)]="selectedColumns"
+                optionLabel="header"
+                selectedItemsLabel="{0} columns selected"
+                [style]="{ 'min-width': '200px' }"
+                placeholder="Choose Columns"
+              />
+              <p-button
+                (onClick)="archivo(product.proceso_contratacion)"
+                class="ml-8"
+                (click)="showDialog(filteredProducts)"
+                >VER ARCHIVOS - {{ product.proceso_contratacion }}</p-button
+              >
+              <p-table
+                stripedRows
+                class="shadow-lg"
+                [value]="filteredProducts"
+                [columns]="selectedColumns"
+                scrollable="true"
+                [style]="{ width: '1725px' }"
+                scrollHeight="400px"
+                showGridlines
+                [resizableColumns]="true"
+                [columns]="cols"
+                [reorderableColumns]="true"
+              >
+                <ng-template #header>
+                  <tr>
+                    <th
+                      *ngFor="let col of selectedColumns"
+                      pResizableColumn
+                      pReorderableColumn
+                    >
+                      {{ col.header }}
+                    </th>
+                  </tr>
+                </ng-template>
+                <ng-template #body let-item>
+                  <tr>
+                    <td *ngFor="let col of selectedColumns">
+                      {{ item[col.field] || "- Sin información -" }}
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
           </div>
         </td>
       </tr>
@@ -180,37 +175,35 @@
   [maximizable]="true"
 >
 
-<p-carousel [value]="pdfs" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
-    <ng-template let-pdf #item>
-        <div class="border border-surface rounded-border m-2 p-4">
-            <div class="mb-4">
-                <div class="relative mx-auto">
-                    <iframe [src]="pdf.url" type="application/pdf"></iframe>
-                </div>
-            </div>
-            <div class="mb-4 font-medium">{{ pdf.nombre }}</div>
-            <div class="flex justify-between items-center">
-                <span>
-                    <a [href]="pdf.url" target="_blank"><p-button icon="pi pi-download" severity="secondary" [outlined]="true" /></a>
-                </span>
-            </div>
-        </div>
-    </ng-template>
-</p-carousel>
-
-
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
-  <p-card *ngFor="let archivo of archivosDescargables" header="{{ archivo.nombre }}" class="col-span-1">
-    <div class="p-4">
-      <p-button
-        label="Descargar"
-        icon="pi pi-download"
-        (onClick)="descargarArchivo(archivo.url)"
-        class="p-button-rounded"
-      ></p-button>
-    </div>
-  </p-card>
-</div>
+  <p-carousel [value]="pdfs" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
+      <ng-template let-pdf #item>
+          <div class="border border-surface rounded-border m-2 p-4">
+              <div class="mb-4">
+                  <div class="relative mx-auto">
+                      <iframe [src]="pdf.url" type="application/pdf"></iframe>
+                  </div>
+              </div>
+              <div class="mb-4 font-medium">{{ pdf.nombre }}</div>
+              <div class="flex justify-between items-center">
+                  <span>
+                      <a [href]="pdf.url" target="_blank"><p-button icon="pi pi-download" severity="secondary" [outlined]="true" /></a>
+                  </span>
+              </div>
+          </div>
+      </ng-template>
+  </p-carousel>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+    <p-card *ngFor="let archivo of archivosDescargables" header="{{ archivo.nombre }}" class="col-span-1">
+      <div class="p-4">
+        <p-button
+          label="Descargar"
+          icon="pi pi-download"
+          (onClick)="descargarArchivo(archivo.url)"
+          class="p-button-rounded"
+        ></p-button>
+      </div>
+    </p-card>
+  </div>
 </p-dialog>
 
 

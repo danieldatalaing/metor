@@ -1,20 +1,5 @@
 <app-topbar class="mb-6"></app-topbar>
          <p-toolbar styleClass="mb-6 mt-9">
-            <!-- <h1>Listado</h1>
-            <ng-template #start>
-                <div class="container mx-auto px-4 mt-4 sm:mt-0">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 gap-4">
-                      <a href="/public/favicon.ico" target="_blank">ver</a>
-                   </div>
-                  </div>
-                </div>
-            </ng-template>
-
-            <ng-template #end>
-                 <a href="/"><p-button icon="pi pi-times" severity="danger" [rounded]="true" [outlined]="true"/></a>
-
-            </ng-template> -->
         </p-toolbar>
 
         <div class="flex justify-center mb-6">
@@ -67,137 +52,11 @@
                           </ng-container>
                           <ng-template #textContent>{{ product[col.field] || '- Sin información -'}}</ng-template>
                         </td>
-                        <!-- <td >
-                            <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" (click)="editProduct(product)" />
-                            <p-button icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true" (click)="deleteProduct(product)" />
-                        </td> -->
                       </tr>
             </ng-template>
             </p-table>
           </div>
         </div>
-
-        <!-- <p-dialog [(visible)]="productDialog" [style]="{ width: '1250px', height: '1250px' }" header="Materialess" [modal]="true">
-            <ng-template #content>
-                <div class="card">
-                <p-splitter [style]="{ height: '650px' }" [panelSizes]="[20, 80]" [minSizes]="[10, 0]" styleClass="mb-8">
-                    <ng-template #panel>
-                        <div class="col flex flex-col items-center justify-center">
-                             <p-button label="Ver PDF" icon="pi pi-eye" class="mt-4" />
-                             <p-button label="Importar PDF" icon="pi pi-file-import" class="mt-2"  />
-                             <p-button label="Eliminar PDF" icon="pi pi-trash" class="mt-2"  />
-                              <img [src]="'' + product.image" [alt]="product.image" class="block m-auto pb-4 w-40" *ngIf="product.image" />
-                             <p-button label="Importar Imagen" icon="pi pi-file-import" class="mt-2"  />
-                             <p-button label="Ver Especificación" icon="pi pi-trash" class="mt-2 mb-2"  />
-                        </div>
-                    </ng-template>
-                    <ng-template #panel>
-                        <p-splitter layout="vertical" [panelSizes]="[70, 30]">
-                            <ng-template #panel>
-                            <div class="card flex flex-col gap-4">
-                                <div class="font-semibold text-xl"></div>
-                                    <div class="flex flex-wrap gap-6">
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Referencia</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.code }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="email2">Unidad</label>
-                                            <input pInputText id="email2" type="text" value="{{ product.price_1 }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Fecha</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.name }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Descripción</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.descrip }}" />
-                                        </div>
-
-                                    </div>
-                                    <div class="flex flex-wrap gap-6">
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Precio</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.code }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="email2">Desperdicio</label>
-                                            <input pInputText id="email2" type="text" value="{{ product.price_1 }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Precio en Dolares</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.name }}" />
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap gap-6">
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Comentario</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.code }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="email2">Agrupación</label>
-                                            <input pInputText id="email2" type="text" value="{{ product.price_1 }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Aporta V.A.N</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.name }}" />
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap gap-6">
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="name2">Familia BCV</label>
-                                            <input pInputText id="name2" type="text" value="{{ product.code }}" />
-                                        </div>
-                                        <div class="flex flex-col grow basis-0 gap-2 mr-8">
-                                            <label for="email2">Proveedor</label>
-                                            <input pInputText id="email2" type="text" value="{{ product.price_1 }}" />
-                                        </div>
-                                    </div>
-                            </div>
-
-                            </ng-template>
-                            <ng-template #panel>
-                                <p-splitter [panelSizes]="[20, 80]">
-                                    <ng-template #panel>
-                                        <div class="col flex flex-col items-center justify-center">
-                                            <p-button label="Guardar Como"  class="mt-4" />
-                                            <p-button label="Guardar"  class="mt-2"  />
-                                            <p-button label="Cancelar"  class="mt-2"  />
-                                            <p-button label="Salir" class="mt-2"  />
-                                        </div>
-                                    </ng-template>
-                                    <ng-template #panel>
-                                        <div class="w-full flex items-center justify-center">
-                                         <div class="flex flex-col items-center justify-center">
-                                                <div class="col flex items-center justify-center gap-x-4">
-                                                    <p-button label="Nuevo" severity="info" />
-                                                    <p-button label="Modificar" severity="info" />
-                                                    <p-button label="Eliminar" severity="info" />
-                                                    <p-button label="Busqueda" severity="info" />
-                                                </div>
-                                                <div class="col flex items-center justify-center mt-4 gap-x-4">
-                                                    <p-button type="button" styleClass="h-full" icon="pi pi-angle-double-left"  />
-                                                    <p-button type="button" styleClass="h-full" icon="pi pi-angle-left"  />
-                                                    <p-button type="button" styleClass="h-full" icon="pi pi-angle-right"  />
-                                                    <p-button type="button" styleClass="h-full" icon="pi pi-angle-double-right"  />
-                                                </div>
-                                         </div>
-                                        </div>
-                                    </ng-template>
-                                </p-splitter>
-                            </ng-template>
-                        </p-splitter>
-                    </ng-template>
-                </p-splitter>
-            </div>
-            </ng-template>
-
-            <ng-template #footer>
-                <p-button label="Cancel" icon="pi pi-times" text (click)="hideDialog()" />
-                <p-button label="Save" icon="pi pi-check" (click)="saveProduct()" />
-            </ng-template>
-        </p-dialog> -->
-
         <p-confirmdialog [style]="{ width: '450px' }" />
 
         <app-footer></app-footer>

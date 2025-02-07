@@ -79418,12 +79418,17 @@ export class ProductService {
         archivos: [
           {
             id: 1307,
-            nombre: 'ALCANCE-TECNICO.pdf',
+            nombre: 'ALCANCE.pdf',
             tipo: 'pdf',
           },
           {
             id: 1308,
-            nombre: 'O-E-SERPVENCA-RATIFICADA-30-08-2024.pdf',
+            nombre: 'OFERTA-ECONOMICA-DEFINITIVA.pdf',
+            tipo: 'pdf',
+          },
+          {
+            id: 1309,
+            nombre: 'OFERTA-ECONOMICA-ORIGINAL.pdf',
             tipo: 'pdf',
           },
         ],
@@ -79483,26 +79488,6 @@ export class ProductService {
   getProductsWithOrdersSmall() {
     return Promise.resolve(this.getProductsWithOrdersData());
   }
-
-  // generatePrduct(): Product {
-  //     const product: Product = {
-  //       id: this.generateId(),
-  //       proceso_contratacion: this.generateName(),
-  //       proceso_contratacion: 'Product Description',
-  //       price: this.generatePrice(),
-  //       quantity: this.generateQuantity(),
-  //       category: 'Product Category',
-  //       inventoryStatus: this.generateStatus(),
-  //       rating: this.generateRating(),
-  //     };
-
-  //     product.image =
-  //       product.proceso_contratacion
-  //         ?.toLocaleLowerCase()
-  //         .split(/[ ,]+/)
-  //         .join('-') + '.jpg';
-  //     return product;
-  // }
 
   generateId() {
     let text = '';
