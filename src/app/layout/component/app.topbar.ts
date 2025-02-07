@@ -50,7 +50,7 @@ import { LayoutService } from '../service/layout.service';
       }
 
       .layout-topbar-actions a:hover {
-        background-color: red; /* O el color que desees */
+        background-color:rgba(220, 38, 38, 0.73); /* O el color que desees */
         color: white;
         border-radius: 5px; /* Bordes redondeados para los links */
         padding: 5px 15px; /* Ajusta el padding para el hover */
@@ -98,17 +98,17 @@ import { LayoutService } from '../service/layout.service';
       <div class="flex justify-center items-left layout-topbar-actions">
         <a
           routerLink="/"
-          class="mr-4 ml-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-500 hover:border-red-500 hover:border-solid hover:border-2"
+          class="mr-4 ml-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
           ><b>Inicio</b></a
         >
         <a
           href="listado"
-          class="mr-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-500 hover:border-red-500 hover:border-solid hover:border-2"
+          class="mr-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
           ><b>Listado</b></a
         >
         <a
           href="proceso"
-          class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-500 hover:border-red-500 hover:border-solid hover:border-2"
+          class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
           ><b>Procesos de Contratación</b></a
         >
       </div>
