@@ -240,7 +240,7 @@ export class TableComponent implements OnInit {
 
     if (filteredProducts.length > 0) {
       const carpeta = filteredProducts[0];
-      console.log('Carpeta encontrada: ' + carpeta.nombre);
+
       this.visible2 = true;
       this.productDialog = true;
       this.pdfs = []; // Reiniciar arreglo de PDFs
@@ -271,20 +271,19 @@ export class TableComponent implements OnInit {
             }
           } else {
             this.visible3 = true;
-            console.error(`No se pudo obtener la ruta para ${archivo.nombre}`);
+
           }
         })
       )
         .then(() => {
-          console.log('PDFs para mostrar:', this.pdfs);
-          console.log('Archivos para descargar:', this.archivosDescargables);
+
         })
         .catch((error) => {
-          console.error('Error al obtener las URLs:', error);
+
         });
     } else {
       this.visible3 = true;
-      console.error(`No se encontró el proceso ${proceso}`);
+
     }
   }
 

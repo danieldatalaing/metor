@@ -82,8 +82,9 @@ import { LayoutService } from '../service/layout.service';
       style="position: fixed;  width: 100%; height: 100%; z-index: -1;"
     />
     <div class="layout-topbar barra">
+
       <div
-        class="layout-topbar-logo-container flex justify-center items-center"
+        class="layout-topbar-logo-container flex justify-center items-right"
       >
         <a class="layout-topbar-logo" routerLink="/" class="ml-8">
           <img src="Metor.webp" width="50" />
