@@ -9,26 +9,30 @@ import { LayoutService } from '../service/layout.service';
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [RouterModule,
+  imports: [
+    RouterModule,
     CommonModule,
     StyleClassModule,
     //AppConfigurator
   ],
   template: ` <div class="layout-topbar">
     <div class="layout-topbar-logo-container flex justify-center items-center">
-      <!-- <button
-        class="layout-menu-button layout-topbar-action"
-        (click)="layoutService.onMenuToggle()"
-      >
-        <i class="pi pi-bars"></i>
-      </button> -->
       <a class="layout-topbar-logo" routerLink="/" class="ml-8">
-        <img src="https://energytech.com.ve/img/Metor.webp" width="75" />
+        <img src="https://energytech.com.ve/img/Metor.webp" width="50" />
         <span></span>
       </a>
-      <a routerLink="/" class="mr-4 ml-4"><b>Inicio</b></a>
-      <a href="listado" class="mr-4"><b>Listado</b></a>
-      <a href="proceso"><b>Procesos de Contratación</b></a>
+      <a class="layout-topbar-logo" routerLink="/" class="ml-8">
+        <img src="DATALAING-1.png" width="120" />
+        <span></span>
+      </a>
+    </div>
+
+    <div class="flex justify-center items-left layout-topbar-actions">
+      <a routerLink="/" class="mr-4 ml-4 hover:bg-red-500 hover:text-white rounded p-2"><b>Inicio</b></a>
+      <a href="listado" class="mr-4 hover:bg-red-500 hover:text-white rounded p-2"><b>Listado</b></a>
+      <a href="proceso" class="hover:bg-red-500 hover:text-white rounded p-2"
+        ><b>Procesos de Contratación</b></a
+      >
     </div>
 
     <div class="layout-topbar-actions">
@@ -46,20 +50,7 @@ import { LayoutService } from '../service/layout.service';
             }"
           ></i>
         </button>
-        <div class="relative">
-          <!-- <button
-            class="layout-topbar-action layout-topbar-action-highlight"
-            pStyleClass="@next"
-            enterFromClass="hidden"
-            enterActiveClass="animate-scalein"
-            leaveToClass="hidden"
-            leaveActiveClass="animate-fadeout"
-            [hideOnOutsideClick]="true"
-          >
-            <i class="pi pi-palette"></i>
-          </button> -->
-          <!-- <app-configurator /> -->
-        </div>
+        <div class="relative"></div>
       </div>
 
       <button
@@ -70,25 +61,10 @@ import { LayoutService } from '../service/layout.service';
         leaveToClass="hidden"
         leaveActiveClass="animate-fadeout"
         [hideOnOutsideClick]="true"
-      >
-        <i class="pi pi-ellipsis-v"></i>
-      </button>
+      ></button>
 
       <div class="layout-topbar-menu hidden lg:block">
-        <div class="layout-topbar-menu-content">
-          <!-- <button type="button" class="layout-topbar-action">
-            <i class="pi pi-calendar"></i>
-            <span>Calendar</span>
-          </button>
-          <button type="button" class="layout-topbar-action">
-            <i class="pi pi-inbox"></i>
-            <span>Messages</span>
-          </button>
-          <button type="button" class="layout-topbar-action">
-            <i class="pi pi-user"></i>
-            <span>Profile</span>
-          </button> -->
-        </div>
+        <div class="layout-topbar-menu-content"></div>
       </div>
     </div>
   </div>`,
