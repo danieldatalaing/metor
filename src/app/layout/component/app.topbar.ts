@@ -84,10 +84,10 @@ import { LayoutService } from '../service/layout.service';
     <div class="layout-topbar barra">
 
       <div
-        class="layout-topbar-logo-container flex justify-center items-right"
+        class="layout-topbar-logo-container flex justify-center items-center"
       >
         <a class="layout-topbar-logo" routerLink="/" class="ml-8">
-          <img src="Metor.webp" width="50" />
+          <img src="Metor.webp" width="50" height="40" />
           <span></span>
         </a>
         <a class="layout-topbar-logo" routerLink="/" class="ml-8">
