@@ -174,19 +174,26 @@ export class SimpleComponent implements OnInit {
       { field: 'email', header: 'Email' },
     ];
 
-    // this.selectedColumns = [
-    //   { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
-    //   {
-    //     field: 'descripcion_corta_nombre_contrato',
-    //     header: 'Descripcion del Nombre Contrato',
-    //   },
-    //   { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
-    //   { field: 'fecha_contratacion', header: 'Fecha Contratación' },
-    //   { field: 'no_partida', header: 'No. de la Partida' },
-    //   { field: 'descripcion_partida', header: 'Descripción de la Partida' },
-    // ];
+  this.selectedColumns = [
+    { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //1
+    {
+      field: 'descripcion_corta_nombre_contrato',
+      header: 'Descripcion del Nombre Contrato',
+    }, //2
+    { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' }, //3
+    { field: 'fecha_contratacion', header: 'Fecha Contratación' }, //4
+    { field: 'partidas_totales', header: 'Partidas Totales' }, //5
+    { field: 'monto_total_cd', header: 'Monto Total' }, //6
 
-     this.selectedColumns = this.cols;
+    { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' }, //7
+    { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' }, //8
+    { field: 'horario', header: 'Horario' }, //9
+    { field: 'ubicacion', header: 'Ubicación' }, //10
+    { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //11
+    { field: 'capitulo', header: 'Capitulo' }, //12
+  ];
+
+     //this.selectedColumns = this.cols;
 
     this.exportColumns = this.cols.map((col) => ({
       title: col.header,

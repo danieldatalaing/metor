@@ -16,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CarouselModule } from 'primeng/carousel';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, } from '@angular/platform-browser';
 import { CardModule } from 'primeng/card';
+import { TooltipModule } from 'primeng/tooltip';
 
 interface Archivo {
   id: number;
@@ -53,6 +54,7 @@ interface Column {
     InputIconModule,
     CarouselModule,
     CardModule,
+    TooltipModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -102,41 +104,53 @@ export class TableComponent implements OnInit {
     this.productDialog = true;
   }
 
+  calculateRowIndex(table: any, product: any): number {
+    let index = this.products.indexOf(product); // Índice en la lista original
+    if (table.filteredValue && table.filteredValue.length > 0) {
+      index = table.filteredValue.indexOf(product); // Índice en la lista filtrada
+      if (index == -1) {
+        return 0; // Manejar el caso donde no se encuentra el producto en la lista filtrada
+      }
+    }
+    return index + 1;
+  }
+
   ngOnInit() {
     this.productService
       .getProductsWithOrdersSmall()
       .then((data) => (this.products = data));
 
     this.cols = [
-      { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
+      { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //1
       {
         field: 'descripcion_corta_nombre_contrato',
         header: 'Descripcion del Nombre Contrato',
-      },
-      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
-      { field: 'fecha_contratacion', header: 'Fecha Contratación' },
-      { field: 'partidas_totales', header: 'Partidas Totales' },
-      { field: 'monto_total_cd', header: 'Monto Total' },
-      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' },
-      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' },
-      { field: 'horario', header: 'Horario' },
-      { field: 'ubicacion', header: 'Ubicación' },
-      { field: 'nombre_contrato', header: 'Nombre del Contrato' },
-      { field: 'capitulo', header: 'Capitulo' },
-      { field: 'no_partida', header: 'No. de la Partida' },
-      { field: 'descripcion_partida', header: 'Descripción de la Partida' },
-      { field: 'unidad', header: 'Unidad' },
-      { field: 'cant', header: 'Cant' },
-      { field: 'precio_unitario_apu', header: 'Precio Unit APU' },
-      { field: 'total_partida', header: 'Total Partida' },
-      { field: 'rendimiento_diario', header: 'Rendimiento Diario' },
-      { field: 'duracion_partida_dias', header: 'Duración de Partida' },
+      }, //2
+      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' }, //3
+      { field: 'fecha_contratacion', header: 'Fecha Contratación' }, //4
+      { field: 'partidas_totales', header: 'Partidas Totales' }, //5
+      { field: 'monto_total_cd', header: 'Monto Total' }, //6
+
+      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' }, //7
+      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' }, //8
+      { field: 'horario', header: 'Horario' }, //9
+      { field: 'ubicacion', header: 'Ubicación' },//10
+      { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //11
+      { field: 'capitulo', header: 'Capitulo' },//12
+      { field: 'no_partida', header: 'No. de la Partida' },//13
+      { field: 'descripcion_partida', header: 'Descripción de la Partida' },//14
+      { field: 'unidad', header: 'Unidad' },//15
+      { field: 'cant', header: 'Cant' },//16
+      { field: 'precio_unitario_apu', header: 'Precio Unit APU' },//17
+      { field: 'total_partida', header: 'Total Partida' },//18
+      { field: 'rendimiento_diario', header: 'Rendimiento Diario' },//19
       { field: 'no_personas_apu', header: 'No de Personas al Día en APU' },
       {
         field: 'horas_trabajadas_dia_apu',
         header: 'Horas Trabajadas al dia en APU',
       },
-      { field: 'hh_dia_real', header: 'HH/dia (REAL)' },
+      { field: 'duracion_partida_dias', header: 'Duración de Partida' },
+
       { field: 'hh_lapso_8hrs', header: 'HH/Lapso' },
       { field: 'relacion_htd_8hrs', header: 'Relacion HTD/8hrs' },
       { field: 'hh_lapso_horas_trabajadas', header: 'HH/Lapso' },
@@ -169,19 +183,22 @@ export class TableComponent implements OnInit {
     ];
 
     this.selectedColumns = [
-      { field: 'proceso_contratacion', header: 'Proceso de Contratación' },
+      { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //1
       {
         field: 'descripcion_corta_nombre_contrato',
         header: 'Descripcion del Nombre Contrato',
-      },
-      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' },
-      { field: 'fecha_contratacion', header: 'Fecha Contratación' },
-      { field: 'partidas_totales', header: 'Partidas Totales' },
-      { field: 'monto_total_cd', header: 'Monto Total' },
-      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' },
-      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' },
-      { field: 'horario', header: 'Horario' },
-      { field: 'ubicacion', header: 'Ubicación' },
+      }, //2
+      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' }, //3
+      { field: 'fecha_contratacion', header: 'Fecha Contratación' }, //4
+      { field: 'partidas_totales', header: 'Partidas Totales' }, //5
+      { field: 'monto_total_cd', header: 'Monto Total' }, //6
+
+      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' }, //7
+      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' }, //8
+      { field: 'horario', header: 'Horario' }, //9
+      { field: 'ubicacion', header: 'Ubicación' }, //10
+      { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //11
+      { field: 'capitulo', header: 'Capitulo' }, //12
     ];
 
     this.responsiveOptions = [
@@ -215,7 +232,8 @@ export class TableComponent implements OnInit {
   filtrarProductos(procesoContratacionDeseado: Product) {
     let producto = this.productService.getProductsData() as Product[];
 
-    let procesosinespacio = procesoContratacionDeseado.proceso_contratacion?.trim();
+    let procesosinespacio =
+      procesoContratacionDeseado.proceso_contratacion?.trim();
 
     this.informacion = procesoContratacionDeseado;
 
@@ -230,7 +248,7 @@ export class TableComponent implements OnInit {
 
   archivo(proceso: Product) {
     let procesosinespacio = proceso.proceso_contratacion?.trim();
-   this.informacion = proceso;
+    this.informacion = proceso;
 
     let archivos = this.productService.getArchivos() as Carpeta[];
 
@@ -271,19 +289,13 @@ export class TableComponent implements OnInit {
             }
           } else {
             this.visible3 = true;
-
           }
         })
       )
-        .then(() => {
-
-        })
-        .catch((error) => {
-
-        });
+        .then(() => {})
+        .catch((error) => {});
     } else {
       this.visible3 = true;
-
     }
   }
 

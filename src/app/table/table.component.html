@@ -1,6 +1,8 @@
 <app-topbar class="mb-6"></app-topbar>
 
 <div class="card mr-8 ml-8 mb-8 shadow-xl" style="margin-top: 75px; background-color: rgba(255, 255, 255, 0.591)">
+     <marquee behavior="" direction="left" class="text-black">BIENVENIDOS A “CREACIÓN DE BASE DE DATOS DE MÁS DE 1000 PARTIDAS CON SUS ANÁLISIS DE PRECIOS UNITARIOS (APU) E INSUMOS, ASÍ COMO 4 PRESUPUESTOS
+      TIPO PARA METOR, SEGÚN ESPECIFICACIONES DEL CONTRATANTE EN ÁREAS DIVERSAS A SER ACORDADAS</marquee>
   <p-table
     #dt2
     [value]="products"
@@ -9,7 +11,9 @@
     showGridlines
     [globalFilterFields]="['proceso_contratacion', 'country.proceso_contratacion', 'representative.proceso_contratacion', 'status']"
   >
+
     <ng-template #caption>
+
       <div class="flex flex-wrap justify-end gap-2">
         <p-iconfield iconPosition="left" class="ml-auto">
                 <p-inputicon>
@@ -23,37 +27,46 @@
                 />
         </p-iconfield>
       </div>
+
     </ng-template>
+
     <ng-template #header>
       <tr>
+          <th>#</th>
         <th>Proceso de Contratación</th>
-        <th>Archivos</th>
+        <th>Documentación</th>
         <th>Descripción</th>
         <th>Total de Partidas</th>
       </tr>
     </ng-template>
-    <ng-template #body let-product let-expanded="expanded">
-      <tr>
-
+    <ng-template #body let-product let-expanded="expanded" >
+      <tr class="hover:bg-blue-400 hover:text-white">
+ <td>{{ calculateRowIndex(dt2, product) }}</td>
         <td style="text-align: center;">
    <p-button
     severity="info"
     (onClick)="filtrarProductos(product)"
     class="mt-2"
-    (click)="showDialog(filteredProducts)">
+    (click)="showDialog(filteredProducts)"
+    pTooltip="Ver proceso de Contratación"
+    tooltipPosition="left"
+    tooltipEvent="hover">
    <p [ngStyle]="{ 'font-size': product.proceso_contratacion.length >= 16 ? '12px' : '17px',
                  'width': product.proceso_contratacion.length > 16 ? '120%' : '125%' }"> {{ product.proceso_contratacion }} </p>
 </p-button>
         </td>
         <td style="text-align: center;">
-          <p-button
-            severity="danger"
-            class="mt-2"
-            (onClick)="archivo(product)"
-          >
-            ARCHIVOS
-          </p-button>
+<p-button
+    icon="pi pi-eye"
+    severity="success"
+    class="mt-2"
+    (onClick)="archivo(product)"
+    pTooltip="Ver documentación"
+    tooltipPosition="top"
+    tooltipEvent="hover">
+</p-button>
         </td>
+
         <td>{{ product.descripcion_corta_nombre_contrato }}</td>
         <td style="text-align: right;">{{ product.no_partida }}</td>
       </tr>
@@ -122,8 +135,10 @@
   header="Procesos de Contratación {{ this.informacion?.proceso_contratacion }} - {{ this.informacion?.descripcion_corta_nombre_contrato }} "
   [modal]="true"
   [(visible)]="visible"
-  [style]="{ width: '100rem', height: '100rem' }"
+
+
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [contentStyle]="{ 'max-width': '90vw' }"
   [maximizable]="true"
 >
   <p-multiselect
@@ -162,7 +177,7 @@
       </ng-template>
       <ng-template #body let-item>
         <tr>
-          <td *ngFor="let col of selectedColumns">
+          <td class="hover:bg-blue-400 hover:text-white" *ngFor="let col of selectedColumns">
             {{ item[col.field] || "- Sin información -" }}
           </td>
           </tr>
@@ -175,40 +190,42 @@
   header="ARCHIVOS DE PROCESOS DE CONTRATACIÓN {{ this.informacion?.proceso_contratacion }} - {{ this.informacion?.descripcion_corta_nombre_contrato }}"
   [modal]="true"
   [(visible)]="visible2"
-  [style]="{ width: '75vw', height: '80vh' }"
+  [contentStyle]="{ 'max-width': '90vw' }"
   [breakpoints]="{ '1199px': '90vw', '575px': '95vw' }"
   [maximizable]="true"
 >
   <p-carousel [value]="pdfs" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
 
       <ng-template let-pdf #item>
-          <div class="border border-surface rounded-border m-2 p-4">
+          <div class="border border-surface rounded-border m-2 p-4  flex flex-col items-center">
               <div class="mb-4">
                   <div class="relative mx-auto">
-                      <iframe [src]="pdf.url" type="application/pdf"></iframe>
+                      <iframe [src]="pdf.url" class="w-full h-full" type="application/pdf"></iframe>
                   </div>
               </div>
               <div class="mb-4 font-medium">{{ pdf.nombre }}</div>
               <div class="flex justify-between items-center">
                   <span>
-                      <a [href]="pdf.url" target="_blank"><p-button icon="pi pi-download" severity="secondary" [outlined]="true" /></a>
+                      <a [href]="pdf.url" target="_blank"><p-button icon="pi pi-eye" severity="secondary" [outlined]="true" /></a>
                   </span>
               </div>
           </div>
       </ng-template>
   </p-carousel>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
-    <p-card *ngFor="let archivo of archivosDescargables" header="{{ archivo.nombre }}" class="col-span-1">
-      <div class="p-4">
-        <p-button
-          label="Descargar"
-          icon="pi pi-download"
-          (onClick)="descargarArchivo(archivo.url)"
-          class="p-button-rounded"
-        ></p-button>
-      </div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+    <p-card *ngFor="let archivo of archivosDescargables" header="{{ archivo.nombre }}" class="flex justify-center items-center">
+        <div class="p-4 flex flex-col items-center">
+            <p-button
+                label="Descargar"
+                icon="pi pi-download"
+                (onClick)="descargarArchivo(archivo.url)"
+                class="p-button-rounded"
+            ></p-button>
+        </div>
     </p-card>
-  </div>
+</div>
+
 </p-dialog>
 
 

@@ -50,7 +50,7 @@ import { LayoutService } from '../service/layout.service';
       }
 
       .layout-topbar-actions a:hover {
-        background-color:rgba(220, 38, 38, 0.73); /* O el color que desees */
+        background-color: rgba(220, 38, 38, 0.73); /* O el color que desees */
         color: white;
         border-radius: 5px; /* Bordes redondeados para los links */
         padding: 5px 15px; /* Ajusta el padding para el hover */
@@ -82,7 +82,6 @@ import { LayoutService } from '../service/layout.service';
       style="position: fixed;  width: 100%; height: 100%; z-index: -1;"
     />
     <div class="layout-topbar barra">
-
       <div
         class="layout-topbar-logo-container flex justify-center items-center"
       >
@@ -111,6 +110,12 @@ import { LayoutService } from '../service/layout.service';
           href="proceso"
           class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
           ><b>Procesos de Contratación</b></a
+        >
+        <a
+          href="https://datalaing.net/#/login"
+          target="_blank"
+          class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
+          ><b>MaPreX Web</b></a
         >
       </div>
 

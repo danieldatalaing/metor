@@ -16,6 +16,12 @@
         "image-alt": "off",
         "frame-title": "off"
       }
+    ],
+    "axe/parsing": [
+      "default",
+      {
+        "marquee": "off"
+      }
     ]
   }
 }
