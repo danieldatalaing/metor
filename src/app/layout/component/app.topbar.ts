@@ -96,28 +96,71 @@ import { LayoutService } from '../service/layout.service';
       </div>
 
       <div class="flex justify-center items-left layout-topbar-actions">
-        <a
-          routerLink="/"
-          class="mr-4 ml-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><i class="pi pi-home text-red-900"></i><b> Inicio</b></a
-        >
-        <a
-          href="listado"
-          class="mr-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><i class="pi pi-file text-red-900"></i><b> Listado</b></a
-        >
-        <a
-          href="proceso"
-          class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><i class="pi pi-microchip text-blue-900"></i
-          ><b> Procesos de Contratación</b></a
-        >
-        <a
-          href="https://datalaing.net/#/login"
-          target="_blank"
-          class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><i class="pi pi-link text-blue-900"></i><b> MaPreX Web</b></a
-        >
+        <div class="lg:flex hidden">
+          <a
+            routerLink="/"
+            class="mr-4 ml-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
+          >
+            <i class="pi pi-home text-red-900"></i><b> Inicio</b>
+          </a>
+          <a
+            href="listado"
+            class="mr-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
+          >
+            <i class="pi pi-file text-red-900"></i><b> Listado</b>
+          </a>
+          <a
+            href="proceso"
+            class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
+          >
+            <i class="pi pi-microchip text-blue-900"></i
+            ><b> Procesos de Contratación</b>
+          </a>
+          <a
+            href="https://datalaing.net/#/login"
+            target="_blank"
+            class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
+          >
+            <i class="pi pi-link text-blue-900"></i><b> MaPreX Web</b>
+          </a>
+        </div>
+
+        <div class="lg:hidden flex">
+          <button (click)="mostrarMenuMovil = !mostrarMenuMovil">
+            <i class="pi pi-bars text-2xl"></i>
+          </button>
+          <div
+            *ngIf="mostrarMenuMovil"
+            class="absolute top-full left-0 w-full bg-white rounded shadow-md z-10"
+          >
+            <a
+              routerLink="/"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
+              <i class="pi pi-home text-red-900 mr-2"></i> Inicio
+            </a>
+            <a
+              href="listado"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
+              <i class="pi pi-file text-red-900 mr-2"></i> Listado
+            </a>
+            <a
+              href="proceso"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
+              <i class="pi pi-microchip text-blue-900 mr-2"></i> Procesos de
+              Contratación
+            </a>
+            <a
+              href="https://datalaing.net/#/login"
+              target="_blank"
+              class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
+              <i class="pi pi-link text-blue-900 mr-2"></i> MaPreX Web
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="layout-topbar-actions">
@@ -156,6 +199,7 @@ import { LayoutService } from '../service/layout.service';
     <br /><br /><br /><br />`,
 })
 export class AppTopbar {
+  mostrarMenuMovil = false;
   items!: MenuItem[];
 
   get logoSrc() {
