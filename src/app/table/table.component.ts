@@ -17,6 +17,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, } from '@angular/platform-browser';
 import { CardModule } from 'primeng/card';
 import { TooltipModule } from 'primeng/tooltip';
+import { environment } from '../../environment/environment';
 
 interface Archivo {
   id: number;
@@ -323,7 +324,7 @@ export class TableComponent implements OnInit {
     nombreCarpeta: string,
     nombreArchivo: string
   ): Promise<string | null> {
-    const urlBase = 'http://localhost:4200/files/'; // Reemplaza con tu URL base
+    const urlBase = `${environment.apiUrl}/files/`; // Reemplaza con tu URL base
     const ruta = `${urlBase}${nombreCarpeta}/${nombreArchivo}`;
     return ruta;
   }
