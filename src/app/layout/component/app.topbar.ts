@@ -99,23 +99,23 @@ import { LayoutService } from '../service/layout.service';
         <a
           routerLink="/"
           class="mr-4 ml-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><b>Inicio</b></a
+          ><i class="pi pi-home"></i><b> Inicio</b></a
         >
         <a
           href="listado"
           class="mr-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><b>Listado</b></a
+          ><i class="pi pi-file"></i><b> Listado</b></a
         >
         <a
           href="proceso"
           class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><b>Procesos de Contratación</b></a
+          ><i class="pi pi-microchip"></i><b> Procesos de Contratación</b></a
         >
         <a
           href="https://datalaing.net/#/login"
           target="_blank"
           class="rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
-          ><b>MaPreX Web</b></a
+          ><i class="pi pi-link"></i><b> MaPreX Web</b></a
         >
       </div>
 

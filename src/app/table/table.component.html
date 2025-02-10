@@ -32,11 +32,17 @@
 
     <ng-template #header>
       <tr>
+        <style>
+         .thPC{
+            width: 15% !important;
+            text-align: center;
+          }
+        </style>
           <th>#</th>
-        <th>Proceso de Contratación</th>
-        <th>Documentación</th>
-        <th>Descripción</th>
-        <th>Total de Partidas</th>
+        <th class="thPC"><i class="pi pi-box"></i> Proceso de Contratación</th>
+        <th class="thPC"><i class="pi pi-file-import"></i> Documentación</th>
+        <th><i class="pi pi-comment"></i> Descripción</th>
+        <th class="thPC"> <i class="pi pi-sort-numeric-down"></i> Total de Partidas</th>
       </tr>
     </ng-template>
     <ng-template #body let-product let-expanded="expanded" >
@@ -68,7 +74,7 @@
         </td>
 
         <td>{{ product.descripcion_corta_nombre_contrato }}</td>
-        <td style="text-align: right;">{{ product.no_partida }}</td>
+        <td style="text-align: center;">{{ product.no_partida }}</td>
       </tr>
     </ng-template>
     <ng-template #expandedrow let-product>
@@ -186,9 +192,17 @@
   </div>
 </p-dialog>
 
+<style>
+  .p-dialog-title {
+    text-align: center;
+    width: 100%;
+  }
+</style>
+
 <p-dialog
   header="ARCHIVOS DE PROCESOS DE CONTRATACIÓN {{ this.informacion?.proceso_contratacion }} - {{ this.informacion?.descripcion_corta_nombre_contrato }}"
   [modal]="true"
+  class="w-full"
   [(visible)]="visible2"
   [contentStyle]="{ 'max-width': '90vw' }"
   [breakpoints]="{ '1199px': '90vw', '575px': '95vw' }"

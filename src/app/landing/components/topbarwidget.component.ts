@@ -40,7 +40,8 @@ import { ButtonModule } from 'primeng/button';
 
             <div
               class="items-center bg-red-900 sm:bg-red-900  dark:bg-surface-900 grow justify-center lg:justify-between hidden lg:flex absolute lg:static w-full left-0 top-full px-12 lg:px-0 z-20 rounded-border"
-            ><br>
+            >
+              <br />
               <ul
                 class=" list-none p-0 m-0 flex lg:items-center select-none sm:bg-red flex-col lg:flex-row cursor-pointer gap-8"
               >
@@ -50,7 +51,7 @@ import { ButtonModule } from 'primeng/button';
                     pRipple
                     class="px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white"
                   >
-                    <span class="mt-8">INICIO</span>
+                    <span class="mt-8"><i class="pi pi-home"></i> INICIO</span>
                   </a>
                 </li>
                 <li>
@@ -62,7 +63,7 @@ import { ButtonModule } from 'primeng/button';
                     pRipple
                     class="mb-8 px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-red-500 hover:text-white"
                   >
-                    <span>COMENZAR</span>
+                    <span><i class="pi pi-play-circle"></i> COMENZAR</span>
                   </a>
                 </li>
               </ul>
