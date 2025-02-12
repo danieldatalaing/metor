@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { TopbarWidget } from './components/topbarwidget.component';
 import { HeroWidget } from './components/herowidget';
+import { environment } from '../../environment/environment';
 
 
 @Component({
@@ -32,7 +33,7 @@ import { HeroWidget } from './components/herowidget';
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('http://localhost:4200/metor.jpg');
+        background-image: url('${environment.apiUrl}/metor.jpg' );
         /* Ruta a la imagen */
         background-size: cover;
         /* o contain si prefieres */
