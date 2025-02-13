@@ -115,12 +115,37 @@ export class TableComponent implements OnInit {
     }
     return index + 1;
   }
+  public procesosUnicos: { [key: string]: any } = {};
+  public procesosUnicosArray: any[] = [];
 
-  ngOnInit() {
-    this.productService
-      .getProductsWithOrdersSmall()
-      .then((data) => (this.products = data));
+  async ngOnInit() {
+    try {
+      // Cargar los datos
+      const data = await this.productService.getProductsData();
+      this.products = data;
 
+      // Crear el objeto para almacenar los procesos únicos
+
+      // Recorrer los productos y procesarlos
+      this.products.forEach((item) => {
+        // Asignar un valor por defecto si proceso_contratacion es undefined o null
+        item.proceso_contratacion = item.proceso_contratacion || 'Sin proceso';
+
+        // Almacenar el proceso en el objeto si no existe
+        if (!this.procesosUnicos[item.proceso_contratacion]) {
+          this.procesosUnicos[item.proceso_contratacion] = item;
+        }
+      });
+
+      this.procesosUnicosArray = Object.values(this.procesosUnicos);
+
+      // Aquí puedes usar this.procesosUnicos
+      console.log(this.procesosUnicos);
+    } catch (error) {
+      console.error('Error al cargar los productos:', error);
+    }
+
+    // Definir las columnas de la tabla
     this.cols = [
       { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //1
       {
@@ -131,27 +156,25 @@ export class TableComponent implements OnInit {
       { field: 'fecha_contratacion', header: 'Fecha Contratación' }, //4
       { field: 'partidas_totales', header: 'Partidas Totales' }, //5
       { field: 'monto_total_cd', header: 'Monto Total' }, //6
-
       { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' }, //7
       { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' }, //8
       { field: 'horario', header: 'Horario' }, //9
-      { field: 'ubicacion', header: 'Ubicación' },//10
+      { field: 'ubicacion', header: 'Ubicación' }, //10
       { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //11
-      { field: 'capitulo', header: 'Capitulo' },//12
-      { field: 'no_partida', header: 'No. de la Partida' },//13
-      { field: 'descripcion_partida', header: 'Descripción de la Partida' },//14
-      { field: 'unidad', header: 'Unidad' },//15
-      { field: 'cant', header: 'Cant' },//16
-      { field: 'precio_unitario_apu', header: 'Precio Unit APU' },//17
-      { field: 'total_partida', header: 'Total Partida' },//18
-      { field: 'rendimiento_diario', header: 'Rendimiento Diario' },//19
+      { field: 'capitulo', header: 'Capitulo' }, //12
+      { field: 'no_partida', header: 'No. de la Partida' }, //13
+      { field: 'descripcion_partida', header: 'Descripción de la Partida' }, //14
+      { field: 'unidad', header: 'Unidad' }, //15
+      { field: 'cant', header: 'Cant' }, //16
+      { field: 'precio_unitario_apu', header: 'Precio Unit APU' }, //17
+      { field: 'total_partida', header: 'Total Partida' }, //18
+      { field: 'rendimiento_diario', header: 'Rendimiento Diario' }, //19
       { field: 'no_personas_apu', header: 'No de Personas al Día en APU' },
       {
         field: 'horas_trabajadas_dia_apu',
         header: 'Horas Trabajadas al dia en APU',
       },
       { field: 'duracion_partida_dias', header: 'Duración de Partida' },
-
       { field: 'hh_lapso_8hrs', header: 'HH/Lapso' },
       { field: 'relacion_htd_8hrs', header: 'Relacion HTD/8hrs' },
       { field: 'hh_lapso_horas_trabajadas', header: 'HH/Lapso' },
@@ -183,6 +206,7 @@ export class TableComponent implements OnInit {
       { field: 'email', header: 'Email' },
     ];
 
+    // Definir las columnas seleccionadas
     this.selectedColumns = [
       { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //1
       {
@@ -193,7 +217,6 @@ export class TableComponent implements OnInit {
       { field: 'fecha_contratacion', header: 'Fecha Contratación' }, //4
       { field: 'partidas_totales', header: 'Partidas Totales' }, //5
       { field: 'monto_total_cd', header: 'Monto Total' }, //6
-
       { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' }, //7
       { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' }, //8
       { field: 'horario', header: 'Horario' }, //9
@@ -202,6 +225,7 @@ export class TableComponent implements OnInit {
       { field: 'capitulo', header: 'Capitulo' }, //12
     ];
 
+    // Opciones responsivas
     this.responsiveOptions = [
       {
         breakpoint: '1400px',
