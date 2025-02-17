@@ -65,6 +65,7 @@ export class TableComponent implements OnInit {
   urlsSeguras: SafeUrl[] = [];
   products!: Product[];
   pdfs: { nombre: string; url: SafeResourceUrl }[] = []; // Para PDFs
+  imagenes: { nombre: string; url: string }[] = []; // Para PDFs
   archivosDescargables: { nombre: string; url: string }[] = []; // Para Excel y Word
 
   informacion?: Product;
@@ -106,13 +107,18 @@ export class TableComponent implements OnInit {
   }
 
   calculateRowIndex(table: any, product: any): number {
-    let index = this.products.indexOf(product); // Índice en la lista original
-    if (table.filteredValue && table.filteredValue.length > 0) {
-      index = table.filteredValue.indexOf(product); // Índice en la lista filtrada
-      if (index == -1) {
-        return 0; // Manejar el caso donde no se encuentra el producto en la lista filtrada
-      }
+    // Obtén la lista de elementos que se están mostrando actualmente en la tabla
+    const visibleItems = table.filteredValue || table.value;
+
+    // Encuentra el índice del producto en la lista visible
+    const index = visibleItems.indexOf(product);
+
+    // Si el producto no está en la lista visible, retorna 0 o maneja el caso según sea necesario
+    if (index === -1) {
+      return 0;
     }
+
+    // Retorna el índice + 1 para que comience desde 1
     return index + 1;
   }
   public procesosUnicos: { [key: string]: any } = {};
@@ -147,82 +153,90 @@ export class TableComponent implements OnInit {
 
     // Definir las columnas de la tabla
     this.cols = [
-      { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //1
+      { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //2
+      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' }, //3
       {
         field: 'descripcion_corta_nombre_contrato',
-        header: 'Descripcion del Nombre Contrato',
-      }, //2
-      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' }, //3
-      { field: 'fecha_contratacion', header: 'Fecha Contratación' }, //4
-      { field: 'partidas_totales', header: 'Partidas Totales' }, //5
-      { field: 'monto_total_cd', header: 'Monto Total' }, //6
-      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' }, //7
-      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' }, //8
-      { field: 'horario', header: 'Horario' }, //9
-      { field: 'ubicacion', header: 'Ubicación' }, //10
-      { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //11
-      { field: 'capitulo', header: 'Capitulo' }, //12
-      { field: 'no_partida', header: 'No. de la Partida' }, //13
-      { field: 'descripcion_partida', header: 'Descripción de la Partida' }, //14
-      { field: 'unidad', header: 'Unidad' }, //15
-      { field: 'cant', header: 'Cant' }, //16
-      { field: 'precio_unitario_apu', header: 'Precio Unit APU' }, //17
-      { field: 'total_partida', header: 'Total Partida' }, //18
-      { field: 'rendimiento_diario', header: 'Rendimiento Diario' }, //19
-      { field: 'no_personas_apu', header: 'No de Personas al Día en APU' },
+        header: 'Descripción Corta del Nombre del Contrato',
+      }, //4
+      { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //5
+      { field: 'monto_total_cd', header: 'Monto Total CD' }, //6
+      { field: 'partidas_totales', header: 'Partidas Totales' }, //7
+      { field: 'capitulo', header: 'Capítulo' }, //8
+      { field: 'no_partida', header: 'No. de Partida' }, //9
+      { field: 'descripcion_partida', header: 'Descripción de la Partida' }, //10
+      { field: 'unidad', header: 'Unidad' }, //11
+      { field: 'cant', header: 'Cantidad' }, //12
+      { field: 'precio_unitario_apu', header: 'Precio Unitario APU' }, //13
+      { field: 'total_partida', header: 'Total Partida' }, //14
+      { field: 'rendimiento_diario', header: 'Rendimiento Diario' }, //15
+      { field: 'no_personas_apu', header: 'No. de Personas APU' }, //16
       {
         field: 'horas_trabajadas_dia_apu',
-        header: 'Horas Trabajadas al dia en APU',
-      },
-      { field: 'duracion_partida_dias', header: 'Duración de Partida' },
-      { field: 'hh_lapso_8hrs', header: 'HH/Lapso' },
-      { field: 'relacion_htd_8hrs', header: 'Relacion HTD/8hrs' },
-      { field: 'hh_lapso_horas_trabajadas', header: 'HH/Lapso' },
-      { field: 'hh_unidad', header: 'HH/UND' },
-      { field: 'hh_unidad_x_cant', header: 'HH UNIT X CANT' },
-      { field: 'reserva', header: 'RESERVA' },
-      { field: 'costo_unitario_hh_r_r', header: 'Costo Unitario $' },
-      { field: 'porcentaje_fcas', header: '%FCAS' },
-      { field: 'porcentaje_adm', header: '%ADM' },
-      { field: 'porcentaje_utilidad', header: '%Utilidad' },
-      { field: 'productividad', header: 'Productividad' },
-      { field: 'nivel_apu_evaluacion', header: 'Nivel APU (E-2)' },
-      { field: 'observacion_sugerencia', header: 'Observación/Sugerencia' },
-      { field: 'comentarios', header: 'Comentarios' },
-      { field: 'columna_especial', header: 'Columnas Especial' },
-      { field: 'revisor_interno', header: 'Revisor Interno' },
-      { field: 'revisor_externo', header: 'Revisor Externo' },
-      { field: 'nombre_empresa', header: 'Nombre de la Empresa' },
-      { field: 'rif', header: 'RIF' },
-      { field: 'representante_director', header: 'Representante/Director' },
+        header: 'Horas Trabajadas al Día APU',
+      }, //17
+      { field: 'porcentaje_fcas', header: '% FCAS' }, //18
+      { field: 'porcentaje_adm', header: '% ADM' }, //19
+      { field: 'porcentaje_utilidad', header: '% Utilidad' }, //20
+      { field: 'duracion_partida_dias', header: 'Duración de Partida (Días)' }, //21
+      { field: 'hh_dia_real', header: 'HH/Día Real' }, //22
+      { field: 'hh_lapso_8hrs', header: 'HH/Lapso 8hrs' }, //23
+      { field: 'relacion_htd_8hrs', header: 'Relación HTD/8hrs' }, //24
+      {
+        field: 'hh_lapso_horas_trabajadas',
+        header: 'HH/Lapso Horas Trabajadas',
+      }, //25
+      { field: 'hh_unidad', header: 'HH/Unidad' }, //26
+      { field: 'hh_unidad_x_cant', header: 'HH/Unidad x Cantidad' }, //27
+      { field: 'reserva', header: 'Reserva' }, //28
+      { field: 'costo_unitario_hh_r_r', header: 'Costo Unitario HH R/R' }, //29
+      { field: 'productividad', header: 'Productividad' }, //30
+      { field: 'nivel_apu_evaluacion', header: 'Nivel APU Evaluación' }, //31
+      { field: 'observacion_sugerencia', header: 'Observación/Sugerencia' }, //32
+      { field: 'comentarios', header: 'Comentarios' }, //33
+      {
+        field: 'clasificacion_dificulta_apu',
+        header: 'Clasificación Dificultad APU',
+      }, //34
+      { field: 'ubicacion', header: 'Ubicación' }, //35
+      { field: 'horario', header: 'Horario' }, //36
+      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución (Días)' }, //37
+      { field: 'fecha_contratacion', header: 'Fecha de Contratación' }, //38
+      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio Más' }, //39
+      { field: 'revisor_interno', header: 'Revisor Interno' }, //40
+      { field: 'revisor_externo', header: 'Revisor Externo' }, //41
+      { field: 'nombre_empresa', header: 'Nombre de la Empresa' }, //42
+      { field: 'rif', header: 'RIF' }, //43
+      { field: 'representante_director', header: 'Representante/Director' }, //44
       {
         field: 'direccion_ciudad1_telefonos1',
-        header: 'DIRECCI./CIUDAD/TLF 1',
-      },
+        header: 'Dirección/Ciudad/Teléfonos 1',
+      }, //45
       {
         field: 'direccion_ciudad12_telefonos2',
-        header: 'DIRECCI./CIUDAD/TLF 2',
-      },
-      { field: 'email', header: 'Email' },
+        header: 'Dirección/Ciudad/Teléfonos 2',
+      }, //46
+      { field: 'email', header: 'Email' }, //47
     ];
 
     // Definir las columnas seleccionadas
     this.selectedColumns = [
-      { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //1
+      { field: 'proceso_contratacion', header: 'Proceso de Contratación' }, //2
+      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' }, //3
       {
         field: 'descripcion_corta_nombre_contrato',
-        header: 'Descripcion del Nombre Contrato',
-      }, //2
-      { field: 'fecha_presupuesto', header: 'Fecha Presupuesto' }, //3
-      { field: 'fecha_contratacion', header: 'Fecha Contratación' }, //4
-      { field: 'partidas_totales', header: 'Partidas Totales' }, //5
-      { field: 'monto_total_cd', header: 'Monto Total' }, //6
-      { field: 'tiempo_ejecucion_dias', header: 'Tiempo de Ejecución.' }, //7
-      { field: 'antes_de_inicio_mas', header: 'Antes de Inicio' }, //8
-      { field: 'horario', header: 'Horario' }, //9
-      { field: 'ubicacion', header: 'Ubicación' }, //10
-      { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //11
-      { field: 'capitulo', header: 'Capitulo' }, //12
+        header: 'Descripción Corta del Nombre del Contrato',
+      }, //4
+      { field: 'nombre_contrato', header: 'Nombre del Contrato' }, //5
+      { field: 'monto_total_cd', header: 'Monto Total CD' }, //6
+      { field: 'partidas_totales', header: 'Partidas Totales' }, //7
+      { field: 'capitulo', header: 'Capítulo' }, //8
+      { field: 'no_partida', header: 'No. de Partida' }, //9
+      { field: 'descripcion_partida', header: 'Descripción de la Partida' }, //10
+      { field: 'unidad', header: 'Unidad' }, //11
+      { field: 'cant', header: 'Cantidad' }, //12
+      { field: 'precio_unitario_apu', header: 'Precio Unitario APU' }, //13
+      { field: 'total_partida', header: 'Total Partida' }, //14
     ];
 
     // Opciones responsivas
@@ -254,6 +268,43 @@ export class TableComponent implements OnInit {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
+  getDificultadClass(dificultad: string): string {
+    switch (dificultad?.toLowerCase()) {
+      case 'baja':
+        return 'dificultad-baja';
+      case 'media':
+        return 'dificultad-media';
+      case 'alta':
+        return 'dificultad-alta';
+      default:
+        return ''; // Sin clase si no coincide
+    }
+  }
+
+  //funcion que realiza el salto de linea
+  insertLineBreaks(text: string, maxLength: number = 60): string {
+    if (!text) return '- Sin información -'; // Manejo de valores nulos o undefined
+
+    let result = '';
+    let currentLength = 0;
+
+    // Divide el texto en palabras
+    const words = text.split(' ');
+
+    for (const word of words) {
+      // Si agregar la palabra excede el límite, inserta un salto de línea
+      if (currentLength + word.length > maxLength) {
+        result += '<br>' + word + ' ';
+        currentLength = word.length + 1; // Reinicia el contador
+      } else {
+        result += word + ' ';
+        currentLength += word.length + 1; // Suma la longitud de la palabra más el espacio
+      }
+    }
+
+    return result.trim(); // Elimina el espacio final
+  }
+
   filtrarProductos(procesoContratacionDeseado: Product) {
     let producto = this.productService.getProductsData() as Product[];
 
@@ -266,7 +317,9 @@ export class TableComponent implements OnInit {
       (product) => product.proceso_contratacion?.trim() === procesosinespacio
     );
 
-    this.filteredProducts = filteredProducts;
+    this.filteredProducts = filteredProducts.sort(
+      (a, b) => Number(a.no_partida) - Number(b.no_partida)
+    );
 
     return filteredProducts;
   }
@@ -288,7 +341,7 @@ export class TableComponent implements OnInit {
       this.productDialog = true;
       this.pdfs = []; // Reiniciar arreglo de PDFs
       this.archivosDescargables = []; // Reiniciar arreglo de archivos descargables
-
+      this.imagenes = []; // Reiniciar arreglo de archivos descargables
       Promise.all(
         carpeta.archivos.map(async (archivo) => {
           const rutaCompleta = await this.obtenerRutaCompleta(
@@ -311,6 +364,9 @@ export class TableComponent implements OnInit {
                 nombre: archivo.nombre,
                 url: rutaCompleta,
               });
+            } else if (this.esImg(archivo.nombre)) {
+
+              this.imagenes.push({ nombre: archivo.nombre, url: rutaCompleta });
             }
           } else {
             this.visible3 = true;
@@ -344,6 +400,16 @@ export class TableComponent implements OnInit {
       nombreArchivo.toLowerCase().endsWith('.doc')
     );
   }
+
+  esImg(nombreArchivo: string): boolean {
+    return (
+      nombreArchivo.toLowerCase().endsWith('.tif') ||
+      nombreArchivo.toLowerCase().endsWith('.jpg') ||
+      nombreArchivo.toLowerCase().endsWith('.jpeg') ||
+      nombreArchivo.toLowerCase().endsWith('.png')
+    );
+  }
+
   async obtenerRutaCompleta(
     nombreCarpeta: string,
     nombreArchivo: string
@@ -362,6 +428,7 @@ export class TableComponent implements OnInit {
     link.click();
     document.body.removeChild(link);
   }
+
   collapseAll() {
     this.expandedRows = {};
   }
