@@ -75,13 +75,13 @@ export class TableComponent implements OnInit {
     const extension = this.getFileExtension(url);
     switch (extension) {
       case 'pptx':
-        return '#FF0000'; // Rojo
+        return '##B63519'; // Rojo
       case 'docx':
       case 'doc':
-        return '#0000FF'; // Azul
+        return '#1F5EBC'; // Azul
       case 'xlsx':
       case 'xls':
-        return '#008000'; // Verde
+        return '##1DA061'; // Verde
       default:
         return '#808080'; // Gris (color por defecto)
     }
@@ -170,7 +170,7 @@ export class TableComponent implements OnInit {
       this.procesosUnicosArray = Object.values(this.procesosUnicos);
 
       // Aquí puedes usar this.procesosUnicos
-      console.log(this.procesosUnicos);
+
     } catch (error) {
       console.error('Error al cargar los productos:', error);
     }

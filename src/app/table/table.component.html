@@ -17,11 +17,14 @@
     [tableStyle]="{ 'min-width': '60rem' }"
     showGridlines
     [globalFilterFields]="[
-      'proceso_contratacion',
+      'proceso_contratacion.partidas_totales',
+      'partidas_totales',
+      'descripcion_corta_nombre_contrato',
       'country.proceso_contratacion',
       'representative.proceso_contratacion',
       'status'
     ]"
+    [filterDelay]="500"
   >
     <ng-template #caption>
       <div class="flex flex-wrap justify-end gap-2">
@@ -53,11 +56,11 @@
       </tr>
     </ng-template>
     <ng-template #body let-product let-expanded="expanded">
-      <tr class="hover:bg-blue-400 hover:text-white">
+      <tr class="hover:bg-black hover:text-white">
         <td>{{ calculateRowIndex(dt2, product) }}</td>
         <td style="text-align: center">
           <p-button
-            severity="info"
+            severity="danger"
             (onClick)="filtrarProductos(product)"
             class="mt-2"
             (click)="showDialog(filteredProducts)"
@@ -85,7 +88,7 @@
         <td style="text-align: center">
           <p-button
             icon="pi pi-eye"
-            severity="success"
+            severity="info"
             class="mt-2"
             (onClick)="archivo(product)"
             pTooltip="Ver documentación"
