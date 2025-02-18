@@ -41,20 +41,15 @@
 
     <ng-template #header>
       <tr>
-        <style>
-          .thPC {
-            width: 15% !important;
-            text-align: center;
-          }
-        </style>
+
         <th>#</th>
         <th class="thPC"><i class="pi pi-box"></i> Proceso de Contratación</th>
 
-        <th><i class="pi pi-comment"></i> Descripción</th>
+        <th><i class="pi pi-comment"></i> Nombre del Contrato</th>
         <th class="thPC">
           <i class="pi pi-sort-numeric-down"></i> Total de Partidas
         </th>
-           <th class="thPC"><i class="pi pi-file-import"></i> Documentación</th>
+        <th class="thPC"><i class="pi pi-file-import"></i> Documentación</th>
       </tr>
     </ng-template>
     <ng-template #body let-product let-expanded="expanded">
@@ -68,21 +63,26 @@
             (click)="showDialog(filteredProducts)"
             pTooltip="Ver proceso de Contratación"
             tooltipPosition="left"
-            [style]="{'width': '200px', 'height': '40px'}"
+            [style]="{ width: '200px', height: '40px' }"
             tooltipEvent="hover"
           >
-            <p
-
-            >
+            <p>
               {{ product.proceso_contratacion }}
             </p>
           </p-button>
         </td>
 
+        <td pTooltip="{{ product.nombre_contrato }}"
+            tooltipPosition="left"
+            tooltipEvent="hover"
+            >{{ product.descripcion_corta_nombre_contrato }}</td>
+        <td style="text-align: center"
+         pTooltip="{{ product.nombre_empresa }}"
+            tooltipPosition="left"
+            tooltipEvent="hover"
 
-        <td>{{ product.descripcion_corta_nombre_contrato }}</td>
-        <td style="text-align: center">{{ product.partidas_totales }}</td>
-          <td style="text-align: center">
+        >{{ product.partidas_totales }}</td>
+        <td style="text-align: center">
           <p-button
             icon="pi pi-eye"
             severity="success"
@@ -102,13 +102,12 @@
           <div class="p-4">
             <h5>Ordenando por {{ product.proceso_contratacion }}</h5>
             <p-multiselect
-              class="mb-9"
+              class="mb-9 "
               display="chip"
               [options]="cols"
               [(ngModel)]="selectedColumns"
               optionLabel="header"
               selectedItemsLabel="{0} columns selected"
-              [style]="{ 'min-width': '200px' }"
               placeholder="Choose Columns"
             />
             <p-button
@@ -123,7 +122,7 @@
               [value]="filteredProducts"
               [columns]="selectedColumns"
               scrollable="true"
-              [style]="{ width: '1725px' }"
+
               scrollHeight="400px"
               showGridlines
               [resizableColumns]="true"
@@ -160,60 +159,52 @@
   [modal]="true"
   [(visible)]="visible"
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
-  [contentStyle]="{ 'max-width': '90vw' }"
+  [contentStyle]="{ 'max-width': '90vw', 'overflow-x': 'auto' }"
   [maximizable]="false"
 >
-  <div
-    style="
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      margin-bottom: 20px;
-    "
-  >
-    <span>
-      PROCESOS DE CONTRATACIÓN {{ this.informacion?.proceso_contratacion }} -
-      {{ this.informacion?.descripcion_corta_nombre_contrato }}</span
+  <div style="min-width: 2000px;"> <!-- Ajusta este valor según el ancho total de la tabla -->
+    <div
+      style="
+
+        justify-content: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+      "
     >
-  </div>
-<!-- display="chip" -->
-  <p-multiselect
-    display="chip"
-    [options]="cols"
-    [(ngModel)]="selectedColumns"
-    optionLabel="header"
-    [maxSelectedLabels]="12"
-    selectedItemsLabel="{0} columns selected"
-    [style]="{
-      'justify-content': 'center',
-      'align-items': 'center',
-      'margin-bottom': '20px',
-      'width' : '100%',
-      'text-align': 'items-center'
-    }"
-    placeholder="SIN COLUMNAS SELECCIONADAS"
-  />
+      <span>
+        PROCESOS DE CONTRATACIÓN {{ this.informacion?.proceso_contratacion }} -
+        {{ this.informacion?.descripcion_corta_nombre_contrato }}</span
+      >
+    </div>
 
-  <div class="justify-center items-center">
+    <p-multiselect
+      display="chip"
+      [options]="cols"
+      [(ngModel)]="selectedColumns"
+      optionLabel="header"
+      [maxSelectedLabels]="12"
+      selectedItemsLabel="{0} columns selected"
+      [style]="{
+        'justify-content': 'center',
+        'align-items': 'center',
+        'margin-bottom': '20px',
+        'text-align': 'items-center'
+      }"
+      placeholder="SIN COLUMNAS SELECCIONADAS"
+    />
+
     <p-table
-     #dt3
-
+      #dt3
       [value]="filteredProducts"
       [columns]="selectedColumns"
-      scrollable="true"
-      [style]="{ width: '100%', overflow: 'auto' }"
-      scrollHeight="650px"
       showGridlines
-      [resizableColumns]="true"
-      [columns]="cols"
+      [resizableColumns]="false"
       [reorderableColumns]="true"
+
     >
       <ng-template #header>
-        <tr >
-          <th>
-            #
-          </th>
+        <tr>
+          <th>#</th>
           <th
             *ngFor="let col of selectedColumns"
             pResizableColumn
@@ -224,14 +215,18 @@
         </tr>
       </ng-template>
       <ng-template #body let-item>
-        <tr  class="hover:bg-blue-400 hover:text-white">
-           <td>{{ calculateRowIndex(dt3, item) }}</td>
+        <tr class="hover:bg-blue-400 hover:text-white">
+          <td class="w-10">{{ calculateRowIndex(dt3, item) }}</td>
           <td
-  *ngFor="let col of selectedColumns"
-  [ngClass]="col.field === 'clasificacion_dificulta_apu' ? getDificultadClass(item['clasificacion_dificulta_apu']) : ''"
-  [innerHTML]="insertLineBreaks(item[col.field])"
->
-</td>
+            *ngFor="let col of selectedColumns"
+            [ngClass]="
+              col.field === 'clasificacion_dificulta_apu'
+                ? getDificultadClass(item['clasificacion_dificulta_apu'])
+                : ''
+            "
+            [innerHTML]="insertLineBreaks(item[col.field])"
+            [style.width]="col.width"
+          ></td>
         </tr>
       </ng-template>
     </p-table>
@@ -277,7 +272,7 @@
   >
     <style>
       .largoh {
-        height: 250px;
+        height: 300px;
         width: 350px;
       }
       .borderg {
@@ -285,77 +280,40 @@
       }
     </style>
     <ng-template let-pdf #item>
-      <div
-        class="border border-surface borderg m-2 p-4 items-center"
+      <p-card
+        header="{{ pdf.nombre }}"
+        class="flex justify-center items-center"
       >
-        <div class="mb-4">
-          <div class="relative mx-auto">
-            <iframe
-              [src]="pdf.url"
-              class="largoh"
-              type="application/pdf"
-            ></iframe>
-          </div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="mb-4 font-medium">{{ pdf.nombre }}</div>
-          <span>
-            <a [href]="pdf.url" target="_blank"
-              ><p-button
-                icon="pi pi-eye"
-                class="items-center"
-                severity="success"
-            /></a>
-          </span>
-        </div>
-      </div>
+        <iframe [src]="pdf.url" class="largoh" type="application/pdf"></iframe>
+        <br/>
+        <span>
+          <a [href]="pdf.url" target="_blank"
+            ><p-button icon="pi pi-eye" class="items-center mt-4" severity="success"
+          /></a>
+        </span>
+      </p-card>
     </ng-template>
   </p-carousel>
 
-  <style>
-    .anchoBoton{
-      width: 25%
-    }
-
-  </style>
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6"
   >
     <p-card
       *ngFor="let archivo of archivosDescargables"
-      header="{{ archivo.nombre }}"
-      class="flex justify-center items-center"
+
+      class=" justify-center items-center"
     >
-      <div class="p-4">
-        <p-button
-        severity="success"
-          label="Descargar archivo"
-          icon="pi pi-download"
-          (onClick)="descargarArchivo(archivo.url)"
-          class="p-button-rounded anchoBoton"
-        ></p-button>
-      </div>
+
+    <p>{{archivo.nombre}}</p>
+
+    <p-button
+        [style]="{ 'background-color': getBackgroundColor(archivo.url) }"
+        label="Descargar archivo"
+        icon="pi pi-download"
+        (onClick)="descargarArchivo(archivo.url)"
+        class="p-button-rounded anchoBoton">
+    </p-button>
     </p-card>
-
-
-    <p-card
-      *ngFor="let archivo of imagenes"
-      header="{{ archivo.nombre }}"
-      class="flex justify-center items-center"
-    >
-      <div class="p-4 ">
-   <p-button
-          severity="info"
-          label="Descargar Imagen"
-          icon="pi pi-download"
-          (onClick)="descargarArchivo(archivo.url)"
-          class="p-button-rounded anchoBoton"
-        ></p-button>
-      </div>
-
-    </p-card>
-
 
   </div>
 </p-dialog>
