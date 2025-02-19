@@ -19,7 +19,6 @@ import { CardModule } from 'primeng/card';
 import { TooltipModule } from 'primeng/tooltip';
 import { environment } from '../../environment/environment';
 import * as XLSX from 'xlsx';
-import * as FileSaver from 'file-saver';
 import generatePDF from '../lib/pdf';
 
 interface Archivo {
