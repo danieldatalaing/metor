@@ -1,19 +1,39 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../service/auth.service';
+
+import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { RippleModule } from 'primeng/ripple';
+import { environment } from '../../environment/environment';
+
 
 @Component({
   selector: 'app-login',
+  imports: [
+    ButtonModule,
+    CheckboxModule,
+    InputTextModule,
+    PasswordModule,
+    FormsModule,
+    RouterModule,
+    RippleModule,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports:[FormsModule]
 })
 export class LoginComponent {
+  backgroundImageUrl = environment.apiUrl + '/metor.jpg';
   username = '';
   password = '';
   errorMessage = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
     if (this.username === '' || this.password === '') {
@@ -21,33 +41,11 @@ export class LoginComponent {
       return;
     }
 
-    this.http.get<any>('claves.json').subscribe(
-      (data) => {
-        const usuarios = data.usuarios;
-        let usuarioEncontrado = false;
-
-        for (let i = 0; i < usuarios.length; i++) {
-          if (
-            usuarios[i].nombre === this.username &&
-            usuarios[i].clave === this.password
-          ) {
-            usuarioEncontrado = true;
-            break;
-          }
-        }
-
-        if (usuarioEncontrado) {
-          alert('Inicio de sesión simulado. Bienvenido ' + this.username + '!');
-          // Redirige a otra página o muestra contenido exclusivo
-        } else {
-          this.errorMessage = 'Nombre de usuario o contraseña incorrectos.';
-        }
-      },
-      (error) => {
-        console.error('Error al cargar el archivo JSON:', error);
-        this.errorMessage =
-          'Error al iniciar sesión. Inténtelo de nuevo más tarde.';
-      }
-    );
+    if (this.authService.login(this.username, this.password)) {
+      alert('Inicio de sesión exitoso. Bienvenido ' + this.username + '!');
+      this.router.navigate(['/landing']); // Redirige a la página principal
+    } else {
+      this.errorMessage = 'Nombre de usuario o contraseña incorrectos.';
+    }
   }
 }

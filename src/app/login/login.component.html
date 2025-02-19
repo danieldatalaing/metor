@@ -1,8 +1,89 @@
-<h1>Bienvenido a la página informativa</h1>
+<div class="flex flex-col items-center justify-center min-h-screen min-w-screen" [style.background-image]="'url(' + backgroundImageUrl + ')'" [style.background-size]="'cover'" [style.background-repeat]="'no-repeat'">
+    <div
+        style="
+            border-radius: 56px;
+            padding: 0.3rem;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 0, 0, 0.301) 30%,
+                rgba(7, 44, 252, 0.514) 30%
+            );
+        "
+    >
+        <div
+            class="w-full bg-surface-0 dark:bg-surface-900 py-20 px-8 sm:px-20"
+            style="border-radius: 53px"
+        >
+            <div class="text-center mb-8">
+                <div class="flex justify-between items-center">
+                    <img
+                        src="Metor.webp"
+                        class="w-24 sm:w-32 md:w-14 lg:w-16 h-auto"
+                        alt=""
+                    />
 
-<form (ngSubmit)="login()">
-  <input type="text" [(ngModel)]="username" placeholder="Nombre de usuario">
-  <input type="password" [(ngModel)]="password" placeholder="Contraseña">
-  <button type="submit">Iniciar sesión</button>
-  <p style="color: red;">{{ errorMessage }}</p>
-</form>
+                    <img
+                        src="DATALAING-1.png"
+                        class="w-48 sm:w-60 md:w-78 lg:w-40 h-auto"
+                        alt=""
+                    />
+                </div>
+                <br />
+
+                <div
+                    class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4"
+                >
+                    BIENVENIDO!
+                </div>
+                <span class="text-muted-color font-medium"
+                    >INGRESE SU CONTRASEÑA PARA INGRESAR</span
+                >
+            </div>
+
+            <div>
+                <label
+                    for="email1"
+                    class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2"
+                    >NOMBRE</label
+                >
+                <input
+                    pInputText
+                    id="email1"
+                    type="text"
+                    placeholder="Email address"
+                    class="w-full md:w-[30rem] mb-8"
+                    id="username"
+                    [(ngModel)]="username"
+                    name="username"
+                    required
+                />
+
+                <label
+                    for="password1"
+                    class="block text-surface-900 dark:text-surface-0 font-medium text-xl mb-2"
+                    >CONTRASEÑA</label
+                >
+                <p-password
+                    type="password"
+                    id="password"
+                    [(ngModel)]="password"
+                    name="password"
+                    required
+                    [toggleMask]="true"
+                    styleClass="mb-4"
+                    [fluid]="true"
+                    [feedback]="false"
+                ></p-password>
+
+                <br />
+                <p-button
+                    severity="danger"
+                    label="Aceptar"
+                    styleClass="w-full"
+                    routerLink="/"
+                    (onClick)="login()"
+                ></p-button>
+            </div>
+        </div>
+    </div>
+</div>

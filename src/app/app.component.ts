@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -21,6 +22,12 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ]),
   ],
 })
-export class AppComponent {
-  title = 'documents';
+export class AppComponent implements OnInit {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']); // Redirige al login si no está autenticado
+    }
+  }
 }

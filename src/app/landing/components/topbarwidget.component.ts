@@ -3,6 +3,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { Router, RouterModule } from '@angular/router';
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'topbar-widget',
@@ -39,7 +40,13 @@ import { ButtonModule } from 'primeng/button';
             </a>
             <style>
               .fondoMenu {
-                background: #dc2626;
+                color: black;
+                background:rgba(38, 117, 220, 0.38);
+                margin-top: -2%;
+              }
+              .colortexto{
+                color: white;
+                font-weight: 900;
               }
             </style>
             <div
@@ -51,11 +58,11 @@ import { ButtonModule } from 'primeng/button';
               >
                 <li>
                   <a
-                    (click)="router.navigate(['/'], { fragment: 'home' })"
+                    routerLink="/landing"
                     pRipple
-                    class="px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white"
+                    class="colortexto mb-8 px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-red-500 hover:text-white"
                   >
-                    <span class="mt-8"><i class="pi pi-home"></i> INICIO</span>
+                    <span><i class="pi pi-home"></i> INICIO</span>
                   </a>
                 </li>
                 <li>
@@ -65,11 +72,25 @@ import { ButtonModule } from 'primeng/button';
                   <a
                     routerLink="/proceso"
                     pRipple
-                    class="mb-8 px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-red-500 hover:text-white"
+                    class="colortexto mb-8 px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-red-500 hover:text-white"
                   >
                     <span><i class="pi pi-play-circle"></i> COMENZAR</span>
                   </a>
                 </li>
+                <li>
+                  <a
+                    (click)="logout()"
+                    pRipple
+                    class="colortexto mb-8 px-10 py-2 text-white dark:text-surface-0 font-medium text-xl rounded transition duration-300 ease-in-out hover:bg-red-500 hover:text-white"
+                  >
+                    <span
+                      >
+                      <i class="pi pi-sign-in text-white-900 mr-2"></i> Cerrar
+                      sesión</span
+                    >
+                  </a>
+                </li>
+
               </ul>
               <div
                 class="flex border-t lg:border-t-0 border-surface py-4 lg:py-0 mt-4 lg:mt-0 gap-2"
@@ -91,5 +112,12 @@ import { ButtonModule } from 'primeng/button';
   `,
 })
 export class TopbarWidget {
-  constructor(public router: Router) {}
+  constructor(public router: Router, public authService: AuthService) {}
+
+  logout(): void {
+    const confirmLogout = confirm('¿Está seguro de que desea cerrar sesión?');
+    if (confirmLogout) {
+      this.authService.logout();
+    }
+  }
 }

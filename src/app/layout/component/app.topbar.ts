@@ -3,8 +3,8 @@ import { MenuItem } from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
-import { AppConfigurator } from './app.configurator';
 import { LayoutService } from '../service/layout.service';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-topbar',
@@ -98,7 +98,7 @@ import { LayoutService } from '../service/layout.service';
       <div class="flex justify-center items-left layout-topbar-actions">
         <div class="lg:flex hidden">
           <a
-            routerLink="/"
+            routerLink="/landing"
             class="mr-4 ml-4 rounded p-2 transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-red-200 hover:border-red-500 hover:border-solid hover:border-2"
           >
             <i class="pi pi-home text-red-900"></i><b> Inicio</b>
@@ -123,6 +123,9 @@ import { LayoutService } from '../service/layout.service';
           >
             <i class="pi pi-link text-blue-900"></i><b> MaPreX Web</b>
           </a>
+          <button *ngIf="authService.isLoggedIn()" (click)="logout()">
+            <i class="pi pi-sign-in text-blue-900 mr-2"></i> Cerrar sesión
+          </button>
         </div>
 
         <div class="lg:hidden flex">
@@ -134,7 +137,7 @@ import { LayoutService } from '../service/layout.service';
             class="absolute top-full left-0 w-full bg-white rounded shadow-md z-10"
           >
             <a
-              routerLink="/"
+              routerLink="landing"
               class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
             >
               <i class="pi pi-home text-red-900 mr-2"></i> Inicio
@@ -159,6 +162,14 @@ import { LayoutService } from '../service/layout.service';
             >
               <i class="pi pi-link text-blue-900 mr-2"></i> MaPreX Web
             </a>
+
+            <button
+              *ngIf="authService.isLoggedIn()"
+              class="text-blue-900"
+              (click)="logout()"
+            >
+              <i class="pi pi-sign-in text-blue-900"></i>Cerrar sesión
+            </button>
           </div>
         </div>
       </div>
@@ -206,8 +217,17 @@ export class AppTopbar {
     return this.layoutService.isDarkTheme() ? 'data.png' : 'DATALAING-1.png';
   }
 
-  constructor(public layoutService: LayoutService) {}
+  constructor(
+    public layoutService: LayoutService,
+    public authService: AuthService
+  ) {}
 
+  logout(): void {
+    const confirmLogout = confirm('¿Está seguro de que desea cerrar sesión?');
+    if (confirmLogout) {
+      this.authService.logout();
+    }
+  }
   toggleDarkMode() {
     this.layoutService.layoutConfig.update((state) => ({
       ...state,
