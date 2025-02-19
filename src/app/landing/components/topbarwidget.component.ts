@@ -37,9 +37,13 @@ import { ButtonModule } from 'primeng/button';
             >
               <i class="pi pi-bars !text-2xl"></i>
             </a>
-
+            <style>
+              .fondoMenu {
+                background: #dc2626;
+              }
+            </style>
             <div
-              class="items-center bg-red-900 sm:bg-red-900  dark:bg-surface-900 grow justify-center lg:justify-between hidden lg:flex absolute lg:static w-full left-0 top-full px-12 lg:px-0 z-20 rounded-border"
+              class="items-center fondoMenu bg-red-900 sm:bg-red-900  dark:bg-surface-900 grow justify-center lg:justify-between hidden lg:flex absolute lg:static w-full left-0 top-full px-12 lg:px-0 z-20 rounded-border"
             >
               <br />
               <ul
@@ -55,7 +59,7 @@ import { ButtonModule } from 'primeng/button';
                   </a>
                 </li>
                 <li>
-                  <p class="text-red-500">|</p>
+                  <p class="text-black">|</p>
                 </li>
                 <li>
                   <a

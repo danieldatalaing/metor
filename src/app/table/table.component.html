@@ -17,14 +17,10 @@
     [tableStyle]="{ 'min-width': '60rem' }"
     showGridlines
     [globalFilterFields]="[
-      'proceso_contratacion.partidas_totales',
+      'proceso_contratacion',
       'partidas_totales',
       'descripcion_corta_nombre_contrato',
-      'country.proceso_contratacion',
-      'representative.proceso_contratacion',
-      'status'
     ]"
-    [filterDelay]="500"
   >
     <ng-template #caption>
       <div class="flex flex-wrap justify-end gap-2">
@@ -65,7 +61,7 @@
             class="mt-2"
             (click)="showDialog(filteredProducts)"
             pTooltip="Ver proceso de Contratación"
-            tooltipPosition="left"
+            tooltipPosition="top"
             [style]="{ width: '200px', height: '40px' }"
             tooltipEvent="hover"
           >
@@ -76,12 +72,12 @@
         </td>
 
         <td pTooltip="{{ product.nombre_contrato }}"
-            tooltipPosition="left"
+            tooltipPosition="top"
             tooltipEvent="hover"
             >{{ product.descripcion_corta_nombre_contrato }}</td>
         <td style="text-align: center"
-         pTooltip="{{ product.nombre_empresa }}"
-            tooltipPosition="left"
+         pTooltip="{{ 'Monto Total CD: '+product.monto_total_cd }}"
+            tooltipPosition="top"
             tooltipEvent="hover"
 
         >{{ product.partidas_totales }}</td>
@@ -125,7 +121,6 @@
               [value]="filteredProducts"
               [columns]="selectedColumns"
               scrollable="true"
-
               scrollHeight="400px"
               showGridlines
               [resizableColumns]="true"
@@ -160,6 +155,7 @@
 
 <p-dialog
   [modal]="true"
+  [header]=""
   [(visible)]="visible"
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
   [contentStyle]="{ 'max-width': '90vw', 'overflow-x': 'auto' }"
@@ -168,7 +164,8 @@
   <div style="min-width: 2000px;"> <!-- Ajusta este valor según el ancho total de la tabla -->
     <div
       style="
-
+      margin-left: 24%;
+        color: red;
         justify-content: center;
         font-size: 18px;
         margin-bottom: 20px;
