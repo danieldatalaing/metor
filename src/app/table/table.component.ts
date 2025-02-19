@@ -134,16 +134,28 @@ export class TableComponent implements OnInit {
 
   fileName = 'Metor.xlsx';
 
-   export() {
-    let data = document.getElementById('table-data');
+   export(frase : string) {
+ let data1 = document.getElementById('tableFiltrada');
+ let data = document.getElementById('table-data');
 
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+ if (frase == 'filtrada') {
 
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+  const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data1);
+   const wb: XLSX.WorkBook = XLSX.utils.book_new();
+   XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+   XLSX.writeFile(wb, this.fileName);
 
-    XLSX.writeFile(wb, this.fileName);
+  }else{
+
+        const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+        XLSX.writeFile(wb, this.fileName);
   }
+
+
+
+}
 
 
 
@@ -197,54 +209,61 @@ export class TableComponent implements OnInit {
       {
         field: 'proceso_contratacion',
         header: 'Proceso de Contratación',
-        width: '10px',
+        width: '200px',
       }, //2
       {
         field: 'fecha_presupuesto',
         header: 'Fecha Presupuesto',
-        width: '10px',
+        width: '200px',
       }, //3
       {
         field: 'descripcion_corta_nombre_contrato',
         header: 'Descripción Corta del Nombre del Contrato',
-        width: '10px',
+        width: '200px',
       }, //4
       {
         field: 'nombre_contrato',
         header: 'Nombre del Contrato',
-        width: '10px',
+        width: '200px',
       }, //5
       { field: 'monto_total_cd', header: 'Monto Total CD', width: '10px' }, //6
       { field: 'partidas_totales', header: 'Partidas Totales', width: '10px' }, //7
       { field: 'capitulo', header: 'Capítulo', width: '10px' }, //8
       { field: 'no_partida', header: 'No. de Partida', width: '10px' }, //9
+
+      {
+        field: 'clasificacion_dificulta_apu',
+        header: 'Clasificación Dificultad APU',//ESTE NO DEBERIA IR AQUI SEGUN EL ORDEN DEL EXCEL
+        width: '200px',
+      },
+
       {
         field: 'descripcion_partida',
         header: 'Descripción de la Partida',
-        width: '10px',
+        width: '200px',
       }, //10
       { field: 'unidad', header: 'Unidad', width: '10px' }, //11
       { field: 'cant', header: 'Cantidad', width: '10px' }, //12
       {
         field: 'precio_unitario_apu',
         header: 'Precio Unitario APU',
-        width: '10px',
+        width: '200px',
       }, //13
       { field: 'total_partida', header: 'Total Partida', width: '10px' }, //14
       {
         field: 'rendimiento_diario',
         header: 'Rendimiento Diario',
-        width: '10px',
+        width: '200px',
       }, //15
       {
         field: 'no_personas_apu',
         header: 'No. de Personas APU',
-        width: '10px',
+        width: '200px',
       }, //16
       {
         field: 'horas_trabajadas_dia_apu',
         header: 'Horas Trabajadas al Día APU',
-        width: '10px',
+        width: '200px',
       }, //17
       { field: 'porcentaje_fcas', header: '% FCAS', width: '10px' }, //18
       { field: 'porcentaje_adm', header: '% ADM', width: '10px' }, //19
@@ -252,90 +271,86 @@ export class TableComponent implements OnInit {
       {
         field: 'duracion_partida_dias',
         header: 'Duración de Partida (Días)',
-        width: '10px',
+        width: '200px',
       }, //21
       { field: 'hh_dia_real', header: 'HH/Día Real', width: '10px' }, //22
       { field: 'hh_lapso_8hrs', header: 'HH/Lapso 8hrs', width: '10px' }, //23
       {
         field: 'relacion_htd_8hrs',
         header: 'Relación HTD/8hrs',
-        width: '10px',
+        width: '200px',
       }, //24
       {
         field: 'hh_lapso_horas_trabajadas',
         header: 'HH/Lapso Horas Trabajadas',
-        width: '10px',
+        width: '200px',
       }, //25
       { field: 'hh_unidad', header: 'HH/Unidad', width: '10px' }, //26
       {
         field: 'hh_unidad_x_cant',
         header: 'HH/Unidad x Cantidad',
-        width: '10px',
+        width: '200px',
       }, //27
       { field: 'reserva', header: 'Reserva', width: '10px' }, //28
       {
         field: 'costo_unitario_hh_r_r',
         header: 'Costo Unitario HH R/R',
-        width: '10px',
+        width: '200px',
       }, //29
       { field: 'productividad', header: 'Productividad', width: '10px' }, //30
       {
         field: 'nivel_apu_evaluacion',
         header: 'Nivel APU Evaluación',
-        width: '10px',
+        width: '200px',
       }, //31
       {
         field: 'observacion_sugerencia',
         header: 'Observación/Sugerencia',
-        width: '10px',
+        width: '200px',
       }, //32
       { field: 'comentarios', header: 'Comentarios', width: '10px' }, //33
-      {
-        field: 'clasificacion_dificulta_apu',
-        header: 'Clasificación Dificultad APU',
-        width: '10px',
-      }, //34
+      //34
       { field: 'ubicacion', header: 'Ubicación', width: '300px' }, //35
       { field: 'horario', header: 'Horario', width: '10px' }, //36
       {
         field: 'tiempo_ejecucion_dias',
         header: 'Tiempo de Ejecución (Días)',
-        width: '10px',
+        width: '200px',
       }, //37
       {
         field: 'fecha_contratacion',
         header: 'Fecha de Contratación',
-        width: '10px',
+        width: '200px',
       }, //38
       {
         field: 'antes_de_inicio_mas',
         header: 'Antes de Inicio Más',
-        width: '10px',
+        width: '200px',
       }, //39
-      { field: 'revisor_interno', header: 'Revisor Interno', width: '10px' }, //40
-      { field: 'revisor_externo', header: 'Revisor Externo', width: '10px' }, //41
-      {
-        field: 'nombre_empresa',
-        header: 'Nombre de la Empresa',
-        width: '10px',
-      }, //42
-      { field: 'rif', header: 'RIF', width: '10px' }, //43
-      {
-        field: 'representante_director',
-        header: 'Representante/Director',
-        width: '10px',
-      }, //44
-      {
-        field: 'direccion_ciudad1_telefonos1',
-        header: 'Dirección/Ciudad/Teléfonos 1',
-        width: '10px',
-      }, //45
-      {
-        field: 'direccion_ciudad12_telefonos2',
-        header: 'Dirección/Ciudad/Teléfonos 2',
-        width: '10px',
-      }, //46
-      { field: 'email', header: 'Email', width: '10px' }, //47
+      // { field: 'revisor_interno', header: 'Revisor Interno', width: '10px' }, //40
+      // { field: 'revisor_externo', header: 'Revisor Externo', width: '10px' }, //41
+      // {
+      //   field: 'nombre_empresa',
+      //   header: 'Nombre de la Empresa',
+      //   width: '200px',
+      // }, //42
+      // { field: 'rif', header: 'RIF', width: '10px' }, //43
+      // {
+      //   field: 'representante_director',
+      //   header: 'Representante/Director',
+      //   width: '200px',
+      // }, //44
+      // {
+      //   field: 'direccion_ciudad1_telefonos1',
+      //   header: 'Dirección/Ciudad/Teléfonos 1',
+      //   width: '200px',
+      // }, //45
+      // {
+      //   field: 'direccion_ciudad12_telefonos2',
+      //   header: 'Dirección/Ciudad/Teléfonos 2',
+      //   width: '200px',
+      // }, //46
+      // { field: 'email', header: 'Email', width: '10px' }, //47
     ];
 
     // Definir las columnas seleccionadas
@@ -348,7 +363,7 @@ export class TableComponent implements OnInit {
       {
         field: 'fecha_presupuesto',
         header: 'Fecha Presupuesto',
-        width: '10px',
+        width: '200px',
       }, //3
       {
         field: 'descripcion_corta_nombre_contrato',
@@ -363,6 +378,11 @@ export class TableComponent implements OnInit {
       { field: 'monto_total_cd', header: 'Monto Total CD', width: '10px' }, //6
       { field: 'partidas_totales', header: 'Partidas Totales', width: '10px' }, //7
       { field: 'capitulo', header: 'Capítulo', width: '200px' }, //8
+      {
+        field: 'clasificacion_dificulta_apu',
+        header: 'Clasificación Dificultad APU', //ESTE NO DEBERIA IR AQUI SEGUN EL ORDEN DEL EXCEL
+        width: '200px',
+      },
       { field: 'no_partida', header: 'No. de Partida', width: '10px' }, //9
       {
         field: 'descripcion_partida',
@@ -374,7 +394,7 @@ export class TableComponent implements OnInit {
       {
         field: 'precio_unitario_apu',
         header: 'Precio Unitario APU',
-        width: '10px',
+        width: '200px',
       }, //13
       { field: 'total_partida', header: 'Total Partida', width: '10px' }, //14
     ];

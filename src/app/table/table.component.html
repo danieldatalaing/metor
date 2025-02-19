@@ -38,7 +38,7 @@
             placeholder="Buscar Proceso"
           />
         </p-iconfield>
-        <p-button (click)="export()" label="Exportar" icon="pi pi-file-excel" severity="success" />
+        <p-button (click)="export('proceso')" label="Exportar" icon="pi pi-file-excel" severity="success" />
       </div>
 </div>
 </div>
@@ -161,34 +161,24 @@
 
 <p-dialog
   [modal]="true"
-  [header]=""
+  [header]="'PROCESOS DE CONTRATACIÓN' + this.informacion?.proceso_contratacion + ' - ' + this.informacion?.descripcion_corta_nombre_contrato"
   [(visible)]="visible"
-  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
-  [contentStyle]="{ 'max-width': '90vw', 'overflow-x': 'auto' }"
+  [contentStyle]="{ 'max-width': '100vw','overflow-x': 'auto' , 'height': '100vw','width': '90vw', }"
   [maximizable]="false"
 >
+
   <div style="min-width: 2000px;"> <!-- Ajusta este valor según el ancho total de la tabla -->
-    <div
-      style="
-      margin-left: 24%;
-        color: red;
-        justify-content: center;
-        font-size: 18px;
-        margin-bottom: 20px;
-      "
-    >
-      <span>
-        PROCESOS DE CONTRATACIÓN {{ this.informacion?.proceso_contratacion }} -
-        {{ this.informacion?.descripcion_corta_nombre_contrato }}</span
-      >
+    <div>
+
     </div>
+ <p-button (click)="export('filtrada')" label="Exportar" icon="pi pi-file-excel" severity="success" class="mr-4" />
 
     <p-multiselect
       display="chip"
       [options]="cols"
       [(ngModel)]="selectedColumns"
       optionLabel="header"
-      [maxSelectedLabels]="12"
+      [maxSelectedLabels]="5"
       selectedItemsLabel="{0} columns selected"
       [style]="{
         'justify-content': 'center',
@@ -200,12 +190,19 @@
     />
 
     <p-table
+    id="tableFiltrada"
       #dt3
       [value]="filteredProducts"
-      [columns]="selectedColumns"
-      showGridlines
       [resizableColumns]="false"
-      [reorderableColumns]="true"
+           [rowHover]="true"
+            dataKey="id"
+            [showCurrentPageReport]="true"
+            [showGridlines]="true"
+            [columns]="selectedColumns"
+            [reorderableColumns]="true"
+            [scrollable]="true"
+            scrollHeight="700px"
+            [autoLayout]="true"
 
     >
       <ng-template #header>
