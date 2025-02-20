@@ -513,7 +513,9 @@ export class TableComponent implements OnInit {
   exportToExcel(data: any, tipo: string) {
     console.log(data);
     console.log(tipo);
+
     if (tipo == 'unico') {
+
       const dataOrdenada = this.ordenarJson(data, this.headers2);
       this.excelExportService.exportToExcel(
         dataOrdenada, //Ahora dataOrdenada es un array de Product
@@ -521,16 +523,26 @@ export class TableComponent implements OnInit {
         this.title2,
         this.logos
       );
+
     } else {
+
+
       let producto = this.productService.getProductsData() as Product[];
+
       let procesosinespacio = data.proceso_contratacion?.trim();
+
       const filteredProducts = producto.filter(
         (product) => product.proceso_contratacion?.trim() === procesosinespacio
       );
+
       this.filteredProducts = filteredProducts.sort(
         (a, b) => Number(a.no_partida) - Number(b.no_partida)
       );
-      const dataOrdenada = this.ordenarJson(data, this.headers);
+
+      const dataOrdenada = this.ordenarJson(
+        this.filteredProducts,
+        this.headers
+      );
       this.excelExportService.exportToExcel(
         dataOrdenada, //Ahora dataOrdenada es un array de Product
         this.headers,
