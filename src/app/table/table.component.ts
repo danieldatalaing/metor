@@ -525,7 +525,7 @@ export class TableComponent implements OnInit {
       );
 
     } else {
-
+//es filtrada
 
       let producto = this.productService.getProductsData() as Product[];
 
