@@ -56,6 +56,7 @@ export interface Product {
   direccion_ciudad12_telefonos2?: string;
   email?: string;
   [key: string]: any;
+  result?: number ;
 }
 
 @Injectable()

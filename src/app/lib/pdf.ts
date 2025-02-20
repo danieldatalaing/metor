@@ -2,17 +2,19 @@ import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { variable64 } from '../../assets/img';
 import { variable128 } from '../../assets/metor';
-
+import { Product } from '../../service/product.service';
 (<any>pdfMake).addVirtualFileSystem(pdfFonts);
 
-type Product = {
-  cuota: number;
-  proceso: string;
-  desc: string;
-  result: number;
-};
+// type Product = {
+//   cuota: number;
+//   proceso: string;
+//   desc: string;
+//   result: number;
+// };
 
-const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
+
+
+const generatePDF = (products: Product [], reciboNo: string, fecha: string) => {
   // Definir el cuerpo de la tabla
   const tableBody = [
     [
@@ -23,14 +25,14 @@ const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
     ],
     ...products.map((product) => [
       {
-        text: product.cuota.toString(),
+        text: product.id?.toString(),
         style: 'tableCell',
         alignment: 'center',
       },
-      { text: product.proceso, style: 'tableCell' },
-      { text: product.desc, style: 'tableCell' },
+      { text: product.proceso_contratacion, style: 'tableCell' },
+      { text: product.descripcion_corta_nombre_contrato, style: 'tableCell' },
       {
-        text: product.result.toString(),
+        text: product.partidas_totales?.toString(),
         style: 'tableCell',
         alignment: 'center',
       },
@@ -38,47 +40,47 @@ const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
   ];
 
   // Calcular el total general
-  const totalGeneral = products.reduce(
-    (sum, product) => sum + product.result,
-    0
-  );
+const totalGeneral = products.reduce((sum, product) => {
+  const totalPartida = parseInt(product.partidas_totales || '', 10); // Convierte a entero (base 10)
+  return sum + totalPartida;
+}, 0);
 
   // Definir el contenido del PDF
   const content: any[] = [];
 
   // Encabezado del PDF
- content.push({
-   columns: [
-     // Columna 1: Imagen de DataLaing
-     { image: variable64.miVar, width: 125 },
+  content.push({
+    columns: [
+      // Columna 1: Imagen de DataLaing
+      { image: variable64.miVar, width: 125 },
 
-     //Columna 1.1: Imagen de Metor
-     {
-       image: variable128.miVar,
-       width: 50,
-       alignment: 'center',
-     },
+      //Columna 1.1: Imagen de Metor
+      {
+        image: variable128.miVar,
+        width: 50,
+        alignment: 'center',
+      },
 
-     // Columna 2: Texto (centrado)
-     {
-       stack: [
-         { text: `Reporte de los Procesos`, style: 'header', fontSize: 12 },
-         { text: `Fecha: ${fecha}`, style: 'subheader', fontSize: 10 },
-       ],
-       alignment: 'center',
-       width: '*', // Ocupa el espacio restante
-     },
+      // Columna 2: Texto (centrado)
+      {
+        stack: [
+          { text: `Reporte de los Procesos`, style: 'header', fontSize: 12 },
+          { text: `Fecha: ${fecha}`, style: 'subheader', fontSize: 10 },
+        ],
+        alignment: 'center',
+        width: '*', // Ocupa el espacio restante
+      },
 
-     // Columna 3: Código QR (alineado a la derecha)
-     {
-       qr: 'https://datalaing.com/site/contacto/',
-       fit: 70,
-       alignment: 'right',
-       width: 'auto', // Ancho automático según el contenido
-     },
-   ],
-   columnGap: 10, // Espacio entre columnas (opcional)
- });
+      // Columna 3: Código QR (alineado a la derecha)
+      {
+        qr: 'https://datalaing.com/site/contacto/',
+        fit: 70,
+        alignment: 'right',
+        width: 'auto', // Ancho automático según el contenido
+      },
+    ],
+    columnGap: 10, // Espacio entre columnas (opcional)
+  });
 
   // Espacio en blanco
   //content.push({ text: '\n' });
@@ -90,7 +92,7 @@ const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
       widths: [20, '*', '*', '*'], // Ajustar el ancho de las columnas
       heights: 20, // Tamaño fijo para todas las filas
       body: tableBody,
-      dontBreakRows: true
+      dontBreakRows: true,
     },
     layout: {
       hLineWidth: (i: number, node: any) =>
