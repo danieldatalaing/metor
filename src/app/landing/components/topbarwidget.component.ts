@@ -103,7 +103,7 @@ import { AuthService } from '../../../service/auth.service';
     <div class="flex justify-between items-center">
       <a href="https://www.metoronline.com/contacto" target="_blank">
         <img
-          src="Metor.webp"
+          src="Metor.png"
           class="w-24 sm:w-32 md:w-14 lg:w-40 h-auto"
           alt=""
         />

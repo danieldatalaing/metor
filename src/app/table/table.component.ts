@@ -18,8 +18,8 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl, } from '@angular/platform-brows
 import { CardModule } from 'primeng/card';
 import { TooltipModule } from 'primeng/tooltip';
 import { environment } from '../../environment/environment';
-import * as XLSX from 'xlsx';
 import generatePDF from '../lib/pdf';
+import { ExcelExportService } from '../../service/excel-export.service';
 
 interface Archivo {
   id: number;
@@ -416,7 +416,8 @@ export class TableComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private messageService: MessageService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private excelExportService: ExcelExportService
   ) {}
 
   visible: boolean = false;
@@ -431,23 +432,114 @@ export class TableComponent implements OnInit {
     this.productDialog = true;
   }
 
-  fileName = 'Metor.xlsx';
+  headers = [
+    'proceso_contratacion', // Nombres corregidos
+    'fecha_presupuesto',
+    'descripcion_corta_nombre_contrato',
+    'nombre_contrato',
+    'monto_total_cd',
+    'partidas_totales',
+    'capitulo',
+    'no_partida',
+    'clasificacion_dificulta_apu',
+    'descripcion_partida',
+    'unidad',
+    'cant', // Corregido
+    'precio_unitario_apu',
+    'total_partida',
+    'rendimiento_diario',
+    'no_personas_apu',
+    'horas_trabajadas_dia_apu',
+    'porcentaje_fcas',
+    'porcentaje_adm',
+    'porcentaje_utilidad',
+    'duracion_partida_dias',
+    'hh_dia_real',
+    'hh_lapso_8hrs',
+    'relacion_htd_8hrs',
+    'hh_lapso_horas_trabajadas',
+    'hh_unidad',
+    'hh_unidad_x_cant',
+    'reserva',
+    'costo_unitario_hh_r_r',
+    'productividad',
+    'nivel_apu_evaluacion',
+    'observacion_sugerencia',
+    'comentarios',
+    'ubicacion',
+    'horario',
+    'tiempo_ejecucion_dias',
+    'fecha_contratacion',
+    'antes_de_inicio_mas',
+  ];
 
-  export(frase: string) {
-    let data1 = document.getElementById('tableFiltrada');
-    let data = document.getElementById('table-data');
+  headers2 = [
+    'proceso_contratacion', // Nombres corregidos
+    'descripcion_corta_nombre_contrato',
+    'partidas_totales',
+  ];
+  title2 = 'PROCESOS';
+  title = 'REPORTE DE LOS PROCESOS DE CONTRATACIÓN POR PARTIDAS';
+  logos = [
+    environment.apiUrl + '/Metor.png',
+    environment.apiUrl + '/DATALAING-1.png',
+  ];
 
-    if (frase == 'filtrada') {
-      const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data1);
-      const wb: XLSX.WorkBook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-      XLSX.writeFile(wb, this.fileName);
+  ordenarJson(jsonArray: Product[], headers: string[]): Product[] {
+    return jsonArray.map((json) => {
+      // Itera sobre el array de objetos
+      const nuevoJson: Product = {};
+      headers.forEach((header) => {
+        if (json.hasOwnProperty(header)) {
+          nuevoJson[header] = json[header];
+        } else {
+          console.warn(
+            `La clave '${header}' no se encontró en el objeto JSON.`
+          );
+        }
+      });
+
+      // Agregar propiedades que no están en headers (opcional)
+      for (const key in json) {
+        if (!headers.includes(key)) {
+          nuevoJson[key] = json[key];
+        }
+      }
+
+      return nuevoJson; // Retorna el objeto ordenado
+    });
+  }
+
+  exportToExcel(data: any, tipo: string) {
+    console.log(data);
+    console.log(tipo);
+    if (tipo == 'unico') {
+      const dataOrdenada = this.ordenarJson(data, this.headers2);
+      this.excelExportService.exportToExcel(
+        dataOrdenada, //Ahora dataOrdenada es un array de Product
+        this.headers2,
+        this.title2,
+        this.logos
+      );
     } else {
-      const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
-      const wb: XLSX.WorkBook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-      XLSX.writeFile(wb, this.fileName);
+      let producto = this.productService.getProductsData() as Product[];
+      let procesosinespacio = data.proceso_contratacion?.trim();
+      const filteredProducts = producto.filter(
+        (product) => product.proceso_contratacion?.trim() === procesosinespacio
+      );
+      this.filteredProducts = filteredProducts.sort(
+        (a, b) => Number(a.no_partida) - Number(b.no_partida)
+      );
+      const dataOrdenada = this.ordenarJson(data, this.headers);
+      this.excelExportService.exportToExcel(
+        dataOrdenada, //Ahora dataOrdenada es un array de Product
+        this.headers,
+        this.title,
+        this.logos
+      );
     }
+
+    // Asegúrate de que excelExportService.exportToExcel acepte un array de objetos
   }
 
   calculateRowIndex(table: any, product: any): number {

@@ -38,7 +38,7 @@
             placeholder="Buscar Proceso"
           />
         </p-iconfield>
-        <p-button (click)="export('proceso')" label="Exportar" icon="pi pi-file-excel" severity="success" />
+        <p-button (click)="exportToExcel(procesosUnicosArray,'unico')" label="Exportar" icon="pi pi-file-excel" severity="success" />
 
         <p-button (click)="generatePdf()" label="Exportar" icon="pi pi-file-pdf" severity="danger" />
 
@@ -174,7 +174,7 @@
     <div>
 
     </div>
- <p-button (click)="export('filtrada')" label="Exportar" icon="pi pi-file-excel" severity="success" class="mr-4" />
+ <p-button (click)="exportToExcel(this.informacion,'filtrado')" label="Exportar" icon="pi pi-file-excel" severity="success" class="mr-4" />
 
     <p-multiselect
       display="chip"

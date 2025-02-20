@@ -86,7 +86,7 @@ import { AuthService } from '../../../service/auth.service';
         class="layout-topbar-logo-container flex justify-center items-center"
       >
         <a class="layout-topbar-logo" routerLink="/" class="ml-8">
-          <img src="Metor.webp" width="50" height="40" />
+          <img src="Metor.png" width="50" height="40" />
           <span></span>
         </a>
         <a class="layout-topbar-logo" routerLink="/" class="ml-8">
