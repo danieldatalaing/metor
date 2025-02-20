@@ -22,10 +22,18 @@ const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
       { text: 'Total Partidas', style: 'tableHeader' },
     ],
     ...products.map((product) => [
-      { text: product.cuota.toString(), style: 'tableCell' },
+      {
+        text: product.cuota.toString(),
+        style: 'tableCell',
+        alignment: 'center',
+      },
       { text: product.proceso, style: 'tableCell' },
       { text: product.desc, style: 'tableCell' },
-      { text: product.result.toString(), style: 'tableCell' },
+      {
+        text: product.result.toString(),
+        style: 'tableCell',
+        alignment: 'center',
+      },
     ]),
   ];
 
@@ -39,37 +47,50 @@ const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
   const content: any[] = [];
 
   // Encabezado del PDF
-  content.push({
-    columns: [
-      { image: variable64.miVar, width: 150 },
-      {
-        stack: [
-          { text: `Reporte de los Procesos`, style: 'header' },
-          { text: `Fecha: ${fecha}`, style: 'subheader' },
-        ],
-        alignment: 'right',
-      },
-    ],
-  });
+ content.push({
+   columns: [
+     // Columna 1: Imagen de DataLaing
+     { image: variable64.miVar, width: 125 },
 
-  // Código QR
-  content.push({
-    qr: 'https://datalaing.com/site/contacto/',
-    fit: 100,
-    alignment: 'right',
-    margin: [0, 10, 0, 10],
-  });
+     //Columna 1.1: Imagen de Metor
+     {
+       image: variable128.miVar,
+       width: 50,
+       alignment: 'center',
+     },
+
+     // Columna 2: Texto (centrado)
+     {
+       stack: [
+         { text: `Reporte de los Procesos`, style: 'header', fontSize: 12 },
+         { text: `Fecha: ${fecha}`, style: 'subheader', fontSize: 10 },
+       ],
+       alignment: 'center',
+       width: '*', // Ocupa el espacio restante
+     },
+
+     // Columna 3: Código QR (alineado a la derecha)
+     {
+       qr: 'https://datalaing.com/site/contacto/',
+       fit: 70,
+       alignment: 'right',
+       width: 'auto', // Ancho automático según el contenido
+     },
+   ],
+   columnGap: 10, // Espacio entre columnas (opcional)
+ });
 
   // Espacio en blanco
-  content.push({ text: '\n' });
+  //content.push({ text: '\n' });
 
   // Tabla de productos
   content.push({
     table: {
       headerRows: 1,
-      widths: ['*', '*', '*', '*'], // Ajustar el ancho de las columnas
+      widths: [20, '*', '*', '*'], // Ajustar el ancho de las columnas
       heights: 20, // Tamaño fijo para todas las filas
       body: tableBody,
+      dontBreakRows: true
     },
     layout: {
       hLineWidth: (i: number, node: any) =>
@@ -123,12 +144,44 @@ const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
       bold: true,
       color: 'black',
     },
+    footer: {
+      fontSize: 6, // Tamaño de la letra del footer
+      color: 'black',
+      alignment: 'center',
+    },
   };
 
-  // Definición del documento
+  // Definición del documento con footer
   const docDefinition: any = {
     content,
     styles,
+    footer: function (currentPage: number, pageCount: number) {
+      return {
+        columns: [
+          {
+            text: 'Innovación Tecnologica por DataLaing',
+            alignment: 'right',
+            fontSize: 9,
+            bold: true,
+          },
+          {
+            text: `Página ${currentPage} de ${pageCount}`,
+            alignment: 'right',
+            fontSize: 9,
+          },
+        ],
+        margin: [40, 10], // Ajustar márgenes del footer
+      };
+    },
+    watermark: {
+      text: 'DataLaing', // Texto de la marca de agua
+      color: 'gray', // Color del texto
+      opacity: 0.3, // Opacidad del texto
+      bold: true, // Texto en negrita
+      italics: false, // Texto en cursiva (opcional)
+      fontSize: 60, // Tamaño de la fuente
+      angle: 45, // Ángulo de inclinación del texto
+    },
   };
 
   // Generar y abrir el PDF
