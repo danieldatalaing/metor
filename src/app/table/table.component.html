@@ -19,7 +19,7 @@
     [globalFilterFields]="[
       'proceso_contratacion',
       'partidas_totales',
-      'descripcion_corta_nombre_contrato',
+      'nombre_contrato',
     ]"
     id="table-data"
   >
@@ -80,10 +80,10 @@
           </p-button>
         </td>
 
-        <td pTooltip="{{ product.nombre_contrato }}"
+        <td pTooltip="{{ product.descripcion_corta_nombre_contrato }}"
             tooltipPosition="top"
             tooltipEvent="hover"
-            >{{ product.descripcion_corta_nombre_contrato }}</td>
+            >{{ product.nombre_contrato }}</td>
         <td style="text-align: center"
          pTooltip="{{ 'Monto Total CD: '+product.monto_total_cd }}"
             tooltipPosition="top"

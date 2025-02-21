@@ -28,10 +28,9 @@ const generatePDF = (
     [
       { text: '#', style: 'tableHeader' },
       { text: 'Proceso de Contratación', style: 'tableHeader' },
-      { text: 'Descripción', style: 'tableHeader' },
+      { text: 'Nombre', style: 'tableHeader' },
       { text: 'Total Partidas', style: 'tableHeader' },
     ],
-
 
     ...products.map((product) => [
       {
@@ -40,7 +39,7 @@ const generatePDF = (
         alignment: 'center',
       },
       { text: product.proceso_contratacion, style: 'tableCell' },
-      { text: product.descripcion_corta_nombre_contrato, style: 'tableCell' },
+      { text: product.nombre_contrato, style: 'tableCell' },
       {
         text: product.partidas_totales?.toString(),
         style: 'tableCell',
@@ -293,15 +292,6 @@ const generatePDF = (
         ],
         margin: [40, 10], // Ajustar márgenes del footer
       };
-    },
-    watermark: {
-      text: 'DataLaing', // Texto de la marca de agua
-      color: 'gray', // Color del texto
-      opacity: 0.3, // Opacidad del texto
-      bold: true, // Texto en negrita
-      italics: false, // Texto en cursiva (opcional)
-      fontSize: 60, // Tamaño de la fuente
-      angle: 45, // Ángulo de inclinación del texto
     },
   };
 

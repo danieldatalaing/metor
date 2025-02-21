@@ -63,7 +63,7 @@ export class ExcelExportService {
     const worksheet = workbook.addWorksheet('Datos');
 
     // 1. Configuración inicial de las filas 1, 2 y 3
-    worksheet.getRow(1).height = 59; // Altura de la fila 1 para los logos y el título
+    worksheet.getRow(1).height = 400; // Altura de la fila 1 para los logos y el título
     worksheet.getColumn(1).width = 50; // anchura de la columna 1 para los logos y el título
 
     // 2. Forzar la creación de celdas en las filas 1, 2 y 3
@@ -95,7 +95,7 @@ export class ExcelExportService {
 
     // 4. Agregar el logo izquierdo con "padding"
     const logoLeftUrl = logos[0]; // URL del primer logo
-    const logoLeftPosition = 'A1:A1'; // Posición del logo izquierdo
+    const logoLeftPosition = 'A2:A4'; // Posición del logo izquierdo
     await this.agregarImagen(
       worksheet,
       workbook,
@@ -105,19 +105,19 @@ export class ExcelExportService {
     ); // Padding de 0.5
 
     // 5. Agregar el título en el centro
-    const titleColumnStart = 3; // Columna donde comienza el título
-    const titleColumnEnd = 9; // Columnas restantes para el título
-    const titleCell = worksheet.getCell(1, titleColumnStart);
+    const titleColumnStart = 2; // Columna donde comienza el título
+    const titleColumnEnd = 4; // Columnas restantes para el título
+    const titleCell = worksheet.getCell(5, titleColumnStart);
     titleCell.value = title;
     titleCell.font = { size: 25, bold: true, color: { argb: '00000000' } }; // Estilo del título
-    titleCell.alignment = { vertical: 'middle', horizontal: 'left' };
+    titleCell.alignment = { vertical: 'middle', horizontal: 'center' };
 
     // Combinar celdas para el título
     worksheet.mergeCells(1, titleColumnStart, 1, titleColumnEnd);
 
     // 6. Agregar el logo derecho con "padding"
     const logoRightUrl = logos[1]; // URL del segundo logo
-    const logoRightPosition = `B1:B1`; // Posición del logo derecho
+    const logoRightPosition = `B2:C4`; // Posición del logo derecho
     await this.agregarImagen(
       worksheet,
       workbook,
@@ -165,34 +165,9 @@ export class ExcelExportService {
 
     // 9. Ajustar el ancho de las columnas
     headers.forEach((_header, index) => {
-      worksheet.getColumn(index + 1).width = 20; // Ancho inicial
+      worksheet.getColumn(index + 1).width = 60; // Ancho inicial
+      worksheet.getRow(index + 1).height = 60; // Ancho inicial
     });
-
-    // 10. Proteger la hoja para evitar ediciones en el banner
-    worksheet.protect('password', {
-      selectLockedCells: false, // No permitir seleccionar celdas bloqueadas
-      selectUnlockedCells: true, // Permitir seleccionar celdas desbloqueadas
-      formatCells: false, // No permitir formatear celdas
-      formatColumns: false, // No permitir formatear columnas
-      formatRows: false, // No permitir formatear filas
-      insertColumns: false, // No permitir insertar columnas
-      insertRows: false, // No permitir insertar filas
-      insertHyperlinks: false, // No permitir insertar hipervínculos
-      deleteColumns: false, // No permitir eliminar columnas
-      deleteRows: false, // No permitir eliminar filas
-      sort: false, // No permitir ordenar
-      autoFilter: false, // No permitir filtros automáticos
-      pivotTables: false, // No permitir tablas dinámicas
-    });
-
-    // 11. Desbloquear celdas de datos para permitir edición
-    for (let rowNumber = 4; rowNumber <= data.length + 4; rowNumber++) {
-      for (let colNumber = 1; colNumber <= headers.length; colNumber++) {
-        worksheet.getCell(rowNumber, colNumber).protection = {
-          locked: false, // Desbloquear celdas de datos
-        };
-      }
-    }
 
     // 12. Descargar el archivo Excel
     workbook.xlsx.writeBuffer().then((buffer) => {
