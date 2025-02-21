@@ -54,6 +54,7 @@ export interface Product {
   representante_director?: string;
   direccion_ciudad1_telefonos1?: string;
   direccion_ciudad12_telefonos2?: string;
+  clasificacion_dificulta_apu ?: string;
   email?: string;
   [key: string]: any;
   result?: number ;

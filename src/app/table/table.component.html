@@ -175,7 +175,7 @@
 
     </div>
  <p-button (click)="exportToExcel(this.informacion,'filtrado')" label="Exportar" icon="pi pi-file-excel" severity="success" class="mr-4" />
- <p-button (click)="generatePdf(this.informacion,'filtrado')" label="Exportar" icon="pi pi-file-pdf" severity="danger" />
+ <p-button (click)="generatePdf(filteredProducts,'filtrado')" label="Exportar" icon="pi pi-file-pdf" severity="danger" class="mr-4" />
     <p-multiselect
       display="chip"
       [options]="cols"
