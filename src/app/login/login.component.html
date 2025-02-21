@@ -86,3 +86,17 @@
         </div>
     </div>
 </div>
+
+
+<p-dialog header="Ups..." [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+    <p>
+        Error al iniciar sesión, verificar credenciales.
+    </p>
+</p-dialog>
+
+<p-dialog header="" [modal]="true" [(visible)]="visible2" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+    <p>
+        Bienvenido a Proyecto Metor
+    </p>
+</p-dialog>
+

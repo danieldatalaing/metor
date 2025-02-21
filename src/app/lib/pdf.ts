@@ -111,10 +111,11 @@ const totalGeneral = products.reduce((sum, product) => {
     columns: [
       { text: '', width: '*' },
       {
-        text: `Total: ${totalGeneral}`,
+        text: `Total: ${totalGeneral} partidas.`,
         style: 'total',
         alignment: 'right',
         margin: [0, 10, 0, 10],
+        fontSize: 10
       },
     ],
   });
@@ -161,7 +162,7 @@ const totalGeneral = products.reduce((sum, product) => {
       return {
         columns: [
           {
-            text: 'Innovación Tecnologica por DataLaing',
+            text: 'Innovación Tecnológica por DataLaing',
             alignment: 'right',
             fontSize: 9,
             bold: true,
@@ -180,7 +181,7 @@ const totalGeneral = products.reduce((sum, product) => {
       color: 'gray', // Color del texto
       opacity: 0.3, // Opacidad del texto
       bold: true, // Texto en negrita
-      italics: false, // Texto en cursiva (opcional)
+      italics: true, // Texto en cursiva (opcional)
       fontSize: 60, // Tamaño de la fuente
       angle: 45, // Ángulo de inclinación del texto
     },
