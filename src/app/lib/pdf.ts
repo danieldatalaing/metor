@@ -319,15 +319,6 @@ const docDefinition2: any = {
       margin: [40, 10], // Ajustar márgenes del footer
     };
   },
-  watermark: {
-    text: 'DataLaing', // Texto de la marca de agua
-    color: 'gray', // Color del texto
-    opacity: 0.3, // Opacidad del texto
-    bold: true, // Texto en negrita
-    italics: false, // Texto en cursiva (opcional)
-    fontSize: 60, // Tamaño de la fuente
-    angle: 45, // Ángulo de inclinación del texto
-  },
 };
 
 
