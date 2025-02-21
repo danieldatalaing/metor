@@ -63,19 +63,18 @@ export class ExcelExportService {
     const worksheet = workbook.addWorksheet('Datos');
 
     // 1. Configuración inicial de las filas 1, 2 y 3
-    worksheet.getRow(1).height = 100; // Altura de la fila 1 para los logos y el título
-    worksheet.getRow(2).height = 20; // Altura de la fila 2 (opcional)
-    worksheet.getRow(3).height = 20; // Altura de la fila 3 (opcional)
+    worksheet.getRow(1).height = 59; // Altura de la fila 1 para los logos y el título
+    worksheet.getColumn(1).width = 50; // anchura de la columna 1 para los logos y el título
 
     // 2. Forzar la creación de celdas en las filas 1, 2 y 3
-    for (let rowNumber = 1; rowNumber <= 3; rowNumber++) {
+    for (let rowNumber = 1; rowNumber <= 2; rowNumber++) {
       for (let colNumber = 1; colNumber <= headers.length + 10; colNumber++) {
         worksheet.getCell(rowNumber, colNumber).value = ''; // Asignar un valor vacío para crear la celda
       }
     }
 
     // 3. Aplicar fondo blanco y quitar bordes en las filas 1, 2 y 3
-    for (let rowNumber = 1; rowNumber <= 3; rowNumber++) {
+    for (let rowNumber = 1; rowNumber <= 2; rowNumber++) {
       worksheet.getRow(rowNumber).eachCell((cell, colNumber) => {
         console.log(
           `Aplicando fondo blanco a la celda en la fila ${rowNumber}, columna ${colNumber}`
@@ -96,7 +95,7 @@ export class ExcelExportService {
 
     // 4. Agregar el logo izquierdo con "padding"
     const logoLeftUrl = logos[0]; // URL del primer logo
-    const logoLeftPosition = 'A1:B2'; // Posición del logo izquierdo
+    const logoLeftPosition = 'A1:A1'; // Posición del logo izquierdo
     await this.agregarImagen(
       worksheet,
       workbook,
@@ -110,18 +109,15 @@ export class ExcelExportService {
     const titleColumnEnd = 9; // Columnas restantes para el título
     const titleCell = worksheet.getCell(1, titleColumnStart);
     titleCell.value = title;
-    titleCell.font = { size: 28, bold: true, color: { argb: '00000000' } }; // Estilo del título
-    titleCell.alignment = { vertical: 'middle', horizontal: 'center' };
+    titleCell.font = { size: 25, bold: true, color: { argb: '00000000' } }; // Estilo del título
+    titleCell.alignment = { vertical: 'middle', horizontal: 'left' };
 
     // Combinar celdas para el título
     worksheet.mergeCells(1, titleColumnStart, 1, titleColumnEnd);
 
     // 6. Agregar el logo derecho con "padding"
     const logoRightUrl = logos[1]; // URL del segundo logo
-    const logoRightColumnStart = 9 + 1; // Columna donde comienza el logo derecho
-    const logoRightPosition = `${this.getExcelColumnName(
-      logoRightColumnStart
-    )}1:${this.getExcelColumnName(logoRightColumnStart + 3)}2`; // Posición del logo derecho
+    const logoRightPosition = `B1:B1`; // Posición del logo derecho
     await this.agregarImagen(
       worksheet,
       workbook,

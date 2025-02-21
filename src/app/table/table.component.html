@@ -40,7 +40,7 @@
         </p-iconfield>
         <p-button (click)="exportToExcel(procesosUnicosArray,'unico')" label="Exportar" icon="pi pi-file-excel" severity="success" />
 
-        <p-button (click)="generatePdf(procesosUnicosArray)" label="Exportar" icon="pi pi-file-pdf" severity="danger" />
+        <p-button (click)="generatePdf(procesosUnicosArray,'unico')" label="Exportar" icon="pi pi-file-pdf" severity="danger" />
 
       </div>
 </div>
@@ -175,7 +175,7 @@
 
     </div>
  <p-button (click)="exportToExcel(this.informacion,'filtrado')" label="Exportar" icon="pi pi-file-excel" severity="success" class="mr-4" />
-
+ <p-button (click)="generatePdf(this.informacion,'filtrado')" label="Exportar" icon="pi pi-file-pdf" severity="danger" />
     <p-multiselect
       display="chip"
       [options]="cols"

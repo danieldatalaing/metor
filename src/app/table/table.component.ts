@@ -73,7 +73,7 @@ export class TableComponent implements OnInit {
     return '';
   }
 
-  generatePdf(products: Product[]) {
+  generatePdf(products: any,frase : string) {
     // const products = [
     //   {
     //     cuota: 1,
@@ -511,8 +511,6 @@ export class TableComponent implements OnInit {
   }
 
   exportToExcel(data: any, tipo: string) {
-    console.log(data);
-    console.log(tipo);
 
     if (tipo == 'unico') {
 
