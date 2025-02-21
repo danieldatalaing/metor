@@ -11,6 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { environment } from '../../environment/environment';
+import { Dialog } from 'primeng/dialog';
 
 
 @Component({
@@ -23,6 +24,7 @@ import { environment } from '../../environment/environment';
     FormsModule,
     RouterModule,
     RippleModule,
+    Dialog,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
@@ -33,19 +35,24 @@ export class LoginComponent {
   password = '';
   errorMessage = '';
 
+  visible: boolean = false;
+  visible2: boolean = false;
+
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
     if (this.username === '' || this.password === '') {
-      this.errorMessage = 'Por favor, complete todos los campos.';
+      alert('Por favor, complete todos los campos.');
       return;
     }
 
     if (this.authService.login(this.username, this.password)) {
-      alert('Inicio de sesión exitoso. Bienvenido ' + this.username + '!');
-      this.router.navigate(['/landing']); // Redirige a la página principal
+      this.visible2 = true;
+      setTimeout(() => {
+        this.router.navigate(['/landing']); // Redirige a la página principal
+      }, 2000);
     } else {
-      this.errorMessage = 'Nombre de usuario o contraseña incorrectos.';
+      this.visible = true;
     }
   }
 }
