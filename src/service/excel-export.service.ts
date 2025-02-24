@@ -194,21 +194,80 @@ worksheet.addImage(imageId, {
           right: { style: 'thin', color: { argb: 'FF0000FF' } },
         };
 
-        //   const colNumber = 3; // Columna 3
-        //   worksheet.eachRow((row, rowIndex) => {
-        //     const cell = row.getCell(colNumber);
-        //     cell.alignment = {
-        //       vertical: 'middle',
-        //       horizontal: 'center',
-        //       wrapText: true,
-        //     };
-        //  });
+        // Definir los arreglos de columnas para cada alineación
+        const columnsToAlignRight = [5, 6, 8, 12,13,14,15,16,17,18,19, 20 ,21,22,23,24,25,26,27]; // Columnas a alinear a la derecha
+        const columnsToAlignCenter = [1,2,3,4,7,8,9,10,11,28,29,20,31,32,33,34,35,36,37]; // Columnas a alinear al centro
+        // const columnsToAlignLeft = [20]; // Columnas a alinear a la izquierda
 
-        cell.alignment = {
-          vertical: 'middle',
-          horizontal: 'center',
-          wrapText: true,
-        }; //ajuste de texto a la celda
+        const headerRowIndex = 3; // Suponiendo que el encabezado está en la fila 3
+
+        worksheet.eachRow((row, rowIndex) => {
+          // Aplicar alineación a la derecha para las columnas correspondientes
+          columnsToAlignRight.forEach((colNumber) => {
+            const cell = row.getCell(colNumber);
+
+            if (rowIndex !== headerRowIndex) {
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'right', // Alineación a la derecha
+                wrapText: true,
+              };
+            } else {
+              // Estilo para el encabezado (centrado)
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'center',
+                wrapText: true,
+              };
+            }
+          });
+
+          // Aplicar alineación al centro para las columnas correspondientes
+          columnsToAlignCenter.forEach((colNumber) => {
+            const cell = row.getCell(colNumber);
+
+            if (rowIndex !== headerRowIndex) {
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'center', // Alineación al centro
+                wrapText: true,
+              };
+            } else {
+              // Estilo para el encabezado (centrado)
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'center',
+                wrapText: true,
+              };
+            }
+          });
+
+          // Aplicar alineación a la izquierda para las columnas correspondientes
+          // columnsToAlignLeft.forEach((colNumber) => {
+          //   const cell = row.getCell(colNumber);
+
+          //   if (rowIndex !== headerRowIndex) {
+          //     cell.alignment = {
+          //       vertical: 'middle',
+          //       horizontal: 'left', // Alineación a la izquierda
+          //       wrapText: true,
+          //     };
+          //   } else {
+          //     // Estilo para el encabezado (centrado)
+          //     cell.alignment = {
+          //       vertical: 'middle',
+          //       horizontal: 'center',
+          //       wrapText: true,
+          //     };
+          //   }
+          // });
+        });
+
+        // cell.alignment = {
+        //   vertical: 'middle',
+        //   horizontal: 'center',
+        //   wrapText: true,
+        // }; //ajuste de texto a la celda
       });
     });
 
