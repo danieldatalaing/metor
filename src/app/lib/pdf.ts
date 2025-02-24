@@ -28,7 +28,7 @@ const generatePDF = (
     [
       { text: '#', style: 'tableHeader' },
       { text: 'Proceso de Contratación', style: 'tableHeader' },
-      { text: 'Nombre', style: 'tableHeader' },
+      { text: 'Nombre del Contrato', style: 'tableHeader' },
       { text: 'Total Partidas', style: 'tableHeader' },
     ],
 
@@ -279,7 +279,7 @@ const generatePDF = (
       return {
         columns: [
           {
-            text: 'Innovación Tecnologica por DataLaing',
+            text: 'Innovación Tecnológica por DataLaing',
             alignment: 'right',
             fontSize: 9,
             bold: true,
@@ -305,7 +305,7 @@ const docDefinition2: any = {
     return {
       columns: [
         {
-          text: 'Innovación Tecnologica por DataLaing',
+          text: 'Innovación Tecnológica por DataLaing',
           alignment: 'right',
           fontSize: 9,
           bold: true,
