@@ -89,13 +89,13 @@ export class TableComponent implements OnInit {
     const extension = this.getFileExtension(url);
     switch (extension) {
       case 'pptx':
-        return '##B63519'; // Rojo
+        return '#B63519'; // Rojo
       case 'docx':
       case 'doc':
         return '#1F5EBC'; // Azul
       case 'xlsx':
       case 'xls':
-        return '##1DA061'; // Verde
+        return '#1DA061'; // Verde
       default:
         return '#808080'; // Gris (color por defecto)
     }
