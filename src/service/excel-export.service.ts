@@ -60,15 +60,15 @@ export class ExcelExportService {
       // Calcular la posición de la imagen para alinearla a la derecha
       const offsetX = cellWidthEMU - widthEMU;
 
-worksheet.addImage(imageId, {
-  tl: {
-    col: startColIndex,
-    row: startRowIndex,
-    offsetX: offsetX,
-    offsetY: 0,
-  } as { col: number; row: number; offsetX: number; offsetY: number }, // Forzar el tipo
-  ext: { width: widthEMU, height: heightEMU },
-});
+      worksheet.addImage(imageId, {
+        tl: {
+          col: startColIndex,
+          row: startRowIndex,
+          offsetX: offsetX,
+          offsetY: 0,
+        } as { col: number; row: number; offsetX: number; offsetY: number }, // Forzar el tipo
+        ext: { width: widthEMU, height: heightEMU },
+      });
 
       console.log(
         'Image added successfully at position:',
@@ -241,6 +241,13 @@ worksheet.addImage(imageId, {
               };
             }
           });
+
+           const cellCol3 = row.getCell(3); // Obtener la celda de la columna 3
+           if (cellCol3.value && !isNaN(Number(cellCol3.value))) {
+             //verifica si el valor existe y es un numero.
+             cellCol3.numFmt = '#,##0'; // Formato numérico con separador de miles y dos decimales
+             cellCol3.value = Number(cellCol3.value); // Asegurarse de que el valor sea numérico
+           }
 
           // Aplicar alineación a la izquierda para las columnas correspondientes
           // columnsToAlignLeft.forEach((colNumber) => {
