@@ -239,16 +239,11 @@
   </div>
 </p-dialog>
 
-<style>
-  .p-dialog-title {
-    text-align: center;
-    width: 100%;
-  }
-</style>
 
 <p-dialog
   [modal]="true"
   [(visible)]="visible2"
+  [style]="{  'width' : '80vw'}"
   [contentStyle]="{ 'max-width': '90vw' }"
   [breakpoints]="{ '1199px': '90vw', '575px': '95vw' }"
   [maximizable]="false"
@@ -268,38 +263,39 @@
       {{ this.informacion?.descripcion_corta_nombre_contrato }}</span
     >
   </div>
-  <p-carousel
-    [value]="pdfs"
-    [numVisible]="4"
-    [numScroll]="4"
-    [circular]="false"
-    [responsiveOptions]="responsiveOptions"
-    autoplayInterval="3000"
-  >
-    <style>
-      .largoh {
-        height: 300px;
-        width: 350px;
-      }
-      .borderg {
-        width: 590px;
-      }
-    </style>
-    <ng-template let-pdf #item>
-      <p-card
-        header="{{ pdf.nombre }}"
-        class="flex justify-center items-center"
-      >
-        <iframe [src]="pdf.url" class="largoh" type="application/pdf"></iframe>
-        <br/>
-        <span>
-          <a [href]="pdf.url" target="_blank"
-            ><p-button icon="pi pi-eye" class="items-center mt-4" severity="success"
-          /></a>
-        </span>
-      </p-card>
-    </ng-template>
-  </p-carousel>
+
+<div class="grid">
+  <div *ngFor="let pdf of visiblePdfs" class="col-4">
+    <p-card
+    pTooltip="{{ pdf.nombre }}"
+      header="{{ pdf.nombre.substring(0, 20) }}{{ pdf.nombre.length > 20 ? '...' : '' }}"
+    class="flex justify-center items-center">
+      <iframe [src]="pdf.url" class="largoh" type="application/pdf"></iframe>
+      <br />
+      <span>
+        <a [href]="pdf.url" target="_blank">
+          <p-button icon="pi pi-eye" class="items-center mt-4" severity="success"></p-button>
+        </a>
+      </span>
+    </p-card>
+  </div>
+</div>
+<br><br>
+<!-- Botón para mostrar todos los PDFs -->
+<div class="button-paginator-container">
+  <p-button
+    label="{{ showAll ? 'Mostrar paginado' : 'Mostrar todos' }}"
+    (click)="toggleShowAll()"
+    class="mb-3 mt-4"
+  ></p-button>
+
+  <!-- Paginador -->
+  <p-paginator *ngIf="!showAll"
+    [rows]="rows"
+    [totalRecords]="pdfs.length"
+    (onPageChange)="onPageChange($event)"
+  ></p-paginator>
+</div>
 
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6"
