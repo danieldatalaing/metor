@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
-
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -12,6 +10,7 @@ import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { environment } from '../../environment/environment';
 import { Dialog } from 'primeng/dialog';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -29,7 +28,8 @@ import { Dialog } from 'primeng/dialog';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  ipAddress: string | undefined;
   backgroundImageUrl = environment.apiUrl + '/metor.jpg';
   username = '';
   password = '';
@@ -38,7 +38,24 @@ export class LoginComponent {
   visible: boolean = false;
   visible2: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit() {
+    this.http
+      .get<{ ip: string }>('https://api.ipify.org?format=json')
+      .subscribe(
+        (data) => {
+          this.ipAddress = data.ip;
+        },
+        (error) => {
+          console.error('Error al obtener la IP:', error);
+        }
+      );
+  }
 
   login() {
     if (this.username === '' || this.password === '') {
