@@ -242,12 +242,38 @@ export class ExcelExportService {
             }
           });
 
-           const cellCol3 = row.getCell(3); // Obtener la celda de la columna 3
-           if (cellCol3.value && !isNaN(Number(cellCol3.value))) {
-             //verifica si el valor existe y es un numero.
-             cellCol3.numFmt = '#,##0'; // Formato numérico con separador de miles y dos decimales
-             cellCol3.value = Number(cellCol3.value); // Asegurarse de que el valor sea numérico
-           }
+          function formatCellAsInteger(row: ExcelJS.Row, columnNumber: number) {
+            const cell = row.getCell(columnNumber); // Obtener la celda de la columna especificada
+
+            // Verificar si el valor existe, no es nulo, no es undefined y no es una cadena vacía
+            if (
+              cell.value !== null &&
+              cell.value !== undefined &&
+              cell.value !== ''
+            ) {
+              const numericValue = Number(cell.value);
+
+              if (!isNaN(numericValue)) {
+                // Verifica si el valor es un número válido
+                cell.numFmt = '#,##0'; // Formato numérico con separador de miles y sin decimales
+                cell.value = Math.floor(numericValue); // Asegurarse de que el valor sea un número entero
+              } else {
+                // Si el valor no es un número, puedes manejarlo de otra manera (opcional)
+                console.warn(
+                  `El valor en la columna ${columnNumber} no es un número válido: ${cell.value}`
+                );
+              }
+            } else {
+              // Si el valor es nulo, undefined o una cadena vacía, no hacer nada
+              console.warn(
+                `La celda de la columna ${columnNumber} está vacía o tiene un valor no válido.`
+              );
+            }
+          }
+
+          formatCellAsInteger(row, 3); // Formatear la columna 3
+          formatCellAsInteger(row, 6); // Formatear la columna 6
+          formatCellAsInteger(row, 8); // Formatear la columna 8
 
           // Aplicar alineación a la izquierda para las columnas correspondientes
           // columnsToAlignLeft.forEach((colNumber) => {
