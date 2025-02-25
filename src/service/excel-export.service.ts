@@ -41,28 +41,34 @@ export class ExcelExportService {
       const endCol = endCell.match(/[A-Z]+/)![0];
       const endRow = parseInt(endCell.match(/\d+/)![0]);
 
-      // Ajuste: No sumar el padding a la columna y fila iniciales
-      const startColIndex = this.getColumnIndex(startCol); // Sin padding
-      const startRowIndex = startRow - 1; // Sin padding
+      const startColIndex = this.getColumnIndex(startCol);
+      const startRowIndex = startRow - 1;
 
-      // Ajuste: No restar el padding a la columna y fila finales
-      const endColIndex = this.getColumnIndex(endCol) + 1; // Sin padding
-      const endRowIndex = endRow; // Sin padding
+      const endColIndex = this.getColumnIndex(endCol) + 1;
+      const endRowIndex = endRow;
 
       const colWidth = worksheet.getColumn(startColIndex + 1).width || 10;
       const rowHeight = worksheet.getRow(startRowIndex + 1).height || 10;
 
-       const cellWidthEMU = colWidth * 9525;
+      // Convertir el ancho de la celda a EMU
+      const cellWidthEMU = colWidth * 9525;
 
-      // Ajuste: Restar el padding del ancho y alto de la imagen
       // Convertir el tamaño de la imagen de píxeles a EMU
       const widthEMU = imageWidthPx * 9525; // 1 píxel = 9525 EMU
       const heightEMU = imageHeightPx * 9525; // 1 píxel = 9525 EMU
 
-      worksheet.addImage(imageId, {
-        tl: { col: startColIndex, row: startRowIndex },
-        ext: { width: widthEMU, height: heightEMU },
-      });
+      // Calcular la posición de la imagen para alinearla a la derecha
+      const offsetX = cellWidthEMU - widthEMU;
+
+worksheet.addImage(imageId, {
+  tl: {
+    col: startColIndex,
+    row: startRowIndex,
+    offsetX: offsetX,
+    offsetY: 0,
+  } as { col: number; row: number; offsetX: number; offsetY: number }, // Forzar el tipo
+  ext: { width: widthEMU, height: heightEMU },
+});
 
       console.log(
         'Image added successfully at position:',
@@ -87,12 +93,15 @@ export class ExcelExportService {
     data: any[],
     headers: string[],
     title: string,
-    logos: string[]
+    logos: string[],
+    encabezado: string[]
   ) {
+    console.log(data, headers, title, logos);
+
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Datos');
 
-    worksheet.getRow(1).height = 40;
+    worksheet.getRow(1).height = 80;
     worksheet.getColumn(1).width = 50;
 
     for (let rowNumber = 1; rowNumber <= 2; rowNumber++) {
@@ -115,30 +124,43 @@ export class ExcelExportService {
     }
 
     const logoUrl = logos[0];
-    await this.agregarImagen(worksheet, workbook, logoUrl, 'A1:A1', 1, 0.007, 0.006);
+    await this.agregarImagen(
+      worksheet,
+      workbook,
+      logoUrl,
+      'A1:A1',
+      1,
+      0.05,
+      0.01
+    );
 
-    const titleColumnStart = 1;
+    const titleColumnStart = 2;
     const titleColumnEnd = 3;
     const titleCell = worksheet.getCell(1, titleColumnStart);
     titleCell.value = title;
-    titleCell.font = { size: 22, bold: true, };
-    titleCell.alignment = { vertical: 'middle', horizontal: 'center' };
+    titleCell.font = { size: 22, bold: true };
+    titleCell.alignment = {
+      vertical: 'middle',
+      horizontal: 'center',
+      wrapText: true,
+    };
 
     worksheet.mergeCells(1, titleColumnStart, 1, titleColumnEnd);
 
     const logoRightUrl = logos[1];
-    const logoRightPosition = `C1:C1`; // Cambiado a H1:I1
+    const logoRightPosition = `a1`; // Cambiado a H1:I1
     await this.agregarImagen(
       worksheet,
       workbook,
       logoRightUrl,
       logoRightPosition,
       1, // Ajustado el padding a 2 para que se vea mejor
-      0.015, //ancho
-      0.005 //alto
+      0.026, //ancho
+      0.01 //alto
     );
-
-    const headerRow = worksheet.addRow(headers);
+    // cell.alignment = { vertical: 'middle', horizontal: 'center' }; //ajuste de texto a la celda
+    //imprimiendo encabezados de la hoja de excel
+    const headerRow = worksheet.addRow(encabezado);
     headerRow.eachCell((cell) => {
       cell.fill = {
         type: 'pattern',
@@ -156,9 +178,10 @@ export class ExcelExportService {
         bottom: { style: 'thin', color: { argb: 'FF0000FF' } },
         right: { style: 'thin', color: { argb: 'FF0000FF' } },
       };
-      cell.alignment = { vertical: 'middle', horizontal: 'center' };
+      cell.alignment = { vertical: 'middle', horizontal: 'center' }; //ajuste de texto a la celda
     });
 
+    //aca recorre la data
     data.forEach((item) => {
       const values = headers.map((header) => item[header] || '');
       const row = worksheet.addRow(values);
@@ -170,27 +193,86 @@ export class ExcelExportService {
           bottom: { style: 'thin', color: { argb: 'FF0000FF' } },
           right: { style: 'thin', color: { argb: 'FF0000FF' } },
         };
+
+        // Definir los arreglos de columnas para cada alineación
+        const columnsToAlignRight = [5, 6, 8, 12,13,14,15,16,17,18,19, 20 ,21,22,23,24,25,26,27]; // Columnas a alinear a la derecha
+        const columnsToAlignCenter = [1,2,3,4,7,8,9,10,11,28,29,20,31,32,33,34,35,36,37]; // Columnas a alinear al centro
+        // const columnsToAlignLeft = [20]; // Columnas a alinear a la izquierda
+
+        const headerRowIndex = 3; // Suponiendo que el encabezado está en la fila 3
+
+        worksheet.eachRow((row, rowIndex) => {
+          // Aplicar alineación a la derecha para las columnas correspondientes
+          columnsToAlignRight.forEach((colNumber) => {
+            const cell = row.getCell(colNumber);
+
+            if (rowIndex !== headerRowIndex) {
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'right', // Alineación a la derecha
+                wrapText: true,
+              };
+            } else {
+              // Estilo para el encabezado (centrado)
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'center',
+                wrapText: true,
+              };
+            }
+          });
+
+          // Aplicar alineación al centro para las columnas correspondientes
+          columnsToAlignCenter.forEach((colNumber) => {
+            const cell = row.getCell(colNumber);
+
+            if (rowIndex !== headerRowIndex) {
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'center', // Alineación al centro
+                wrapText: true,
+              };
+            } else {
+              // Estilo para el encabezado (centrado)
+              cell.alignment = {
+                vertical: 'middle',
+                horizontal: 'center',
+                wrapText: true,
+              };
+            }
+          });
+
+          // Aplicar alineación a la izquierda para las columnas correspondientes
+          // columnsToAlignLeft.forEach((colNumber) => {
+          //   const cell = row.getCell(colNumber);
+
+          //   if (rowIndex !== headerRowIndex) {
+          //     cell.alignment = {
+          //       vertical: 'middle',
+          //       horizontal: 'left', // Alineación a la izquierda
+          //       wrapText: true,
+          //     };
+          //   } else {
+          //     // Estilo para el encabezado (centrado)
+          //     cell.alignment = {
+          //       vertical: 'middle',
+          //       horizontal: 'center',
+          //       wrapText: true,
+          //     };
+          //   }
+          // });
+        });
+
+        // cell.alignment = {
+        //   vertical: 'middle',
+        //   horizontal: 'center',
+        //   wrapText: true,
+        // }; //ajuste de texto a la celda
       });
     });
 
     headers.forEach((_header, index) => {
-      worksheet.getColumn(index + 1).width = 40;
-    });
-
-    worksheet.protect('password', {
-      selectLockedCells: false,
-      selectUnlockedCells: true,
-      formatCells: false,
-      formatColumns: false,
-      formatRows: false,
-      insertColumns: false,
-      insertRows: false,
-      insertHyperlinks: false,
-      deleteColumns: false,
-      deleteRows: false,
-      sort: false,
-      autoFilter: false,
-      pivotTables: false,
+      worksheet.getColumn(index + 1).width = 60;
     });
 
     for (let rowNumber = 4; rowNumber <= data.length + 4; rowNumber++) {

@@ -70590,7 +70590,7 @@ email: 'NA'
           },
           {
             id: 2626,
-            nombre: 'untiltle-1.pdf',
+            nombre: 'untitled-1.pdf',
             tipo: 'pdf',
           },
         ],
@@ -71644,11 +71644,12 @@ email: 'NA'
             id: 3425,
             nombre: 'Alcance-de-labores-de-mantenimiento-STA-2024-P1-rev-0.pdf',
             tipo: 'pdf',
-          },
-          {
-            id: 3426,
-            nombre: 'OFERTA-REV01-SSHH-34.pdf',
-          },
+          }
+          // ,
+          // {
+          //   id: 3426,
+          //   nombre: 'OFERTA-REV01-SSHH-34.pdf',
+          // },
         ],
       },
       {

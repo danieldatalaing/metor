@@ -73,8 +73,7 @@ export class TableComponent implements OnInit {
     return '';
   }
 
-  generatePdf(products: any,frase : string) {
-
+  generatePdf(products: any, frase: string) {
     const reciboNo = '12345678';
 
     const fecha = new Date().toLocaleDateString('es-ES', {
@@ -90,13 +89,13 @@ export class TableComponent implements OnInit {
     const extension = this.getFileExtension(url);
     switch (extension) {
       case 'pptx':
-        return '##B63519'; // Rojo
+        return '#B63519'; // Rojo
       case 'docx':
       case 'doc':
         return '#1F5EBC'; // Azul
       case 'xlsx':
       case 'xls':
-        return '##1DA061'; // Verde
+        return '#1DA061'; // Verde
       default:
         return '#808080'; // Gris (color por defecto)
     }
@@ -149,8 +148,8 @@ export class TableComponent implements OnInit {
   headers = [
     'proceso_contratacion', // Nombres corregidos
     'fecha_presupuesto',
-    'descripcion_corta_nombre_contrato',
     'nombre_contrato',
+    'descripcion_corta_nombre_contrato',
     'monto_total_cd',
     'partidas_totales',
     'capitulo',
@@ -189,13 +188,61 @@ export class TableComponent implements OnInit {
 
   headers2 = [
     'proceso_contratacion', // Nombres corregidos
-    'descripcion_corta_nombre_contrato',
+    'nombre_contrato',
     'partidas_totales',
   ];
-  title2 = 'PROCESOS';
+
+  encabezado2 = [
+    'PROCESOS DE CONTRATACIÓN', // Nombres corregidos
+    'NOMBRE CONTRATO',
+    'PARTIDAS TOTALES',
+  ];
+
+  encabezado = [
+    'Proceso de Contratación', // Nombres corregidos
+    'Fecha de Presupuesto',
+    'Nombre del Contrato',
+    'Descripción Corta del Contrato',
+    'Monto Total (CD)',
+    'Partidas Totales',
+    'Capítulo',
+    'Número de Partida',
+    'Clasificación de Dificultad (APU)',
+    'Descripción de la Partida',
+    'Unidad',
+    'Cantidad', // Corregido
+    'Precio Unitario (APU)',
+    'Total de la Partida',
+    'Rendimiento Diario',
+    'Número de Personas (APU)',
+    'Horas Trabajadas por Día (APU)',
+    'Porcentaje FCAS',
+    'Porcentaje de Administración',
+    'Porcentaje de Utilidad',
+    'Duración de la Partida (Días)',
+    'HH por Día Real',
+    'HH por Lapso (8 Horas)',
+    'Relación HTD (8 Horas)',
+    'HH por Lapso (Horas Trabajadas)',
+    'HH por Unidad',
+    'HH por Unidad x Cantidad',
+    'Reserva',
+    'Costo Unitario HH (R + R)',
+    'Productividad',
+    'Nivel de APU (Evaluación)',
+    'Observación o Sugerencia',
+    'Comentarios',
+    'Ubicación',
+    'Horario',
+    'Tiempo de Ejecución (Días)',
+    'Fecha de Contratación',
+    'Antes del Inicio (Más)',
+  ];
+
+  title2 = 'PROCESOS DE CONTRATACIÓN';
   title = 'REPORTE DE LOS PROCESOS DE CONTRATACIÓN POR PARTIDAS';
   logos = [
-    environment.apiUrl + '/Metor.png',
+    environment.apiUrl + '/logoim.png',
     environment.apiUrl + '/DATALAING-1.png',
   ];
 
@@ -225,19 +272,17 @@ export class TableComponent implements OnInit {
   }
 
   exportToExcel(data: any, tipo: string) {
-
     if (tipo == 'unico') {
-
-      const dataOrdenada = this.ordenarJson(data, this.headers2);
+      // const dataOrdenada = this.ordenarJson(data, this.headers2);
       this.excelExportService.exportToExcel(
-        dataOrdenada, //Ahora dataOrdenada es un array de Product
+        data, //Ahora dataOrdenada es un array de Product
         this.headers2,
         this.title2,
-        this.logos
+        this.logos,
+        this.encabezado2
       );
-
     } else {
-//es filtrada
+      //es filtrada
 
       let producto = this.productService.getProductsData() as Product[];
 
@@ -259,7 +304,8 @@ export class TableComponent implements OnInit {
         dataOrdenada, //Ahora dataOrdenada es un array de Product
         this.headers,
         this.title,
-        this.logos
+        this.logos,
+        this.encabezado
       );
     }
 
