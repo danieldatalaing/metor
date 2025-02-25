@@ -20,7 +20,7 @@ import { AuthService } from '../../../service/auth.service';
     </div>
     <div class="flex justify-between items-center">
       <div class="flex items-center">
-        <a class="flex items-center" href="#">
+        <div class="flex items-center" href="#">
           <span
             class="text-surface-900 dark:text-surface-0 font-medium text-2xl leading-normal"
           >
@@ -41,7 +41,7 @@ import { AuthService } from '../../../service/auth.service';
             <style>
               .fondoMenu {
                 color: black;
-                background:rgba(38, 117, 220, 0.38);
+                background:rgba(38, 117, 220, 0.92);
                 margin-top: -2%;
               }
               .colortexto{
@@ -97,7 +97,7 @@ import { AuthService } from '../../../service/auth.service';
               ></div>
             </div>
           </span>
-        </a>
+            </div>
       </div>
     </div>
     <div class="flex justify-between items-center">
