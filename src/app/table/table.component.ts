@@ -20,6 +20,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { environment } from '../../environment/environment';
 import generatePDF from '../lib/pdf';
 import { ExcelExportService } from '../../service/excel-export.service';
+import { PaginatorModule } from 'primeng/paginator';
 
 interface Archivo {
   id: number;
@@ -56,7 +57,7 @@ interface Column {
     IconFieldModule,
     InputTextModule,
     InputIconModule,
-    CarouselModule,
+    PaginatorModule,
     CardModule,
     TooltipModule,
   ],
@@ -65,6 +66,9 @@ interface Column {
   providers: [ProductService, MessageService],
 })
 export class TableComponent implements OnInit {
+  visiblePdfs: any[] = [];
+  rows: number = 4;
+
   getFileExtension(url: string): string {
     if (url) {
       const extension = url.substring(url.lastIndexOf('.') + 1);
@@ -83,6 +87,16 @@ export class TableComponent implements OnInit {
     });
 
     generatePDF(products, reciboNo, fecha, frase);
+  }
+  showAll: boolean = false;
+  toggleShowAll() {
+    this.showAll = !this.showAll; // Cambia el estado
+    if (this.showAll) {
+      this.rows = this.pdfs.length; // Muestra todos los PDFs
+    } else {
+      this.rows = 3; // Vuelve a la paginación
+    }
+    this.onPageChange({ first: 0, rows: this.rows }); // Actualiza la vista
   }
 
   getBackgroundColor(url: string): string {
@@ -143,6 +157,8 @@ export class TableComponent implements OnInit {
     this.visible = true;
     this.product = { ...product };
     this.productDialog = true;
+    this.currentPage = 0; // Reinicia a la primera página
+    this.visiblePdfs = this.pdfs.slice(0, 8); // Muestra los primeros 8 PDFs
   }
 
   headers = [
@@ -574,7 +590,18 @@ export class TableComponent implements OnInit {
         numScroll: 1,
       },
     ];
+    this.updateRows();
+    window.addEventListener('resize', () => this.updateRows());
   }
+
+  updateRows() {
+    if (window.innerWidth >= 768) {
+      this.rows = 4; // 4 elementos por fila en PC
+    } else {
+      this.rows = 1; // 1 elemento por fila en móvil
+    }
+  }
+  currentPage: number = 0; // Página actual
 
   onGlobalFilter(table: Table, event: Event) {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
@@ -679,11 +706,22 @@ export class TableComponent implements OnInit {
           }
         })
       )
-        .then(() => {})
-        .catch((error) => {});
+        .then(() => {
+          // Llamar a la función de paginación para actualizar los PDFs visibles
+          this.onPageChange({ first: 0, rows: this.rows });
+        })
+        .catch((error) => {
+          console.error('Error al cargar archivos:', error);
+        });
     } else {
       this.visible3 = true;
     }
+  }
+
+  onPageChange(event: any) {
+    const start = event.first;
+    const end = start + event.rows;
+    this.visiblePdfs = this.pdfs.slice(start, end);
   }
 
   // Método para verificar si un archivo es PDF
