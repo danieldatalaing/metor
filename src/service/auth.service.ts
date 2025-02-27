@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private fixedPassword = 'ext.Metor/Datalaing'; // Clave fija
+  private fixedPassword = 'MetorDL2025'; // Clave fija
+  private fixedUser = 'MetanolOriente01'; //Usuario fijo
   private readonly AUTH_KEY = 'isAuthenticated'; // Clave para localStorage
 
   constructor(private router: Router) {}
 
   login(username: string, password: string): boolean {
-    if (password === this.fixedPassword) {
+    if (password === this.fixedPassword && username === this.fixedUser) {
       localStorage.setItem(this.AUTH_KEY, 'true'); // Guarda el estado de autenticación
       return true;
     }
